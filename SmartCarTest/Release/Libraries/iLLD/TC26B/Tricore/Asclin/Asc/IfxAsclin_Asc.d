@@ -1,5 +1,5 @@
 ################################################################################
-# Automatically-generated file. Do not edit!
+# 自动生成的文件。不要编辑！
 ################################################################################
 
 IfxAsclin_Asc.o :	../Libraries/iLLD/TC26B/Tricore/Asclin/Asc/IfxAsclin_Asc.c

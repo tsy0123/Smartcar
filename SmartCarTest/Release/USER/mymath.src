@@ -1,0 +1,2867 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r7 Build 21033142"
+	.compiler_invocation	"ctc -f cc25416a --dep-file=USER/mymath.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gpt12 -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/src/AppSw/Tricore/User -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/src/AppSw/Tricore/Driver -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/src/AppSw/Tricore/Main -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/src/AppSw/Tricore/APP -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/src/AppSw -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/Infra/Platform/Tricore/Compilers -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Multican/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/Infra/Platform -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Cif/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Hssl/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Cpu/Trap -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/Service/CpuGeneric/If/Ccu6If -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dsadc/Dsadc -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Port -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Stm/Timer -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dts/Dts -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Eth -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Flash -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Vadc -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Msc -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Qspi/SpiMaster -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Scu/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/Service/CpuGeneric/SysSe/Comm -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/Service/CpuGeneric/SysSe/Math -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/Infra/Platform/Tricore -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Trig -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Tim -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Ccu6/TimerWithTrigger -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Emem -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Mtu -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/Infra -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Fft -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/I2c/I2c -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Asclin/Asc -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/Service/CpuGeneric/SysSe -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Flash/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/Service/CpuGeneric/If -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Psi5 -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Cpu -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Fce/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Stm/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Msc/Msc -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Vadc/Adc -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Asclin -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Tom/Pwm -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Atom -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Port/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Psi5/Psi5 -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Eray -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Qspi/SpiSlave -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Ccu6/Icu -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Cpu/CStart -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Hssl -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Cif -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Eth/Phy_Pef7071 -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Hssl/Hssl -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Iom/Driver -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Multican/Can -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Psi5s/Psi5s -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Fft/Fft -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Ccu6/PwmHl -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Iom/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/_Lib -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Tom/Timer -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Sent -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Eray/Eray -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gpt12/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dma -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Fce/Crc -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Qspi -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/Infra/Sfr -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/Infra/Sfr/TC26B -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/Service/CpuGeneric/SysSe/Bsp -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/Service/CpuGeneric/SysSe/General -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Cpu/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dts -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Src -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dma/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Cif/Cam -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Src/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Asclin/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/I2c/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Configurations -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/_Lib/DataHandling -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Sent/Sent -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Ccu6/Timer -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Psi5/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Psi5s -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Emem/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Ccu6/PwmBc -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Iom -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Ccu6/TPwm -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/Service/CpuGeneric -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Multican -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Mtu/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/Infra/Sfr/TC26B/_Reg -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Tom/PwmHl -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dma/Dma -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Atom/Timer -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Ccu6/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/Service/CpuGeneric/SysSe/Time -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dsadc/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Cpu/Irq -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Ccu6 -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gpt12/IncrEnc -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Psi5s/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Scu -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/_Lib/InternalMux -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Stm -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dsadc/Rdc -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Vadc/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dts/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/Service -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Eth/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Smu -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/_PinMap -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Asclin/Lin -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/Service/CpuGeneric/StdIf -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dsadc -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Fce -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Atom/PwmHl -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Qspi/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Tom -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Tim/In -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Msc/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Fft/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Atom/Pwm -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/Service/CpuGeneric/_Utilities -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Smu/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/I2c -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Asclin/Spi -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Eray/Std -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Port/Io -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/_Impl -ID:/software/AURIX-Studio-1.5.2/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Sent/Std -ID:\\\\software\\\\AURIX-Studio-1.5.2\\\\workspace\\\\SmartCarTest\\\\USER -g2 -w544 -w557 -t4 --language=+volatile -N0 -O2 -Y0 -Z0 --compact-max-size=200 --misrac-version=2012 -o USER/mymath.src ../USER/mymath.c"
+	.compiler_name		"ctc"
+	;source	'../USER/mymath.c'
+
+	
+$TC16X
+	
+	.sdecl	'.text.mymath.my_abs_float',code,cluster('my_abs_float')
+	.sect	'.text.mymath.my_abs_float'
+	.align	2
+	
+	.global	my_abs_float
+; Function my_abs_float
+.L51:
+my_abs_float:	.type	func
+	insert	d2,d4,#0,#31,#1
+	ret
+.L298:
+	
+__my_abs_float_function_end:
+	.size	my_abs_float,__my_abs_float_function_end-my_abs_float
+.L204:
+	; End of function
+	
+	.sdecl	'.text.mymath.my_abs_short',code,cluster('my_abs_short')
+	.sect	'.text.mymath.my_abs_short'
+	.align	2
+	
+	.global	my_abs_short
+; Function my_abs_short
+.L53:
+my_abs_short:	.type	func
+	abs	d15,d4
+.L488:
+	extr	d2,d15,#0,#16
+	ret
+.L300:
+	
+__my_abs_short_function_end:
+	.size	my_abs_short,__my_abs_short_function_end-my_abs_short
+.L209:
+	; End of function
+	
+	.sdecl	'.text.mymath.invSqrt',code,cluster('invSqrt')
+	.sect	'.text.mymath.invSqrt'
+	.align	2
+	
+	.global	invSqrt
+; Function invSqrt
+.L55:
+invSqrt:	.type	func
+	mov	d15,#23007
+.L342:
+	movh	d1,#16128
+.L343:
+	mul.f	d1,d4,d1
+.L344:
+	addih	d15,d15,#24375
+.L345:
+	sha	d0,d4,#-1
+.L306:
+	sub	d15,d0
+.L346:
+	mul.f	d1,d1,d15
+.L347:
+	movh	d0,#16320
+.L348:
+	msub.f	d0,d0,d1,d15
+.L349:
+	mul.f	d2,d15,d0
+	ret
+.L216:
+	
+__invSqrt_function_end:
+	.size	invSqrt,__invSqrt_function_end-invSqrt
+.L104:
+	; End of function
+	
+	.sdecl	'.text.mymath.fast_atan',code,cluster('fast_atan')
+	.sect	'.text.mymath.fast_atan'
+	.align	2
+	
+	.global	fast_atan
+; Function fast_atan
+.L57:
+fast_atan:	.type	func
+	mul.f	d15,d4,d4
+.L307:
+	mov	d0,#11735
+.L354:
+	mov.u	d1,#59353
+.L355:
+	addih	d0,d0,#16096
+.L356:
+	addih	d1,d1,#16343
+.L357:
+	madd.f	d15,d1,d15,d0
+.L308:
+	mov.u	d0,#59356
+	addih	d0,d0,#16343
+.L358:
+	madd.f	d0,d0,d4,d4
+.L359:
+	mul.f	d15,d4,d15
+.L360:
+	div.f	d2,d15,d0
+	ret
+.L221:
+	
+__fast_atan_function_end:
+	.size	fast_atan,__fast_atan_function_end-fast_atan
+.L109:
+	; End of function
+	
+	.sdecl	'.text.mymath.lenOfNum',code,cluster('lenOfNum')
+	.sect	'.text.mymath.lenOfNum'
+	.align	2
+	
+	.global	lenOfNum
+; Function lenOfNum
+.L59:
+lenOfNum:	.type	func
+	mov	d2,#0
+.L309:
+	mov	d15,#10
+	j	.L6
+.L7:
+	add	d2,#1
+.L310:
+	extr.u	d2,d2,#0,#8
+.L311:
+	div.u	e4,d4,d15
+.L6:
+	jge.u	d4,#2,.L7
+.L312:
+	ret
+.L254:
+	
+__lenOfNum_function_end:
+	.size	lenOfNum,__lenOfNum_function_end-lenOfNum
+.L164:
+	; End of function
+	
+	.sdecl	'.text.mymath.leastSquareMethod',code,cluster('leastSquareMethod')
+	.sect	'.text.mymath.leastSquareMethod'
+	.align	2
+	
+	.global	leastSquareMethod
+; Function leastSquareMethod
+.L61:
+leastSquareMethod:	.type	func
+	mov	d3,#0
+.L313:
+	mov	d5,d3
+.L315:
+	mov	d6,d3
+.L316:
+	mov	d15,d3
+.L317:
+	mov	d0,d3
+	j	.L9
+.L10:
+	add	d0,#1
+	ld.h	d1,[a5+]
+.L319:
+	extr.u	d0,d0,#0,#8
+	ld.h	d2,[a4+]
+.L320:
+	add	d5,d1
+.L428:
+	madd	d15,d15,d2,d1
+.L429:
+	add	d6,d2
+.L430:
+	madd	d3,d3,d2,d2
+.L9:
+	jlt.u	d0,d4,.L10
+.L431:
+	mul	d0,d6,d5
+.L321:
+	itof	d2,d6
+.L432:
+	div	e0,d0,d4
+.L433:
+	sub	d15,d0
+.L318:
+	mul	d0,d6,d6
+.L434:
+	itof	d15,d15
+.L435:
+	div	e0,d0,d4
+.L436:
+	itof	d1,d5
+.L437:
+	sub	d3,d0
+.L314:
+	itof	d0,d3
+.L438:
+	div.f	d15,d15,d0
+	st.w	[a6],d15
+.L439:
+	utof	d0,d4
+.L440:
+	div.f	d1,d1,d0
+.L441:
+	div.f	d0,d2,d0
+.L442:
+	msub.f	d15,d1,d15,d0
+	st.w	[a7],d15
+.L443:
+	ret
+.L258:
+	
+__leastSquareMethod_function_end:
+	.size	leastSquareMethod,__leastSquareMethod_function_end-leastSquareMethod
+.L169:
+	; End of function
+	
+	.sdecl	'.text.mymath.getLeastSquareMethodERROR',code,cluster('getLeastSquareMethodERROR')
+	.sect	'.text.mymath.getLeastSquareMethodERROR'
+	.align	2
+	
+	.global	getLeastSquareMethodERROR
+; Function getLeastSquareMethodERROR
+.L63:
+getLeastSquareMethodERROR:	.type	func
+	mov	d12,#0
+	mov.aa	a15,a5
+.L322:
+	mov	e8,d5,d4
+	mov.aa	a12,a4
+.L454:
+	mov	d10,d6
+.L323:
+	mov	d11,d12
+	j	.L11
+.L12:
+	ld.h	d15,[a12+]
+.L455:
+	ld.h	d0,[a15+]
+.L456:
+	itof	d15,d15
+.L457:
+	itof	d0,d0
+.L325:
+	madd.f	d15,d10,d15,d9
+.L326:
+	sub.f	d4,d15,d0
+	call	sq
+.L458:
+	add.f	d12,d12,d2
+.L459:
+	add	d11,#1
+.L324:
+	extr.u	d11,d11,#0,#8
+.L11:
+	jlt.u	d11,d8,.L12
+.L460:
+	utof	d15,d8
+.L327:
+	div.f	d2,d12,d15
+	ret
+.L276:
+	
+__getLeastSquareMethodERROR_function_end:
+	.size	getLeastSquareMethodERROR,__getLeastSquareMethodERROR_function_end-getLeastSquareMethodERROR
+.L179:
+	; End of function
+	
+	.sdecl	'.text.mymath.getLineValue',code,cluster('getLineValue')
+	.sect	'.text.mymath.getLineValue'
+	.align	2
+	
+	.global	getLineValue
+; Function getLineValue
+.L65:
+getLineValue:	.type	func
+	utof	d15,d4
+.L465:
+	madd.f	d2,d6,d5,d15
+	ret
+.L284:
+	
+__getLineValue_function_end:
+	.size	getLineValue,__getLineValue_function_end-getLineValue
+.L184:
+	; End of function
+	
+	.sdecl	'.text.mymath.getLineValueX',code,cluster('getLineValueX')
+	.sect	'.text.mymath.getLineValueX'
+	.align	2
+	
+	.global	getLineValueX
+; Function getLineValueX
+.L67:
+getLineValueX:	.type	func
+	utof	d15,d4
+.L470:
+	sub.f	d15,d15,d6
+.L471:
+	div.f	d2,d15,d5
+	ret
+.L288:
+	
+__getLineValueX_function_end:
+	.size	getLineValueX,__getLineValueX_function_end-getLineValueX
+.L189:
+	; End of function
+	
+	.sdecl	'.text.mymath.getLineK',code,cluster('getLineK')
+	.sect	'.text.mymath.getLineK'
+	.align	2
+	
+	.global	getLineK
+; Function getLineK
+.L69:
+getLineK:	.type	func
+	sub	d7,d5
+.L329:
+	itof	d15,d7
+.L448:
+	sub	d6,d4
+.L328:
+	itof	d0,d6
+.L449:
+	div.f	d2,d15,d0
+	ret
+.L271:
+	
+__getLineK_function_end:
+	.size	getLineK,__getLineK_function_end-getLineK
+.L174:
+	; End of function
+	
+	.sdecl	'.text.mymath.my_constrain_float',code,cluster('my_constrain_float')
+	.sect	'.text.mymath.my_constrain_float'
+	.align	2
+	
+	.global	my_constrain_float
+; Function my_constrain_float
+.L71:
+my_constrain_float:	.type	func
+	cmp.f	d15,d4,d5
+	jnz.t	d15:0,.L17
+.L365:
+	cmp.f	d15,d4,d6
+	and	d15,#6
+	sel	d5,d15,d6,d4
+.L17:
+	mov	d2,d5
+	ret
+.L224:
+	
+__my_constrain_float_function_end:
+	.size	my_constrain_float,__my_constrain_float_function_end-my_constrain_float
+.L114:
+	; End of function
+	
+	.sdecl	'.text.mymath.constrain_int16',code,cluster('constrain_int16')
+	.sect	'.text.mymath.constrain_int16'
+	.align	2
+	
+	.global	constrain_int16
+; Function constrain_int16
+.L73:
+constrain_int16:	.type	func
+	jlt	d4,d5,.L23
+.L370:
+	min	d5,d4,d6
+.L23:
+	mov	d2,d5
+	ret
+.L229:
+	
+__constrain_int16_function_end:
+	.size	constrain_int16,__constrain_int16_function_end-constrain_int16
+.L119:
+	; End of function
+	
+	.sdecl	'.text.mymath.constrain_int16_MAX',code,cluster('constrain_int16_MAX')
+	.sect	'.text.mymath.constrain_int16_MAX'
+	.align	2
+	
+	.global	constrain_int16_MAX
+; Function constrain_int16_MAX
+.L75:
+constrain_int16_MAX:	.type	func
+	min	d2,d4,d5
+	ret
+.L295:
+	
+__constrain_int16_MAX_function_end:
+	.size	constrain_int16_MAX,__constrain_int16_MAX_function_end-constrain_int16_MAX
+.L199:
+	; End of function
+	
+	.sdecl	'.text.mymath.constrain_int16_LOW',code,cluster('constrain_int16_LOW')
+	.sect	'.text.mymath.constrain_int16_LOW'
+	.align	2
+	
+	.global	constrain_int16_LOW
+; Function constrain_int16_LOW
+.L77:
+constrain_int16_LOW:	.type	func
+	max	d2,d4,d5
+	ret
+.L292:
+	
+__constrain_int16_LOW_function_end:
+	.size	constrain_int16_LOW,__constrain_int16_LOW_function_end-constrain_int16_LOW
+.L194:
+	; End of function
+	
+	.sdecl	'.text.mymath.constrain_int32',code,cluster('constrain_int32')
+	.sect	'.text.mymath.constrain_int32'
+	.align	2
+	
+	.global	constrain_int32
+; Function constrain_int32
+.L79:
+constrain_int32:	.type	func
+	jlt	d4,d5,.L28
+.L493:
+	min	d5,d4,d6
+.L28:
+	mov	d2,d5
+	ret
+.L302:
+	
+__constrain_int32_function_end:
+	.size	constrain_int32,__constrain_int32_function_end-constrain_int32
+.L214:
+	; End of function
+	
+	.sdecl	'.text.mymath.radians',code,cluster('radians')
+	.sect	'.text.mymath.radians'
+	.align	2
+	
+	.global	radians
+; Function radians
+.L81:
+radians:	.type	func
+	mov.u	d15,#64053
+	addih	d15,d15,#15502
+.L401:
+	mul.f	d2,d4,d15
+	ret
+.L242:
+	
+__radians_function_end:
+	.size	radians,__radians_function_end-radians
+.L144:
+	; End of function
+	
+	.sdecl	'.text.mymath.degrees',code,cluster('degrees')
+	.sect	'.text.mymath.degrees'
+	.align	2
+	
+	.global	degrees
+; Function degrees
+.L83:
+degrees:	.type	func
+	mov	d15,#12001
+	addih	d15,d15,#16997
+.L406:
+	mul.f	d2,d4,d15
+	ret
+.L244:
+	
+__degrees_function_end:
+	.size	degrees,__degrees_function_end-degrees
+.L149:
+	; End of function
+	
+	.sdecl	'.text.mymath.sq',code,cluster('sq')
+	.sect	'.text.mymath.sq'
+	.align	2
+	
+	.global	sq
+; Function sq
+.L85:
+sq:	.type	func
+	mul.f	d2,d4,d4
+	ret
+.L240:
+	
+__sq_function_end:
+	.size	sq,__sq_function_end-sq
+.L139:
+	; End of function
+	
+	.sdecl	'.text.mymath.pythagorous2',code,cluster('pythagorous2')
+	.sect	'.text.mymath.pythagorous2'
+	.align	2
+	
+	.global	pythagorous2
+; Function pythagorous2
+.L87:
+pythagorous2:	.type	func
+	mov	d15,d5
+	call	sq
+.L330:
+	mov	d8,d2
+.L411:
+	mov	d4,d15
+	call	sq
+.L412:
+	add.f	d4,d8,d2
+	j	sqrt
+.L246:
+	
+__pythagorous2_function_end:
+	.size	pythagorous2,__pythagorous2_function_end-pythagorous2
+.L154:
+	; End of function
+	
+	.sdecl	'.text.mymath.pythagorous3',code,cluster('pythagorous3')
+	.sect	'.text.mymath.pythagorous3'
+	.align	2
+	
+	.global	pythagorous3
+; Function pythagorous3
+.L89:
+pythagorous3:	.type	func
+	mov	d15,d5
+.L332:
+	mov	d8,d6
+	call	sq
+.L331:
+	mov	d9,d2
+.L417:
+	mov	d4,d15
+	call	sq
+.L418:
+	add.f	d15,d9,d2
+.L333:
+	mov	d4,d8
+	call	sq
+.L419:
+	add.f	d4,d15,d2
+	j	sqrt
+.L249:
+	
+__pythagorous3_function_end:
+	.size	pythagorous3,__pythagorous3_function_end-pythagorous3
+.L159:
+	; End of function
+	
+	.sdecl	'.text.mymath.wrap_360_cd',code,cluster('wrap_360_cd')
+	.sect	'.text.mymath.wrap_360_cd'
+	.align	2
+	
+	.global	wrap_360_cd
+; Function wrap_360_cd
+.L91:
+wrap_360_cd:	.type	func
+	mov	d15,#360
+	j	.L35
+.L36:
+	addi	d4,d4,#-360
+.L35:
+	jlt	d15,d4,.L36
+.L375:
+	j	.L37
+.L38:
+	addi	d4,d4,#360
+.L37:
+	jlt	d4,#0,.L38
+.L376:
+	mov	d2,d4
+	ret
+.L234:
+	
+__wrap_360_cd_function_end:
+	.size	wrap_360_cd,__wrap_360_cd_function_end-wrap_360_cd
+.L124:
+	; End of function
+	
+	.sdecl	'.text.mymath.wrap_180_cd',code,cluster('wrap_180_cd')
+	.sect	'.text.mymath.wrap_180_cd'
+	.align	2
+	
+	.global	wrap_180_cd
+; Function wrap_180_cd
+.L93:
+wrap_180_cd:	.type	func
+	movh	d15,#17204
+	j	.L40
+.L41:
+	movh	d0,#17332
+.L381:
+	sub.f	d4,d4,d0
+.L40:
+	cmp.f	d0,d4,d15
+	jnz.t	d0:2,.L41
+.L382:
+	movh	d15,#49972
+	j	.L42
+.L43:
+	movh	d0,#17332
+.L383:
+	add.f	d4,d4,d0
+.L42:
+	cmp.f	d0,d4,d15
+	jnz.t	d0:0,.L43
+.L384:
+	mov	d2,d4
+	ret
+.L236:
+	
+__wrap_180_cd_function_end:
+	.size	wrap_180_cd,__wrap_180_cd_function_end-wrap_180_cd
+.L129:
+	; End of function
+	
+	.sdecl	'.text.mymath.wrap_90_cd',code,cluster('wrap_90_cd')
+	.sect	'.text.mymath.wrap_90_cd'
+	.align	2
+	
+	.global	wrap_90_cd
+; Function wrap_90_cd
+.L95:
+wrap_90_cd:	.type	func
+	movh	d15,#17076
+	j	.L45
+.L46:
+	movh	d0,#17204
+.L389:
+	sub.f	d4,d4,d0
+.L45:
+	cmp.f	d0,d4,d15
+	jnz.t	d0:2,.L46
+.L390:
+	movh	d15,#49844
+	j	.L47
+.L48:
+	movh	d0,#17204
+.L391:
+	add.f	d4,d4,d0
+.L47:
+	cmp.f	d0,d4,d15
+	jnz.t	d0:0,.L48
+.L392:
+	mov	d2,d4
+	ret
+.L238:
+	
+__wrap_90_cd_function_end:
+	.size	wrap_90_cd,__wrap_90_cd_function_end-wrap_90_cd
+.L134:
+	; End of function
+	
+	.calls	'getLeastSquareMethodERROR','sq'
+	.calls	'pythagorous2','sq'
+	.calls	'pythagorous2','sqrt'
+	.calls	'pythagorous3','sq'
+	.calls	'pythagorous3','sqrt'
+	.calls	'my_abs_float','',0
+	.calls	'my_abs_short','',0
+	.calls	'invSqrt','',0
+	.calls	'fast_atan','',0
+	.calls	'lenOfNum','',0
+	.calls	'leastSquareMethod','',0
+	.calls	'getLeastSquareMethodERROR','',0
+	.calls	'getLineValue','',0
+	.calls	'getLineValueX','',0
+	.calls	'getLineK','',0
+	.calls	'my_constrain_float','',0
+	.calls	'constrain_int16','',0
+	.calls	'constrain_int16_MAX','',0
+	.calls	'constrain_int16_LOW','',0
+	.calls	'constrain_int32','',0
+	.calls	'radians','',0
+	.calls	'degrees','',0
+	.calls	'sq','',0
+	.calls	'pythagorous2','',0
+	.calls	'pythagorous3','',0
+	.calls	'wrap_360_cd','',0
+	.calls	'wrap_180_cd','',0
+	.extern	sqrt
+	.calls	'wrap_90_cd','',0
+	.sdecl	'.debug_info',debug
+	.sect	'.debug_info'
+.L97:
+	.word	439
+	.half	3
+	.word	.L98
+	.byte	4
+.L96:
+	.byte	1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L99
+.L215:
+	.byte	2
+	.byte	'float',0,4,4,3
+	.byte	'sqrt',0,1,186,1,25
+	.word	175
+	.byte	1,1,1,1,4,1,186,1,43
+	.word	175
+	.byte	0
+.L219:
+	.byte	2
+	.byte	'long int',0,4,5
+.L228:
+	.byte	2
+	.byte	'short int',0,2,5
+.L233:
+	.byte	2
+	.byte	'int',0,4,5
+.L253:
+	.byte	2
+	.byte	'unsigned char',0,1,8
+.L255:
+	.byte	2
+	.byte	'unsigned short int',0,2,7
+.L259:
+	.byte	5
+	.word	224
+.L263:
+	.byte	5
+	.word	175
+	.byte	6,1,5
+	.word	293
+	.byte	7
+	.byte	'__codeptr',0,2,1,1
+	.word	295
+	.byte	7
+	.byte	'__intptr_t',0,2,1,1
+	.word	237
+	.byte	2
+	.byte	'unsigned int',0,4,7,7
+	.byte	'__uintptr_t',0,2,1,1
+	.word	337
+	.byte	7
+	.byte	'uint8_t',0,3,242,1,41
+	.word	244
+	.byte	7
+	.byte	'int16_t',0,3,245,1,41
+	.word	224
+	.byte	7
+	.byte	'uint16_t',0,3,246,1,41
+	.word	261
+	.byte	7
+	.byte	'int32_t',0,3,253,1,41
+	.word	237
+	.byte	0
+	.sdecl	'.debug_abbrev',debug
+	.sect	'.debug_abbrev'
+.L98:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,36,0,3,8,11,15,62,15,0,0,3,46,1,3,8,58,15,59,15,57,15
+	.byte	73,19,54,15,39,12,63,12,60,12,0,0,4,5,0,58,15,59,15,57,15,73,19,0,0,5,15,0,73,19,0,0,6,21,0,54,15,0,0
+	.byte	7,22,0,3,8,58,15,59,15,57,15,73,19,0,0,0
+	.sdecl	'.debug_line',debug
+	.sect	'.debug_line'
+.L99:
+	.word	.L335-.L334
+.L334:
+	.half	3
+	.word	.L337-.L336
+.L336:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\plugins\\com.infineon.aurix.tools_1.5.2\\build_system\\tools\\Compilers\\Tasking_1.1r7\\ctc\\include\\',0
+	.byte	0
+	.byte	'math.h',0,1,0,0
+	.byte	'../USER/mymath.c',0,0,0,0
+	.byte	'stdint.h',0,1,0,0,0
+.L337:
+.L335:
+	.sdecl	'.debug_info',debug,cluster('invSqrt')
+	.sect	'.debug_info'
+.L100:
+	.word	265
+	.half	3
+	.word	.L101
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L103,.L102
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'invSqrt',0,1,21,7
+	.word	.L215
+	.byte	1,1,1
+	.word	.L55,.L216,.L54
+	.byte	4
+	.byte	'x',0,1,21,21
+	.word	.L215,.L217
+	.byte	5
+	.word	.L55,.L216
+	.byte	6
+	.byte	'y',0,1,24,11
+	.word	.L215,.L218
+	.byte	6
+	.byte	'i',0,1,25,10
+	.word	.L219,.L220
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('invSqrt')
+	.sect	'.debug_abbrev'
+.L101:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('invSqrt')
+	.sect	'.debug_line'
+.L102:
+	.word	.L339-.L338
+.L338:
+	.half	3
+	.word	.L341-.L340
+.L340:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L341:
+	.byte	5,9,7,0,5,2
+	.word	.L55
+	.byte	3,25,1,5,19,9
+	.half	.L342-.L55
+	.byte	3,125,1,5,24,9
+	.half	.L343-.L342
+	.byte	1,5,9,9
+	.half	.L344-.L343
+	.byte	3,3,1,5,25,9
+	.half	.L345-.L344
+	.byte	1,5,20,9
+	.half	.L306-.L345
+	.byte	1,5,28,9
+	.half	.L346-.L306
+	.byte	3,2,1,5,14,9
+	.half	.L347-.L346
+	.byte	1,5,19,9
+	.half	.L348-.L347
+	.byte	1,5,11,9
+	.half	.L349-.L348
+	.byte	1,5,1,3,2,1,7,9
+	.half	.L104-.L349
+	.byte	0,1,1
+.L339:
+	.sdecl	'.debug_ranges',debug,cluster('invSqrt')
+	.sect	'.debug_ranges'
+.L103:
+	.word	-1,.L55,0,.L104-.L55,0,0
+	.sdecl	'.debug_info',debug,cluster('fast_atan')
+	.sect	'.debug_info'
+.L105:
+	.word	254
+	.half	3
+	.word	.L106
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L108,.L107
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'fast_atan',0,1,34,7
+	.word	.L215
+	.byte	1,1,1
+	.word	.L57,.L221,.L56
+	.byte	4
+	.byte	'v',0,1,34,23
+	.word	.L215,.L222
+	.byte	5
+	.word	.L57,.L221
+	.byte	6
+	.byte	'v2',0,1,36,11
+	.word	.L215,.L223
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('fast_atan')
+	.sect	'.debug_abbrev'
+.L106:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('fast_atan')
+	.sect	'.debug_line'
+.L107:
+	.word	.L351-.L350
+.L350:
+	.half	3
+	.word	.L353-.L352
+.L352:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L353:
+	.byte	5,18,7,0,5,2
+	.word	.L57
+	.byte	3,35,1,5,37,9
+	.half	.L307-.L57
+	.byte	3,1,1,5,16,9
+	.half	.L354-.L307
+	.byte	1,5,37,9
+	.half	.L355-.L354
+	.byte	1,5,16,9
+	.half	.L356-.L355
+	.byte	1,5,30,9
+	.half	.L357-.L356
+	.byte	1,5,55,9
+	.half	.L308-.L357
+	.byte	1,5,69,9
+	.half	.L358-.L308
+	.byte	1,5,14,9
+	.half	.L359-.L358
+	.byte	1,5,52,9
+	.half	.L360-.L359
+	.byte	1,5,1,3,1,1,7,9
+	.half	.L109-.L360
+	.byte	0,1,1
+.L351:
+	.sdecl	'.debug_ranges',debug,cluster('fast_atan')
+	.sect	'.debug_ranges'
+.L108:
+	.word	-1,.L57,0,.L109-.L57,0,0
+	.sdecl	'.debug_info',debug,cluster('my_constrain_float')
+	.sect	'.debug_info'
+.L110:
+	.word	282
+	.half	3
+	.word	.L111
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L113,.L112
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'my_constrain_float',0,1,125,7
+	.word	.L215
+	.byte	1,1,1
+	.word	.L71,.L224,.L70
+	.byte	4
+	.byte	'amt',0,1,125,32
+	.word	.L215,.L225
+	.byte	4
+	.byte	'low',0,1,125,43
+	.word	.L215,.L226
+	.byte	4
+	.byte	'high',0,1,125,54
+	.word	.L215,.L227
+	.byte	5
+	.word	.L71,.L224
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('my_constrain_float')
+	.sect	'.debug_abbrev'
+.L111:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('my_constrain_float')
+	.sect	'.debug_line'
+.L112:
+	.word	.L362-.L361
+.L361:
+	.half	3
+	.word	.L364-.L363
+.L363:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L364:
+	.byte	5,13,7,0,5,2
+	.word	.L71
+	.byte	3,130,1,1,5,44,9
+	.half	.L365-.L71
+	.byte	1,5,5,9
+	.half	.L17-.L365
+	.byte	1,5,1,3,1,1,7,9
+	.half	.L114-.L17
+	.byte	0,1,1
+.L362:
+	.sdecl	'.debug_ranges',debug,cluster('my_constrain_float')
+	.sect	'.debug_ranges'
+.L113:
+	.word	-1,.L71,0,.L114-.L71,0,0
+	.sdecl	'.debug_info',debug,cluster('constrain_int16')
+	.sect	'.debug_info'
+.L115:
+	.word	283
+	.half	3
+	.word	.L116
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L118,.L117
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'constrain_int16',0,1,136,1,9
+	.word	.L228
+	.byte	1,1,1
+	.word	.L73,.L229,.L72
+	.byte	4
+	.byte	'amt',0,1,136,1,33
+	.word	.L228,.L230
+	.byte	4
+	.byte	'low',0,1,136,1,46
+	.word	.L228,.L231
+	.byte	4
+	.byte	'high',0,1,136,1,59
+	.word	.L228,.L232
+	.byte	5
+	.word	.L73,.L229
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('constrain_int16')
+	.sect	'.debug_abbrev'
+.L116:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('constrain_int16')
+	.sect	'.debug_line'
+.L117:
+	.word	.L367-.L366
+.L366:
+	.half	3
+	.word	.L369-.L368
+.L368:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L369:
+	.byte	5,13,7,0,5,2
+	.word	.L73
+	.byte	3,136,1,1,5,44,7,9
+	.half	.L370-.L73
+	.byte	1,5,5,9
+	.half	.L23-.L370
+	.byte	1,5,1,3,1,1,7,9
+	.half	.L119-.L23
+	.byte	0,1,1
+.L367:
+	.sdecl	'.debug_ranges',debug,cluster('constrain_int16')
+	.sect	'.debug_ranges'
+.L118:
+	.word	-1,.L73,0,.L119-.L73,0,0
+	.sdecl	'.debug_info',debug,cluster('wrap_360_cd')
+	.sect	'.debug_info'
+.L120:
+	.word	246
+	.half	3
+	.word	.L121
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L123,.L122
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'wrap_360_cd',0,1,192,1,9
+	.word	.L233
+	.byte	1,1,1
+	.word	.L91,.L234,.L90
+	.byte	4
+	.byte	'error',0,1,192,1,29
+	.word	.L233,.L235
+	.byte	5
+	.word	.L91,.L234
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wrap_360_cd')
+	.sect	'.debug_abbrev'
+.L121:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wrap_360_cd')
+	.sect	'.debug_line'
+.L122:
+	.word	.L372-.L371
+.L371:
+	.half	3
+	.word	.L374-.L373
+.L373:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L374:
+	.byte	5,20,7,0,5,2
+	.word	.L91
+	.byte	3,193,1,1,5,23,1,5,31,9
+	.half	.L36-.L91
+	.byte	1,5,23,9
+	.half	.L35-.L36
+	.byte	1,5,21,7,9
+	.half	.L375-.L35
+	.byte	3,1,1,5,29,9
+	.half	.L38-.L375
+	.byte	1,5,21,9
+	.half	.L37-.L38
+	.byte	1,5,5,7,9
+	.half	.L376-.L37
+	.byte	3,1,1,5,1,3,1,1,7,9
+	.half	.L124-.L376
+	.byte	0,1,1
+.L372:
+	.sdecl	'.debug_ranges',debug,cluster('wrap_360_cd')
+	.sect	'.debug_ranges'
+.L123:
+	.word	-1,.L91,0,.L124-.L91,0,0
+	.sdecl	'.debug_info',debug,cluster('wrap_180_cd')
+	.sect	'.debug_info'
+.L125:
+	.word	246
+	.half	3
+	.word	.L126
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L128,.L127
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'wrap_180_cd',0,1,203,1,7
+	.word	.L215
+	.byte	1,1,1
+	.word	.L93,.L236,.L92
+	.byte	4
+	.byte	'error',0,1,203,1,25
+	.word	.L215,.L237
+	.byte	5
+	.word	.L93,.L236
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wrap_180_cd')
+	.sect	'.debug_abbrev'
+.L126:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wrap_180_cd')
+	.sect	'.debug_line'
+.L127:
+	.word	.L378-.L377
+.L377:
+	.half	3
+	.word	.L380-.L379
+.L379:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L380:
+	.byte	5,20,7,0,5,2
+	.word	.L93
+	.byte	3,204,1,1,5,23,1,5,34,9
+	.half	.L41-.L93
+	.byte	1,5,31,9
+	.half	.L381-.L41
+	.byte	1,5,23,9
+	.half	.L40-.L381
+	.byte	1,5,20,9
+	.half	.L382-.L40
+	.byte	3,1,1,5,24,1,5,35,9
+	.half	.L43-.L382
+	.byte	1,5,32,9
+	.half	.L383-.L43
+	.byte	1,5,24,9
+	.half	.L42-.L383
+	.byte	1,5,5,9
+	.half	.L384-.L42
+	.byte	3,1,1,5,1,3,1,1,7,9
+	.half	.L129-.L384
+	.byte	0,1,1
+.L378:
+	.sdecl	'.debug_ranges',debug,cluster('wrap_180_cd')
+	.sect	'.debug_ranges'
+.L128:
+	.word	-1,.L93,0,.L129-.L93,0,0
+	.sdecl	'.debug_info',debug,cluster('wrap_90_cd')
+	.sect	'.debug_info'
+.L130:
+	.word	245
+	.half	3
+	.word	.L131
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L133,.L132
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'wrap_90_cd',0,1,214,1,7
+	.word	.L215
+	.byte	1,1,1
+	.word	.L95,.L238,.L94
+	.byte	4
+	.byte	'error',0,1,214,1,24
+	.word	.L215,.L239
+	.byte	5
+	.word	.L95,.L238
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wrap_90_cd')
+	.sect	'.debug_abbrev'
+.L131:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wrap_90_cd')
+	.sect	'.debug_line'
+.L132:
+	.word	.L386-.L385
+.L385:
+	.half	3
+	.word	.L388-.L387
+.L387:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L388:
+	.byte	5,20,7,0,5,2
+	.word	.L95
+	.byte	3,215,1,1,5,22,1,5,33,9
+	.half	.L46-.L95
+	.byte	1,5,30,9
+	.half	.L389-.L46
+	.byte	1,5,22,9
+	.half	.L45-.L389
+	.byte	1,5,20,9
+	.half	.L390-.L45
+	.byte	3,1,1,5,23,1,5,34,9
+	.half	.L48-.L390
+	.byte	1,5,31,9
+	.half	.L391-.L48
+	.byte	1,5,23,9
+	.half	.L47-.L391
+	.byte	1,5,5,9
+	.half	.L392-.L47
+	.byte	3,1,1,5,1,3,1,1,7,9
+	.half	.L134-.L392
+	.byte	0,1,1
+.L386:
+	.sdecl	'.debug_ranges',debug,cluster('wrap_90_cd')
+	.sect	'.debug_ranges'
+.L133:
+	.word	-1,.L95,0,.L134-.L95,0,0
+	.sdecl	'.debug_info',debug,cluster('sq')
+	.sect	'.debug_info'
+.L135:
+	.word	233
+	.half	3
+	.word	.L136
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L138,.L137
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'sq',0,1,171,1,7
+	.word	.L215
+	.byte	1,1,1
+	.word	.L85,.L240,.L84
+	.byte	4
+	.byte	'v',0,1,171,1,16
+	.word	.L215,.L241
+	.byte	5
+	.word	.L85,.L240
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('sq')
+	.sect	'.debug_abbrev'
+.L136:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('sq')
+	.sect	'.debug_line'
+.L137:
+	.word	.L394-.L393
+.L393:
+	.half	3
+	.word	.L396-.L395
+.L395:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L396:
+	.byte	5,14,7,0,5,2
+	.word	.L85
+	.byte	3,171,1,1,5,1,3,1,1,7,9
+	.half	.L139-.L85
+	.byte	0,1,1
+.L394:
+	.sdecl	'.debug_ranges',debug,cluster('sq')
+	.sect	'.debug_ranges'
+.L138:
+	.word	-1,.L85,0,.L139-.L85,0,0
+	.sdecl	'.debug_info',debug,cluster('radians')
+	.sect	'.debug_info'
+.L140:
+	.word	240
+	.half	3
+	.word	.L141
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L143,.L142
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'radians',0,1,159,1,7
+	.word	.L215
+	.byte	1,1,1
+	.word	.L81,.L242,.L80
+	.byte	4
+	.byte	'deg',0,1,159,1,21
+	.word	.L215,.L243
+	.byte	5
+	.word	.L81,.L242
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('radians')
+	.sect	'.debug_abbrev'
+.L141:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('radians')
+	.sect	'.debug_line'
+.L142:
+	.word	.L398-.L397
+.L397:
+	.half	3
+	.word	.L400-.L399
+.L399:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L400:
+	.byte	5,18,7,0,5,2
+	.word	.L81
+	.byte	3,159,1,1,5,16,9
+	.half	.L401-.L81
+	.byte	1,5,1,3,1,1,7,9
+	.half	.L144-.L401
+	.byte	0,1,1
+.L398:
+	.sdecl	'.debug_ranges',debug,cluster('radians')
+	.sect	'.debug_ranges'
+.L143:
+	.word	-1,.L81,0,.L144-.L81,0,0
+	.sdecl	'.debug_info',debug,cluster('degrees')
+	.sect	'.debug_info'
+.L145:
+	.word	240
+	.half	3
+	.word	.L146
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L148,.L147
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'degrees',0,1,165,1,7
+	.word	.L215
+	.byte	1,1,1
+	.word	.L83,.L244,.L82
+	.byte	4
+	.byte	'rad',0,1,165,1,21
+	.word	.L215,.L245
+	.byte	5
+	.word	.L83,.L244
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('degrees')
+	.sect	'.debug_abbrev'
+.L146:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('degrees')
+	.sect	'.debug_line'
+.L147:
+	.word	.L403-.L402
+.L402:
+	.half	3
+	.word	.L405-.L404
+.L404:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L405:
+	.byte	5,18,7,0,5,2
+	.word	.L83
+	.byte	3,165,1,1,5,16,9
+	.half	.L406-.L83
+	.byte	1,5,1,3,1,1,7,9
+	.half	.L149-.L406
+	.byte	0,1,1
+.L403:
+	.sdecl	'.debug_ranges',debug,cluster('degrees')
+	.sect	'.debug_ranges'
+.L148:
+	.word	-1,.L83,0,.L149-.L83,0,0
+	.sdecl	'.debug_info',debug,cluster('pythagorous2')
+	.sect	'.debug_info'
+.L150:
+	.word	258
+	.half	3
+	.word	.L151
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L153,.L152
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'pythagorous2',0,1,177,1,7
+	.word	.L215
+	.byte	1,1,1
+	.word	.L87,.L246,.L86
+	.byte	4
+	.byte	'a',0,1,177,1,26
+	.word	.L215,.L247
+	.byte	4
+	.byte	'b',0,1,177,1,35
+	.word	.L215,.L248
+	.byte	5
+	.word	.L87,.L246
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('pythagorous2')
+	.sect	'.debug_abbrev'
+.L151:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('pythagorous2')
+	.sect	'.debug_line'
+.L152:
+	.word	.L408-.L407
+.L407:
+	.half	3
+	.word	.L410-.L409
+.L409:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L410:
+	.byte	5,7,7,0,5,2
+	.word	.L87
+	.byte	3,176,1,1,5,27,3,1,1,5,30,9
+	.half	.L330-.L87
+	.byte	1,5,35,9
+	.half	.L411-.L330
+	.byte	1,5,30,9
+	.half	.L412-.L411
+	.byte	1,5,1,9
+	.half	.L154-.L412
+	.byte	3,1,0,1,1
+.L408:
+	.sdecl	'.debug_ranges',debug,cluster('pythagorous2')
+	.sect	'.debug_ranges'
+.L153:
+	.word	-1,.L87,0,.L154-.L87,0,0
+	.sdecl	'.debug_info',debug,cluster('pythagorous3')
+	.sect	'.debug_info'
+.L155:
+	.word	273
+	.half	3
+	.word	.L156
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L158,.L157
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'pythagorous3',0,1,183,1,7
+	.word	.L215
+	.byte	1,1,1
+	.word	.L89,.L249,.L88
+	.byte	4
+	.byte	'a',0,1,183,1,26
+	.word	.L215,.L250
+	.byte	4
+	.byte	'b',0,1,183,1,35
+	.word	.L215,.L251
+	.byte	4
+	.byte	'c',0,1,183,1,44
+	.word	.L215,.L252
+	.byte	5
+	.word	.L89,.L249
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('pythagorous3')
+	.sect	'.debug_abbrev'
+.L156:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('pythagorous3')
+	.sect	'.debug_line'
+.L157:
+	.word	.L414-.L413
+.L413:
+	.half	3
+	.word	.L416-.L415
+.L415:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L416:
+	.byte	5,7,7,0,5,2
+	.word	.L89
+	.byte	3,182,1,1,5,27,9
+	.half	.L332-.L89
+	.byte	3,1,1,5,30,9
+	.half	.L331-.L332
+	.byte	1,5,35,9
+	.half	.L417-.L331
+	.byte	1,5,30,9
+	.half	.L418-.L417
+	.byte	1,5,43,9
+	.half	.L333-.L418
+	.byte	1,5,38,9
+	.half	.L419-.L333
+	.byte	1,5,1,9
+	.half	.L159-.L419
+	.byte	3,1,0,1,1
+.L414:
+	.sdecl	'.debug_ranges',debug,cluster('pythagorous3')
+	.sect	'.debug_ranges'
+.L158:
+	.word	-1,.L89,0,.L159-.L89,0,0
+	.sdecl	'.debug_info',debug,cluster('lenOfNum')
+	.sect	'.debug_info'
+.L160:
+	.word	254
+	.half	3
+	.word	.L161
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L163,.L162
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'lenOfNum',0,1,41,9
+	.word	.L253
+	.byte	1,1,1
+	.word	.L59,.L254,.L58
+	.byte	4
+	.byte	'num',0,1,41,27
+	.word	.L255,.L256
+	.byte	5
+	.word	.L59,.L254
+	.byte	6
+	.byte	'i',0,1,43,13
+	.word	.L253,.L257
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('lenOfNum')
+	.sect	'.debug_abbrev'
+.L161:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('lenOfNum')
+	.sect	'.debug_line'
+.L162:
+	.word	.L421-.L420
+.L420:
+	.half	3
+	.word	.L423-.L422
+.L422:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L423:
+	.byte	5,15,7,0,5,2
+	.word	.L59
+	.byte	3,42,1,5,21,9
+	.half	.L309-.L59
+	.byte	3,4,1,5,19,3,125,1,5,10,9
+	.half	.L7-.L309
+	.byte	3,2,1,5,19,9
+	.half	.L311-.L7
+	.byte	3,1,1,9
+	.half	.L6-.L311
+	.byte	3,125,1,5,1,7,9
+	.half	.L312-.L6
+	.byte	3,6,1,7,9
+	.half	.L164-.L312
+	.byte	0,1,1
+.L421:
+	.sdecl	'.debug_ranges',debug,cluster('lenOfNum')
+	.sect	'.debug_ranges'
+.L163:
+	.word	-1,.L59,0,.L164-.L59,0,0
+	.sdecl	'.debug_info',debug,cluster('leastSquareMethod')
+	.sect	'.debug_info'
+.L165:
+	.word	385
+	.half	3
+	.word	.L166
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L168,.L167
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'leastSquareMethod',0,1,59,6,1,1,1
+	.word	.L61,.L258,.L60
+	.byte	4
+	.byte	'x',0,1,59,30
+	.word	.L259,.L260
+	.byte	4
+	.byte	'y',0,1,59,39
+	.word	.L259,.L261
+	.byte	4
+	.byte	'len',0,1,59,50
+	.word	.L253,.L262
+	.byte	4
+	.byte	'k',0,1,59,62
+	.word	.L263,.L264
+	.byte	4
+	.byte	'b',0,1,59,72
+	.word	.L263,.L265
+	.byte	5
+	.word	.L61,.L258
+	.byte	6
+	.byte	'i',0,1,61,13
+	.word	.L253,.L266
+	.byte	6
+	.byte	'sumXY',0,1,63,9
+	.word	.L233,.L267
+	.byte	6
+	.byte	'sumX',0,1,63,16
+	.word	.L233,.L268
+	.byte	6
+	.byte	'sumY',0,1,63,22
+	.word	.L233,.L269
+	.byte	6
+	.byte	'sumX2',0,1,63,28
+	.word	.L233,.L270
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('leastSquareMethod')
+	.sect	'.debug_abbrev'
+.L166:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3
+	.byte	8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('leastSquareMethod')
+	.sect	'.debug_line'
+.L167:
+	.word	.L425-.L424
+.L424:
+	.half	3
+	.word	.L427-.L426
+.L426:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L427:
+	.byte	5,33,7,0,5,2
+	.word	.L61
+	.byte	3,193,0,1,5,25,9
+	.half	.L313-.L61
+	.byte	1,5,18,9
+	.half	.L315-.L313
+	.byte	1,5,11,9
+	.half	.L316-.L315
+	.byte	1,5,12,9
+	.half	.L317-.L316
+	.byte	3,2,1,5,24,1,5,27,9
+	.half	.L10-.L317
+	.byte	1,5,26,3,2,1,5,27,9
+	.half	.L319-.L10
+	.byte	3,126,1,5,19,3,2,1,5,14,9
+	.half	.L320-.L319
+	.byte	3,2,1,5,15,9
+	.half	.L428-.L320
+	.byte	3,126,1,5,14,9
+	.half	.L429-.L428
+	.byte	3,1,1,5,15,9
+	.half	.L430-.L429
+	.byte	3,2,1,5,24,9
+	.half	.L9-.L430
+	.byte	3,123,1,5,31,7,9
+	.half	.L431-.L9
+	.byte	3,11,1,5,12,9
+	.half	.L321-.L431
+	.byte	3,125,1,5,38,9
+	.half	.L432-.L321
+	.byte	3,3,1,5,24,9
+	.half	.L433-.L432
+	.byte	1,5,61,9
+	.half	.L318-.L433
+	.byte	1,5,10,9
+	.half	.L434-.L318
+	.byte	1,5,68,9
+	.half	.L435-.L434
+	.byte	1,5,12,9
+	.half	.L436-.L435
+	.byte	3,126,1,5,54,9
+	.half	.L437-.L436
+	.byte	3,2,1,5,45,9
+	.half	.L438-.L437
+	.byte	1,5,8,1,5,26,9
+	.half	.L439-.L438
+	.byte	3,125,1,5,24,9
+	.half	.L440-.L439
+	.byte	3,1,1,9
+	.half	.L441-.L440
+	.byte	3,127,1,5,23,9
+	.half	.L442-.L441
+	.byte	3,4,1,5,8,1,5,1,9
+	.half	.L443-.L442
+	.byte	3,1,1,7,9
+	.half	.L169-.L443
+	.byte	0,1,1
+.L425:
+	.sdecl	'.debug_ranges',debug,cluster('leastSquareMethod')
+	.sect	'.debug_ranges'
+.L168:
+	.word	-1,.L61,0,.L169-.L61,0,0
+	.sdecl	'.debug_info',debug,cluster('getLineK')
+	.sect	'.debug_info'
+.L170:
+	.word	283
+	.half	3
+	.word	.L171
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L173,.L172
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'getLineK',0,1,117,7
+	.word	.L215
+	.byte	1,1,1
+	.word	.L69,.L271,.L68
+	.byte	4
+	.byte	'x1',0,1,117,22
+	.word	.L228,.L272
+	.byte	4
+	.byte	'y1',0,1,117,32
+	.word	.L228,.L273
+	.byte	4
+	.byte	'x2',0,1,117,42
+	.word	.L228,.L274
+	.byte	4
+	.byte	'y2',0,1,117,52
+	.word	.L228,.L275
+	.byte	5
+	.word	.L69,.L271
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('getLineK')
+	.sect	'.debug_abbrev'
+.L171:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('getLineK')
+	.sect	'.debug_line'
+.L172:
+	.word	.L445-.L444
+.L444:
+	.half	3
+	.word	.L447-.L446
+.L446:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L447:
+	.byte	5,23,7,0,5,2
+	.word	.L69
+	.byte	3,246,0,1,5,12,9
+	.half	.L329-.L69
+	.byte	1,5,42,9
+	.half	.L448-.L329
+	.byte	1,5,31,9
+	.half	.L328-.L448
+	.byte	1,5,29,9
+	.half	.L449-.L328
+	.byte	1,5,1,3,1,1,7,9
+	.half	.L174-.L449
+	.byte	0,1,1
+.L445:
+	.sdecl	'.debug_ranges',debug,cluster('getLineK')
+	.sect	'.debug_ranges'
+.L173:
+	.word	-1,.L69,0,.L174-.L69,0,0
+	.sdecl	'.debug_info',debug,cluster('getLeastSquareMethodERROR')
+	.sect	'.debug_info'
+.L175:
+	.word	346
+	.half	3
+	.word	.L176
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L178,.L177
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'getLeastSquareMethodERROR',0,1,90,7
+	.word	.L215
+	.byte	1,1,1
+	.word	.L63,.L276,.L62
+	.byte	4
+	.byte	'x',0,1,90,39
+	.word	.L259,.L277
+	.byte	4
+	.byte	'y',0,1,90,48
+	.word	.L259,.L278
+	.byte	4
+	.byte	'len',0,1,90,59
+	.word	.L253,.L279
+	.byte	4
+	.byte	'k',0,1,90,70
+	.word	.L215,.L280
+	.byte	4
+	.byte	'b',0,1,90,79
+	.word	.L215,.L281
+	.byte	5
+	.word	.L63,.L276
+	.byte	6
+	.byte	'i',0,1,93,13
+	.word	.L253,.L282
+	.byte	6
+	.byte	'fitErr',0,1,94,11
+	.word	.L215,.L283
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('getLeastSquareMethodERROR')
+	.sect	'.debug_abbrev'
+.L176:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('getLeastSquareMethodERROR')
+	.sect	'.debug_line'
+.L177:
+	.word	.L451-.L450
+.L450:
+	.half	3
+	.word	.L453-.L452
+.L452:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L453:
+	.byte	5,18,7,0,5,2
+	.word	.L63
+	.byte	3,221,0,1,5,29,3,2,1,5,7,9
+	.half	.L322-.L63
+	.byte	3,122,1,5,29,3,6,1,5,7,9
+	.half	.L454-.L322
+	.byte	3,122,1,5,12,9
+	.half	.L323-.L454
+	.byte	3,6,1,5,24,1,5,19,9
+	.half	.L12-.L323
+	.byte	3,2,1,5,32,9
+	.half	.L455-.L12
+	.byte	3,1,1,5,19,9
+	.half	.L456-.L455
+	.byte	3,127,1,5,32,9
+	.half	.L457-.L456
+	.byte	3,1,1,5,27,9
+	.half	.L325-.L457
+	.byte	3,127,1,5,29,9
+	.half	.L326-.L325
+	.byte	3,1,1,5,16,9
+	.half	.L458-.L326
+	.byte	1,5,27,9
+	.half	.L459-.L458
+	.byte	3,125,1,5,24,9
+	.half	.L11-.L459
+	.byte	1,5,29,7,9
+	.half	.L460-.L11
+	.byte	3,6,1,5,27,9
+	.half	.L327-.L460
+	.byte	1,5,1,3,1,1,7,9
+	.half	.L179-.L327
+	.byte	0,1,1
+.L451:
+	.sdecl	'.debug_ranges',debug,cluster('getLeastSquareMethodERROR')
+	.sect	'.debug_ranges'
+.L178:
+	.word	-1,.L63,0,.L179-.L63,0,0
+	.sdecl	'.debug_info',debug,cluster('getLineValue')
+	.sect	'.debug_info'
+.L180:
+	.word	269
+	.half	3
+	.word	.L181
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L183,.L182
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'getLineValue',0,1,106,7
+	.word	.L215
+	.byte	1,1,1
+	.word	.L65,.L284,.L64
+	.byte	4
+	.byte	'x',0,1,106,28
+	.word	.L253,.L285
+	.byte	4
+	.byte	'k',0,1,106,37
+	.word	.L215,.L286
+	.byte	4
+	.byte	'b',0,1,106,46
+	.word	.L215,.L287
+	.byte	5
+	.word	.L65,.L284
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('getLineValue')
+	.sect	'.debug_abbrev'
+.L181:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('getLineValue')
+	.sect	'.debug_line'
+.L182:
+	.word	.L462-.L461
+.L461:
+	.half	3
+	.word	.L464-.L463
+.L463:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L464:
+	.byte	5,15,7,0,5,2
+	.word	.L65
+	.byte	3,235,0,1,5,17,9
+	.half	.L465-.L65
+	.byte	1,5,1,3,1,1,7,9
+	.half	.L184-.L465
+	.byte	0,1,1
+.L462:
+	.sdecl	'.debug_ranges',debug,cluster('getLineValue')
+	.sect	'.debug_ranges'
+.L183:
+	.word	-1,.L65,0,.L184-.L65,0,0
+	.sdecl	'.debug_info',debug,cluster('getLineValueX')
+	.sect	'.debug_info'
+.L185:
+	.word	270
+	.half	3
+	.word	.L186
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L188,.L187
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'getLineValueX',0,1,111,7
+	.word	.L215
+	.byte	1,1,1
+	.word	.L67,.L288,.L66
+	.byte	4
+	.byte	'x',0,1,111,29
+	.word	.L253,.L289
+	.byte	4
+	.byte	'k',0,1,111,38
+	.word	.L215,.L290
+	.byte	4
+	.byte	'b',0,1,111,47
+	.word	.L215,.L291
+	.byte	5
+	.word	.L67,.L288
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('getLineValueX')
+	.sect	'.debug_abbrev'
+.L186:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('getLineValueX')
+	.sect	'.debug_line'
+.L187:
+	.word	.L467-.L466
+.L466:
+	.half	3
+	.word	.L469-.L468
+.L468:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L469:
+	.byte	5,18,7,0,5,2
+	.word	.L67
+	.byte	3,240,0,1,5,19,9
+	.half	.L470-.L67
+	.byte	1,5,22,9
+	.half	.L471-.L470
+	.byte	1,5,1,3,1,1,7,9
+	.half	.L189-.L471
+	.byte	0,1,1
+.L467:
+	.sdecl	'.debug_ranges',debug,cluster('getLineValueX')
+	.sect	'.debug_ranges'
+.L188:
+	.word	-1,.L67,0,.L189-.L67,0,0
+	.sdecl	'.debug_info',debug,cluster('constrain_int16_LOW')
+	.sect	'.debug_info'
+.L190:
+	.word	269
+	.half	3
+	.word	.L191
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L193,.L192
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'constrain_int16_LOW',0,1,146,1,9
+	.word	.L228
+	.byte	1,1,1
+	.word	.L77,.L292,.L76
+	.byte	4
+	.byte	'amt',0,1,146,1,37
+	.word	.L228,.L293
+	.byte	4
+	.byte	'low',0,1,146,1,50
+	.word	.L228,.L294
+	.byte	5
+	.word	.L77,.L292
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('constrain_int16_LOW')
+	.sect	'.debug_abbrev'
+.L191:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('constrain_int16_LOW')
+	.sect	'.debug_line'
+.L192:
+	.word	.L473-.L472
+.L472:
+	.half	3
+	.word	.L475-.L474
+.L474:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L475:
+	.byte	5,19,7,0,5,2
+	.word	.L77
+	.byte	3,146,1,1,5,1,3,1,1,7,9
+	.half	.L194-.L77
+	.byte	0,1,1
+.L473:
+	.sdecl	'.debug_ranges',debug,cluster('constrain_int16_LOW')
+	.sect	'.debug_ranges'
+.L193:
+	.word	-1,.L77,0,.L194-.L77,0,0
+	.sdecl	'.debug_info',debug,cluster('constrain_int16_MAX')
+	.sect	'.debug_info'
+.L195:
+	.word	270
+	.half	3
+	.word	.L196
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L198,.L197
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'constrain_int16_MAX',0,1,141,1,9
+	.word	.L228
+	.byte	1,1,1
+	.word	.L75,.L295,.L74
+	.byte	4
+	.byte	'amt',0,1,141,1,37
+	.word	.L228,.L296
+	.byte	4
+	.byte	'high',0,1,141,1,50
+	.word	.L228,.L297
+	.byte	5
+	.word	.L75,.L295
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('constrain_int16_MAX')
+	.sect	'.debug_abbrev'
+.L196:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('constrain_int16_MAX')
+	.sect	'.debug_line'
+.L197:
+	.word	.L477-.L476
+.L476:
+	.half	3
+	.word	.L479-.L478
+.L478:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L479:
+	.byte	5,19,7,0,5,2
+	.word	.L75
+	.byte	3,141,1,1,5,1,3,1,1,7,9
+	.half	.L199-.L75
+	.byte	0,1,1
+.L477:
+	.sdecl	'.debug_ranges',debug,cluster('constrain_int16_MAX')
+	.sect	'.debug_ranges'
+.L198:
+	.word	-1,.L75,0,.L199-.L75,0,0
+	.sdecl	'.debug_info',debug,cluster('my_abs_float')
+	.sect	'.debug_info'
+.L200:
+	.word	242
+	.half	3
+	.word	.L201
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L203,.L202
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'my_abs_float',0,1,4,7
+	.word	.L215
+	.byte	1,1,1
+	.word	.L51,.L298,.L50
+	.byte	4
+	.byte	'in',0,1,4,26
+	.word	.L215,.L299
+	.byte	5
+	.word	.L51,.L298
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('my_abs_float')
+	.sect	'.debug_abbrev'
+.L201:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('my_abs_float')
+	.sect	'.debug_line'
+.L202:
+	.word	.L481-.L480
+.L480:
+	.half	3
+	.word	.L483-.L482
+.L482:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L483:
+	.byte	5,12,7,0,5,2
+	.word	.L51
+	.byte	3,5,1,5,1,3,4,1,7,9
+	.half	.L204-.L51
+	.byte	0,1,1
+.L481:
+	.sdecl	'.debug_ranges',debug,cluster('my_abs_float')
+	.sect	'.debug_ranges'
+.L203:
+	.word	-1,.L51,0,.L204-.L51,0,0
+	.sdecl	'.debug_info',debug,cluster('my_abs_short')
+	.sect	'.debug_info'
+.L205:
+	.word	242
+	.half	3
+	.word	.L206
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L208,.L207
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'my_abs_short',0,1,12,7
+	.word	.L228
+	.byte	1,1,1
+	.word	.L53,.L300,.L52
+	.byte	4
+	.byte	'in',0,1,12,26
+	.word	.L228,.L301
+	.byte	5
+	.word	.L53,.L300
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('my_abs_short')
+	.sect	'.debug_abbrev'
+.L206:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('my_abs_short')
+	.sect	'.debug_line'
+.L207:
+	.word	.L485-.L484
+.L484:
+	.half	3
+	.word	.L487-.L486
+.L486:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L487:
+	.byte	5,12,7,0,5,2
+	.word	.L53
+	.byte	3,13,1,5,1,9
+	.half	.L488-.L53
+	.byte	3,4,1,7,9
+	.half	.L209-.L488
+	.byte	0,1,1
+.L485:
+	.sdecl	'.debug_ranges',debug,cluster('my_abs_short')
+	.sect	'.debug_ranges'
+.L208:
+	.word	-1,.L53,0,.L209-.L53,0,0
+	.sdecl	'.debug_info',debug,cluster('constrain_int32')
+	.sect	'.debug_info'
+.L210:
+	.word	283
+	.half	3
+	.word	.L211
+	.byte	4,1
+	.byte	'../USER/mymath.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\Release\\',0,12,1
+	.word	.L213,.L212
+	.byte	2
+	.word	.L96
+	.byte	3
+	.byte	'constrain_int32',0,1,153,1,9
+	.word	.L233
+	.byte	1,1,1
+	.word	.L79,.L302,.L78
+	.byte	4
+	.byte	'amt',0,1,153,1,33
+	.word	.L233,.L303
+	.byte	4
+	.byte	'low',0,1,153,1,46
+	.word	.L233,.L304
+	.byte	4
+	.byte	'high',0,1,153,1,59
+	.word	.L233,.L305
+	.byte	5
+	.word	.L79,.L302
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('constrain_int32')
+	.sect	'.debug_abbrev'
+.L211:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('constrain_int32')
+	.sect	'.debug_line'
+.L212:
+	.word	.L490-.L489
+.L489:
+	.half	3
+	.word	.L492-.L491
+.L491:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../USER/mymath.c',0,0,0,0,0
+.L492:
+	.byte	5,13,7,0,5,2
+	.word	.L79
+	.byte	3,153,1,1,5,44,7,9
+	.half	.L493-.L79
+	.byte	1,5,5,9
+	.half	.L28-.L493
+	.byte	1,5,1,3,1,1,7,9
+	.half	.L214-.L28
+	.byte	0,1,1
+.L490:
+	.sdecl	'.debug_ranges',debug,cluster('constrain_int32')
+	.sect	'.debug_ranges'
+.L213:
+	.word	-1,.L79,0,.L214-.L79,0,0
+	.sdecl	'.debug_loc',debug,cluster('constrain_int16')
+	.sect	'.debug_loc'
+.L230:
+	.word	-1,.L73,0,.L229-.L73
+	.half	1
+	.byte	84
+	.word	0,0
+.L72:
+	.word	-1,.L73,0,.L229-.L73
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L232:
+	.word	-1,.L73,0,.L229-.L73
+	.half	1
+	.byte	86
+	.word	0,0
+.L231:
+	.word	-1,.L73,0,.L229-.L73
+	.half	1
+	.byte	85
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('constrain_int16_LOW')
+	.sect	'.debug_loc'
+.L293:
+	.word	-1,.L77,0,.L292-.L77
+	.half	1
+	.byte	84
+	.word	0,0
+.L76:
+	.word	-1,.L77,0,.L292-.L77
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L294:
+	.word	-1,.L77,0,.L292-.L77
+	.half	1
+	.byte	85
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('constrain_int16_MAX')
+	.sect	'.debug_loc'
+.L296:
+	.word	-1,.L75,0,.L295-.L75
+	.half	1
+	.byte	84
+	.word	0,0
+.L74:
+	.word	-1,.L75,0,.L295-.L75
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L297:
+	.word	-1,.L75,0,.L295-.L75
+	.half	1
+	.byte	85
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('constrain_int32')
+	.sect	'.debug_loc'
+.L303:
+	.word	-1,.L79,0,.L302-.L79
+	.half	1
+	.byte	84
+	.word	0,0
+.L78:
+	.word	-1,.L79,0,.L302-.L79
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L305:
+	.word	-1,.L79,0,.L302-.L79
+	.half	1
+	.byte	86
+	.word	0,0
+.L304:
+	.word	-1,.L79,0,.L302-.L79
+	.half	1
+	.byte	85
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('degrees')
+	.sect	'.debug_loc'
+.L82:
+	.word	-1,.L83,0,.L244-.L83
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L245:
+	.word	-1,.L83,0,.L244-.L83
+	.half	1
+	.byte	84
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('fast_atan')
+	.sect	'.debug_loc'
+.L56:
+	.word	-1,.L57,0,.L221-.L57
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L222:
+	.word	-1,.L57,0,.L221-.L57
+	.half	1
+	.byte	84
+	.word	0,0
+.L223:
+	.word	-1,.L57,.L307-.L57,.L308-.L57
+	.half	1
+	.byte	95
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('getLeastSquareMethodERROR')
+	.sect	'.debug_loc'
+.L281:
+	.word	-1,.L63,0,.L12-.L63
+	.half	1
+	.byte	86
+	.word	.L323-.L63,.L276-.L63
+	.half	1
+	.byte	90
+	.word	0,0
+.L283:
+	.word	-1,.L63,.L322-.L63,.L276-.L63
+	.half	1
+	.byte	92
+	.word	0,0
+.L62:
+	.word	-1,.L63,0,.L276-.L63
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L282:
+	.word	-1,.L63,.L12-.L63,.L324-.L63
+	.half	1
+	.byte	91
+	.word	.L11-.L63,.L276-.L63
+	.half	1
+	.byte	91
+	.word	0,0
+.L280:
+	.word	-1,.L63,0,.L12-.L63
+	.half	1
+	.byte	85
+	.word	.L325-.L63,.L326-.L63
+	.half	1
+	.byte	89
+	.word	0,0
+.L279:
+	.word	-1,.L63,0,.L12-.L63
+	.half	1
+	.byte	84
+	.word	.L11-.L63,.L327-.L63
+	.half	1
+	.byte	88
+	.word	0,0
+.L277:
+	.word	-1,.L63,0,.L12-.L63
+	.half	1
+	.byte	100
+	.word	0,0
+.L278:
+	.word	-1,.L63,0,.L12-.L63
+	.half	1
+	.byte	101
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('getLineK')
+	.sect	'.debug_loc'
+.L68:
+	.word	-1,.L69,0,.L271-.L69
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L272:
+	.word	-1,.L69,0,.L271-.L69
+	.half	1
+	.byte	84
+	.word	0,0
+.L274:
+	.word	-1,.L69,0,.L328-.L69
+	.half	1
+	.byte	86
+	.word	0,0
+.L273:
+	.word	-1,.L69,0,.L271-.L69
+	.half	1
+	.byte	85
+	.word	0,0
+.L275:
+	.word	-1,.L69,0,.L329-.L69
+	.half	1
+	.byte	87
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('getLineValue')
+	.sect	'.debug_loc'
+.L287:
+	.word	-1,.L65,0,.L284-.L65
+	.half	1
+	.byte	86
+	.word	0,0
+.L64:
+	.word	-1,.L65,0,.L284-.L65
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L286:
+	.word	-1,.L65,0,.L284-.L65
+	.half	1
+	.byte	85
+	.word	0,0
+.L285:
+	.word	-1,.L65,0,.L284-.L65
+	.half	1
+	.byte	84
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('getLineValueX')
+	.sect	'.debug_loc'
+.L291:
+	.word	-1,.L67,0,.L288-.L67
+	.half	1
+	.byte	86
+	.word	0,0
+.L66:
+	.word	-1,.L67,0,.L288-.L67
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L290:
+	.word	-1,.L67,0,.L288-.L67
+	.half	1
+	.byte	85
+	.word	0,0
+.L289:
+	.word	-1,.L67,0,.L288-.L67
+	.half	1
+	.byte	84
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('invSqrt')
+	.sect	'.debug_loc'
+.L220:
+	.word	-1,.L55,.L306-.L55,.L216-.L55
+	.half	1
+	.byte	95
+	.word	0,0
+.L54:
+	.word	-1,.L55,0,.L216-.L55
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L217:
+	.word	-1,.L55,0,.L216-.L55
+	.half	1
+	.byte	84
+	.word	0,0
+.L218:
+	.word	-1,.L55,0,.L216-.L55
+	.half	1
+	.byte	84
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('leastSquareMethod')
+	.sect	'.debug_loc'
+.L265:
+	.word	-1,.L61,0,.L258-.L61
+	.half	1
+	.byte	103
+	.word	0,0
+.L266:
+	.word	-1,.L61,.L10-.L61,.L319-.L61
+	.half	5
+	.byte	144,32,157,32,0
+	.word	.L320-.L61,.L321-.L61
+	.half	5
+	.byte	144,32,157,32,0
+	.word	0,0
+.L264:
+	.word	-1,.L61,0,.L258-.L61
+	.half	1
+	.byte	102
+	.word	0,0
+.L60:
+	.word	-1,.L61,0,.L258-.L61
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L262:
+	.word	-1,.L61,0,.L258-.L61
+	.half	1
+	.byte	84
+	.word	0,0
+.L268:
+	.word	-1,.L61,.L316-.L61,.L258-.L61
+	.half	1
+	.byte	86
+	.word	0,0
+.L270:
+	.word	-1,.L61,.L313-.L61,.L314-.L61
+	.half	1
+	.byte	83
+	.word	0,0
+.L267:
+	.word	-1,.L61,.L317-.L61,.L318-.L61
+	.half	1
+	.byte	95
+	.word	0,0
+.L269:
+	.word	-1,.L61,.L315-.L61,.L258-.L61
+	.half	1
+	.byte	85
+	.word	0,0
+.L260:
+	.word	-1,.L61,0,.L258-.L61
+	.half	1
+	.byte	100
+	.word	0,0
+.L261:
+	.word	-1,.L61,0,.L258-.L61
+	.half	1
+	.byte	101
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('lenOfNum')
+	.sect	'.debug_loc'
+.L257:
+	.word	-1,.L59,.L309-.L59,.L310-.L59
+	.half	1
+	.byte	82
+	.word	.L311-.L59,.L254-.L59
+	.half	1
+	.byte	82
+	.word	0,0
+.L58:
+	.word	-1,.L59,0,.L254-.L59
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L256:
+	.word	-1,.L59,0,.L7-.L59
+	.half	1
+	.byte	84
+	.word	.L311-.L59,.L312-.L59
+	.half	1
+	.byte	84
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('my_abs_float')
+	.sect	'.debug_loc'
+.L299:
+	.word	-1,.L51,0,.L298-.L51
+	.half	1
+	.byte	84
+	.word	0,0
+.L50:
+	.word	-1,.L51,0,.L298-.L51
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('my_abs_short')
+	.sect	'.debug_loc'
+.L301:
+	.word	-1,.L53,0,.L300-.L53
+	.half	1
+	.byte	84
+	.word	0,0
+.L52:
+	.word	-1,.L53,0,.L300-.L53
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('my_constrain_float')
+	.sect	'.debug_loc'
+.L225:
+	.word	-1,.L71,0,.L224-.L71
+	.half	1
+	.byte	84
+	.word	0,0
+.L227:
+	.word	-1,.L71,0,.L224-.L71
+	.half	1
+	.byte	86
+	.word	0,0
+.L226:
+	.word	-1,.L71,0,.L224-.L71
+	.half	1
+	.byte	85
+	.word	0,0
+.L70:
+	.word	-1,.L71,0,.L224-.L71
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('pythagorous2')
+	.sect	'.debug_loc'
+.L247:
+	.word	-1,.L87,0,.L330-.L87
+	.half	1
+	.byte	84
+	.word	0,0
+.L248:
+	.word	-1,.L87,0,.L330-.L87
+	.half	1
+	.byte	85
+	.word	.L330-.L87,.L246-.L87
+	.half	1
+	.byte	95
+	.word	0,0
+.L86:
+	.word	-1,.L87,0,.L246-.L87
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('pythagorous3')
+	.sect	'.debug_loc'
+.L250:
+	.word	-1,.L89,0,.L331-.L89
+	.half	1
+	.byte	84
+	.word	0,0
+.L251:
+	.word	-1,.L89,0,.L331-.L89
+	.half	1
+	.byte	85
+	.word	.L332-.L89,.L333-.L89
+	.half	1
+	.byte	95
+	.word	0,0
+.L252:
+	.word	-1,.L89,0,.L331-.L89
+	.half	1
+	.byte	86
+	.word	.L331-.L89,.L249-.L89
+	.half	1
+	.byte	88
+	.word	0,0
+.L88:
+	.word	-1,.L89,0,.L249-.L89
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('radians')
+	.sect	'.debug_loc'
+.L243:
+	.word	-1,.L81,0,.L242-.L81
+	.half	1
+	.byte	84
+	.word	0,0
+.L80:
+	.word	-1,.L81,0,.L242-.L81
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('sq')
+	.sect	'.debug_loc'
+.L84:
+	.word	-1,.L85,0,.L240-.L85
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L241:
+	.word	-1,.L85,0,.L240-.L85
+	.half	1
+	.byte	84
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wrap_180_cd')
+	.sect	'.debug_loc'
+.L237:
+	.word	-1,.L93,0,.L236-.L93
+	.half	1
+	.byte	84
+	.word	0,0
+.L92:
+	.word	-1,.L93,0,.L236-.L93
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wrap_360_cd')
+	.sect	'.debug_loc'
+.L235:
+	.word	-1,.L91,0,.L234-.L91
+	.half	1
+	.byte	84
+	.word	0,0
+.L90:
+	.word	-1,.L91,0,.L234-.L91
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wrap_90_cd')
+	.sect	'.debug_loc'
+.L239:
+	.word	-1,.L95,0,.L238-.L95
+	.half	1
+	.byte	84
+	.word	0,0
+.L94:
+	.word	-1,.L95,0,.L238-.L95
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_frame',debug
+	.sect	'.debug_frame'
+.L494:
+	.word	48
+	.word	-1
+	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
+	.byte	8,39
+	.sdecl	'.debug_frame',debug,cluster('my_abs_float')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L494,.L51,.L298-.L51
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('my_abs_short')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L494,.L53,.L300-.L53
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('invSqrt')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L494,.L55,.L216-.L55
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('fast_atan')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L494,.L57,.L221-.L57
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('lenOfNum')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L494,.L59,.L254-.L59
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('leastSquareMethod')
+	.sect	'.debug_frame'
+	.word	16
+	.word	.L494,.L61,.L258-.L61
+	.byte	8,18,8,19
+	.sdecl	'.debug_frame',debug,cluster('getLeastSquareMethodERROR')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L494,.L63,.L276-.L63
+	.sdecl	'.debug_frame',debug,cluster('getLineValue')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L494,.L65,.L284-.L65
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('getLineValueX')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L494,.L67,.L288-.L67
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('getLineK')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L494,.L69,.L271-.L69
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('my_constrain_float')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L494,.L71,.L224-.L71
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('constrain_int16')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L494,.L73,.L229-.L73
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('constrain_int16_MAX')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L494,.L75,.L295-.L75
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('constrain_int16_LOW')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L494,.L77,.L292-.L77
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('constrain_int32')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L494,.L79,.L302-.L79
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('radians')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L494,.L81,.L242-.L81
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('degrees')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L494,.L83,.L244-.L83
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('sq')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L494,.L85,.L240-.L85
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('pythagorous2')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L494,.L87,.L246-.L87
+	.sdecl	'.debug_frame',debug,cluster('pythagorous3')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L494,.L89,.L249-.L89
+	.sdecl	'.debug_frame',debug,cluster('wrap_360_cd')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L494,.L91,.L234-.L91
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('wrap_180_cd')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L494,.L93,.L236-.L93
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('wrap_90_cd')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L494,.L95,.L238-.L95
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	; Module end

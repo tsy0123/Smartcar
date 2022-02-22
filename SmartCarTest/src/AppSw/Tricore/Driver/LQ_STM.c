@@ -129,7 +129,10 @@ void STM1_CH0_IRQHandler(void)
     if(lock_zebra == 1)
         zebra_time++;
     if(zebra_time>2)
+    {
+        zebra_time = 0;
         lock_zebra = 0;
+    }
 	if(startTick)
 	    STM1_time++;
 	if(STM1_time > 4)

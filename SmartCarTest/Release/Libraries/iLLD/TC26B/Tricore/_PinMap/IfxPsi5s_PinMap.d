@@ -1,5 +1,5 @@
 ################################################################################
-# Automatically-generated file. Do not edit!
+# 自动生成的文件。不要编辑！
 ################################################################################
 
 IfxPsi5s_PinMap.o :	../Libraries/iLLD/TC26B/Tricore/_PinMap/IfxPsi5s_PinMap.c

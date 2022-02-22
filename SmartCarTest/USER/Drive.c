@@ -60,18 +60,11 @@ void TSY_Drive(pid_param_t *pidDrive, pid_param_t *pidLeft, pid_param_t *pidRigh
         CenterERR = camERR.cam_finalCenterERR[0]*0.5 + CenterERR_Last*0.5;
         CenterERR_Last = CenterERR;
         PidLocCtrl(pidDrive, CenterERR);
-
         pidSetTarget(pidLeft, speedSet - pidDrive->out);
         pidSetTarget(pidRight, speedSet + pidDrive->out);
         PidLocCtrl(pidLeft, ENCLeft);
         PidLocCtrl(pidRight, ENCRight);
-        MotorLeft = pidLeft->out;
-        MotorRight = pidRight->out;
-        if(MotorLeft>5000) MotorLeft = 5000;
-        if(MotorLeft<-5000) MotorLeft = -5000;
-        if(MotorRight>5000) MotorRight = 5000;
-        if(MotorRight<-5000) MotorRight = -5000;
-        TSY_MortorCtrl(MotorLeft,MotorRight);
+
     }
     else
     {
@@ -82,66 +75,38 @@ void TSY_Drive(pid_param_t *pidDrive, pid_param_t *pidLeft, pid_param_t *pidRigh
                 pidSetTarget(pidRight, (float)roadSpeed);
                 PidLocCtrl(pidLeft, ENCLeft);
                 PidLocCtrl(pidRight, ENCRight);
-                MotorLeft = pidLeft->out;
-                MotorRight = pidRight->out;
-                if(MotorLeft>5000) MotorLeft = 5000;
-                if(MotorLeft<-5000) MotorLeft = -5000;
-                if(MotorRight>5000) MotorRight = 5000;
-                if(MotorRight<-5000) MotorRight = -5000;
-                TSY_MortorCtrl(MotorLeft,MotorRight);
                 break;
             case 2:
                 pidSetTarget(pidLeft, (float)roadSpeed);
                 pidSetTarget(pidRight, -(float)roadSpeed);
                 PidLocCtrl(pidLeft, ENCLeft);
                 PidLocCtrl(pidRight, ENCRight);
-                MotorLeft = pidLeft->out;
-                MotorRight = pidRight->out;
-                if(MotorLeft>5000) MotorLeft = 5000;
-                if(MotorLeft<-5000) MotorLeft = -5000;
-                if(MotorRight>5000) MotorRight = 5000;
-                if(MotorRight<-5000) MotorRight = -5000;
-                TSY_MortorCtrl(MotorLeft,MotorRight);
                 break;
             case 1:
                 pidSetTarget(pidLeft, -(float)roadSpeed);
                 pidSetTarget(pidRight, (float)roadSpeed);
                 PidLocCtrl(pidLeft, ENCLeft);
                 PidLocCtrl(pidRight, ENCRight);
-                MotorLeft = pidLeft->out;
-                MotorRight = pidRight->out;
-                if(MotorLeft>5000) MotorLeft = 5000;
-                if(MotorLeft<-5000) MotorLeft = -5000;
-                if(MotorRight>5000) MotorRight = 5000;
-                if(MotorRight<-5000) MotorRight = -5000;
-                TSY_MortorCtrl(MotorLeft,MotorRight);
                 break;
             case 4:
                 pidSetTarget(pidLeft, -(float)roadSpeed);
                 pidSetTarget(pidRight, (float)-roadSpeed);
                 PidLocCtrl(pidLeft, ENCLeft);
                 PidLocCtrl(pidRight, ENCRight);
-                MotorLeft = pidLeft->out;
-                MotorRight = pidRight->out;
-                if(MotorLeft>5000) MotorLeft = 5000;
-                if(MotorLeft<-5000) MotorLeft = -5000;
-                if(MotorRight>5000) MotorRight = 5000;
-                if(MotorRight<-5000) MotorRight = -5000;
-                TSY_MortorCtrl(MotorLeft,MotorRight);
                 break;
             default:
                 pidSetTarget(pidLeft, 0);
                 pidSetTarget(pidRight, 0);
                 PidLocCtrl(pidLeft, ENCLeft);
                 PidLocCtrl(pidRight, ENCRight);
-                MotorLeft = pidLeft->out;
-                MotorRight = pidRight->out;
-                if(MotorLeft>5000) MotorLeft = 5000;
-                if(MotorLeft<-5000) MotorLeft = -5000;
-                if(MotorRight>5000) MotorRight = 5000;
-                if(MotorRight<-5000) MotorRight = -5000;
-                TSY_MortorCtrl(MotorLeft,MotorRight);
                 break;
         }
     }
+    MotorLeft = pidLeft->out;
+    MotorRight = pidRight->out;
+    if(MotorLeft>5000) MotorLeft = 5000;
+    if(MotorLeft<-5000) MotorLeft = -5000;
+    if(MotorRight>5000) MotorRight = 5000;
+    if(MotorRight<-5000) MotorRight = -5000;
+    TSY_MortorCtrl(MotorLeft,MotorRight);
 }

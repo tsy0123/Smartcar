@@ -1,5 +1,5 @@
 ################################################################################
-# Automatically-generated file. Do not edit!
+# 自动生成的文件。不要编辑！
 ################################################################################
 
 IfxGtm_PinMap.o :	../Libraries/iLLD/TC26B/Tricore/_PinMap/IfxGtm_PinMap.c

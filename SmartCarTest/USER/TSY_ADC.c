@@ -37,13 +37,13 @@ void ADC_Init(void)
 
     //记得初始化恒功率pid
     //记得初始化I2C
-    ADC_InitConfig(ADC0, 80000); //初始化
-    ADC_InitConfig(ADC2, 80000);
-    ADC_InitConfig(ADC5, 80000);
-    ADC_InitConfig(ADC7, 80000);
-    ADC_InitConfig(ADC10, 80000);
-    ADC_InitConfig(ADC11, 80000);
-    ADC_InitConfig(ADC12, 80000);
+    ADC_InitConfig(SIGNAL_DETECT_1, 80000); //初始化
+    ADC_InitConfig(SIGNAL_DETECT_2, 80000);
+    ADC_InitConfig(CAPACITOR_VOLTAGE, 80000);
+    ADC_InitConfig(BATTERY_VOTAGE, 80000);
+    ADC_InitConfig(VOLTAGE_IN, 80000);
+    ADC_InitConfig(CONSTANT_VOLTAGE_OUT, 80000);
+    ADC_InitConfig(CONSTANT_CURRENT_OUT, 80000);
 
     pid_PowerControl->target = 50;
 }
@@ -61,19 +61,19 @@ unsigned short ADC_Read_filter(uint8_t adc, uint8_t count)
     {
         switch(adc)
         {
-            case 0:
+            case ADC_SIGNAL_1:
                 adcRead = ADC_Read(ADC0);break;
-            case 2:
+            case ADC_SIGNAL_2:
                 adcRead = ADC_Read(ADC2);break;
-            case 5:
+            case ADC_CAPACITOR_VOLTAGE:
                 adcRead = ADC_Read(ADC5);break;
-            case 7:
+            case ADC_BATTERY_VOTAGE:
                 adcRead = ADC_Read(ADC7);break;
-            case 10:
+            case ADC_VOLTAGE_IN:
                 adcRead = ADC_Read(ADC10);break;
-            case 11:
+            case ADC_CONSTANT_VOLTAGE_OUT:
                 adcRead = ADC_Read(ADC11);break;
-            case 12:
+            case ADC_CONSTANT_CURRENT_OUT:
                 adcRead = ADC_Read(ADC12);break;
         }
         sum += adcRead;
@@ -92,8 +92,8 @@ void wirelessChargeControl(void)
              * PID控制
      */
     float power, I, U;
-    I = ADC_Read_filter(12, 10) / 4095 * 3.3 * 50;
-    U = ADC_Read_filter(11, 10) / 4095 * 3.3;
+    I = ADC_Read_filter(ADC_CONSTANT_CURRENT_OUT, 10) / 4095 * 3.3 * 50;
+    U = ADC_Read_filter(ADC_CONSTANT_VOLTAGE_OUT, 10) / 4095 * 3.3;
     power = U * I;
     PidLocCtrl(pid_PowerControl, power);
 
@@ -106,7 +106,7 @@ void wirelessChargeDetect(void)
     float adc_last_pre = 0;
     float adc_last = 0;
     float adc_now = 0;
-    adc_now = ADC_Read_filter(5, 10) / 4095 * 3.3;
+    adc_now = ADC_Read_filter(ADC_CAPACITOR_VOLTAGE, 10) / 4095 * 3.3;
     if(adc_now > adc_last && adc_last > adc_last_pre)
     {
         //减速
@@ -165,32 +165,51 @@ void LEDChoose(uint8_t num)
 void LEDControl(uint8_t num)
 {
     TM1620_DisPrepare();
-     if(num/5==0)
-     {
-         LEDChoose(num);
-         LEDChoose(0);
-         LEDChoose(0);
+    switch(num/3)
+    {
+        case 0:
+            LEDChoose(num);
+            LEDChoose(0);
+            LEDChoose(0);
+            LEDChoose(0);
+            LEDChoose(0);
+            break;
+        case 1:
+            LEDChoose(3);
+            LEDChoose(num%3);
+            LEDChoose(0);
+            LEDChoose(0);
+            LEDChoose(0);
+            break;
+        case 2:
+            LEDChoose(3);
+            LEDChoose(3);
+            LEDChoose(num%3);
+            LEDChoose(0);
+            LEDChoose(0);
+            break;
+        case 3:
+            LEDChoose(3);
+            LEDChoose(3);
+            LEDChoose(3);
+            LEDChoose(num%3);
+            LEDChoose(0);
+            break;
+        case 4:
+            LEDChoose(3);
+            LEDChoose(3);
+            LEDChoose(3);
+            LEDChoose(3);
+            LEDChoose(num%3);
+            break;
+        default:
+            LEDChoose(3);
+            LEDChoose(3);
+            LEDChoose(3);
+            LEDChoose(3);
+            LEDChoose(3);
+            break;
      }
-     else if(num/5==1)
-     {
-         LEDChoose(5);
-         LEDChoose(num%5);
-         LEDChoose(0);
-     }
-     else if(num/5==2)
-     {
-         LEDChoose(5);
-         LEDChoose(5);
-         LEDChoose(num%5);
-     }
-     else
-     {
-         LEDChoose(5);
-         LEDChoose(5);
-         LEDChoose(5);
-     }
-     LEDChoose(0);
-     LEDChoose(0);
      LEDChoose(0);
      LEDChoose(0);
      TM1620_IIC_SendByte(0x8f);
@@ -198,75 +217,11 @@ void LEDControl(uint8_t num)
 
 void LEDDisplay(void)
 {
-    /*初始化8个IO口
+    /*初始化2个IO口
      *
      */
-    CapPower = ADC_Read_filter(4, 10);
-    if(CapPower < 0.8)
-    {
-        LEDControl(0);
-    }
-    else if(CapPower < 1.6)
-    {
-        LEDControl(1);
-    }
-    else if(CapPower < 2.4)
-    {
-        LEDControl(2);
-    }
-    else if(CapPower < 3.2)
-    {
-        LEDControl(3);
-    }
-    else if(CapPower < 4.0)
-    {
-        LEDControl(4);
-    }
-    else if(CapPower < 4.8)
-    {
-        LEDControl(5);
-    }
-    else if(CapPower < 5.6)
-    {
-        LEDControl(6);
-    }
-    else if(CapPower < 6.4)
-    {
-        LEDControl(7);
-    }
-    else if(CapPower < 7.2)
-    {
-        LEDControl(8);
-    }
-    else if(CapPower < 8.0)
-    {
-        LEDControl(9);
-    }
-    else if(CapPower < 8.8)
-    {
-        LEDControl(10);
-    }
-    else if(CapPower < 9.6)
-    {
-        LEDControl(11);
-    }
-    else if(CapPower < 10.4)
-    {
-        LEDControl(12);
-    }
-    else if(CapPower < 11.2)
-    {
-        LEDControl(13);
-    }
-    else if(CapPower < 12.0)
-    {
-        LEDControl(14);
-    }
-    else if(CapPower < 12.1)
-    {
-        LEDControl(15);
-    }
-
+    CapPower = ADC_Read_filter(ADC_CAPACITOR_VOLTAGE, 10);
+    LEDControl(CapPower/0.8);
 }
 
 /*************************************************************************

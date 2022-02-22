@@ -40,7 +40,7 @@ short isForkRoadTurnLeft = 1;//三岔转向方向 1 左转; 0 右转
 *Return: true 白点
          false 黑点
 *****************************************************************/
-bool isWhite(uint8_t line, uint8_t row)
+bool isWhite(short line, short row)
 {
     //出界判断
     if (!(row >= 0 && row < MT9V03X_H && line >= 0 && line < MT9V03X_W))
@@ -62,7 +62,7 @@ bool isWhite(uint8_t line, uint8_t row)
 *Return: true 是左边界点
          false 不是左边界点
 *****************************************************************/
-bool isLeftPoint(uint8_t i, uint8_t j)
+bool isLeftPoint(short i, short j)
 {
     if (i < 2 || i >= MT9V03X_W - 2 || j<0 || j>MT9V03X_H - 1)//图像边缘
         return false;
@@ -84,7 +84,7 @@ bool isLeftPoint(uint8_t i, uint8_t j)
 *Return: true 是有边界点
          false 不是右边界点
 *****************************************************************/
-bool isRightPoint(uint8_t i, uint8_t j)
+bool isRightPoint(short i, short j)
 {
     if (i < 2 || i >= MT9V03X_W - 2 || j<0 || j>MT9V03X_H - 1)//图像边缘
         return false;
@@ -106,7 +106,7 @@ bool isRightPoint(uint8_t i, uint8_t j)
 *Return: true 是边界点
          false 不是边界点
 *****************************************************************/
-bool isEdgePoint(short i, uint8_t j)
+bool isEdgePoint(short i, short j)
 {
     if (j < 0 || j >= MT9V03X_H - 1 || i<2 || i>MT9V03X_W - 3)//图像边缘
         return false;
@@ -201,7 +201,7 @@ void get_bin_thr(void)//获取二值化阈值（平均法）
             image_gray_sum += mt9v03x_image[j][i];
         }
     }
-    //bin_thr = image_gray_sum / (MT9V03X_H * MT9V03X_W);
+    bin_thr = image_gray_sum / (MT9V03X_H * MT9V03X_W);
     //bin_thr = GetOSTU(mt9v03x_image);
 }
 
@@ -640,7 +640,7 @@ void zebra_cross_detect(void)
     is_zebra = 0;
     for(i = ZEBRA_DETECT_START_ROW; i < ZEBRA_DETECT_END_ROW; i++)
     {
-        for(j = 0; j < MT9V03X_H - 1; j++)
+        for(j = 0; j < MT9V03X_W - 1; j++)
         {
             if(isWhite(j,i) && !isWhite(j+1,i))
                 WB++;
@@ -651,6 +651,8 @@ void zebra_cross_detect(void)
                 is_zebra = 1;
                 crossLeft_flag = 0;
                 crossRight_flag = 0;
+                flag_crossLeft_find = 0;
+                flag_crossRight_find = 0;
                 isLeft = 0;
                 isRight = 0;
                 find_ring_flag_Left = 0;
@@ -743,71 +745,6 @@ void ring_out_detect(void)
    }
 }
 
-//暂时没用
-void ring_out_finish_mend(void)
-{
-    uint8_t i,leftLineStart,rightLineStart, count = 0;
-    short leftLine[2][MT9V03X_H], rightLine[2][MT9V03X_H];
-    float k,b;
-    for (i = 5; i < 30; i++)//上往下
-    {
-        if (imageLine.Exist_Left[i])
-        {
-            leftLineStart = i;
-            break;
-        }
-    }
-    if (leftLineStart >= 5)
-    {
-        for (i = leftLineStart; i <= leftLineStart + 10; i++)
-            if (imageLine.Exist_Left[i])
-            {
-                leftLine[0][count] = imageLine.Point_Left[i];
-                leftLine[1][count] = i;
-                count++;
-            }
-
-        if (count > 5)
-        {
-            leastSquareMethod(leftLine[1], leftLine[0], count, &k, &b);
-            for (i = MT9V03X_H - 1; i > leftLineStart; i--)
-            {
-                imageLine.Point_Left[i] = k * i + b;
-                imageLine.Exist_Left[i] = true;
-            }
-        }
-    }
-    for (i = 5; i < 30; i++)//上往下
-    {
-        if (imageLine.Exist_Right[i])
-        {
-            rightLineStart = i;
-            break;
-        }
-    }
-    if (rightLineStart >= 5)
-    {
-        for (i = rightLineStart; i <= rightLineStart + 10; i++)
-            if (imageLine.Exist_Right[i])
-            {
-                rightLine[0][count] = imageLine.Point_Right[i];
-                rightLine[1][count] = i;
-                count++;
-            }
-
-        if (count > 5)
-        {
-            leastSquareMethod(rightLine[1], rightLine[0], count, &k, &b);
-            for (i = MT9V03X_H - 1; i > rightLineStart; i--)
-            {
-                imageLine.Point_Right[i] = k * i + b;
-                imageLine.Exist_Right[i] = true;
-            }
-        }
-    }
-
-}
-
 /*****************************************************************
 *Function: ring_detect(*)
 *Description: 检测圆环
@@ -843,6 +780,7 @@ void ring_detect(void)
                 if(White_Black_White_detect(i,0))
                 {
                     isLeft = 1;
+                    //printf("LL\r\n");
                     break;
                 }
             }
@@ -854,6 +792,7 @@ void ring_detect(void)
                 if(White_Black_White_detect(i,1))
                 {
                     isRight = 1;
+                    //printf("RR");
                     break;
                 }
             }
@@ -924,13 +863,13 @@ void ring_detect(void)
 
                 for(i = RING_SUDDEN_CHANGE_START_ROW; i < RING_SUDDEN_CHANGE_END_ROW; i++)
                 {
-                    if(road_Width_L(i + 1, 0) > road_Width_L(i, 0) + 5)
+                    if(road_Width_L(i + 1, 0) > road_Width_L(i, 0) + 8)
                     {
                         road_Bottom_Left = i;
                         break;
                     }
                 }
-                if(RING_SUDDEN_CHANGE_END_ROW - 1)
+                if(road_Bottom_Left > RING_SUDDEN_CHANGE_START_ROW - 1 )
                 {
                     find_ring_Left=1;
                     flag_isLeft_ring=1;
@@ -959,6 +898,7 @@ void ring_detect(void)
                     if(road_Width_R(i,0)>road_Width_R(i+1,0)+3)
                     {
                         find_ring_flag_Right++;
+                        //printf("R0");
                         break;
                     }
                 }
@@ -972,10 +912,10 @@ void ring_detect(void)
                         if(count>2)
                         {
                             find_ring_flag_Right++;
+                            //printf("R1");
                             break;
                         }
                 }
-                count=0;
                 break;
             case 2:
                 for(i = RING_EDGE_INCREASE_START_ROW; i < RING_EDGE_INCREASE_END_ROW; i++)
@@ -986,6 +926,7 @@ void ring_detect(void)
                     if(count>1)
                     {
                         find_ring_flag_Right++;
+                        //printf("R2");
                         break;
                     }
                 }
@@ -993,14 +934,14 @@ void ring_detect(void)
             case 3:
                 for(i = RING_SUDDEN_CHANGE_START_ROW; i < RING_SUDDEN_CHANGE_END_ROW; i++)
                 {
-                    if(road_Width_R(i+1,0)>road_Width_R(i,0)+10)
+                    if(road_Width_R(i+1,0)>road_Width_R(i,0)+8)
                     {
                         road_Bottom_Right = i;
                         break;
                     }
                 }
 
-                if(road_Bottom_Right > RING_SUDDEN_CHANGE_END_ROW - 1)
+                if(road_Bottom_Right > RING_SUDDEN_CHANGE_START_ROW - 1)
                 {
                     find_ring_Right=1;
                     flag_isRight_ring=1;
@@ -1035,7 +976,7 @@ void ring_in_Mend(void)
                 road_Bottom_Left = i;
                 break;
             }
-            else if(road_Width_L(i+1,2)>road_Width_L(i,2) + 10)
+            else if(road_Width_L(i+1,2)>road_Width_L(i,2) + 5)
             {
                 road_Bottom_Left = i;
                 break;
@@ -1101,10 +1042,9 @@ void ring_in_Mend(void)
         if (count == 5)//有5个点即可开始补线
         {
             leastSquareMethod(MendBasis_right[0], MendBasis_right[1], 5, &k_right, &b_right);
-            if(ABS(k_right)>6)//斜率过大判断丢拐点
+            if(ABS(k_right)<1)//斜率过小判断丢拐点
             {
                 ring_in_lost_left = 1;
-                ring_in_mend_count++;
                 return;
             }
             //开始补线
@@ -1128,12 +1068,12 @@ void ring_in_Mend(void)
         {
             //printf("%d %d\r\n",road_Width_R(i+1,2),road_Width_R(i,2));
 
-            if(White_Black_White_detect(i,2) && i > MT9V03X_H / 2)
+            if(White_Black_White_detect(i,2) && i > MT9V03X_H_2)
             {
                 road_Bottom_Right = i;
                 break;
             }
-            else if(road_Width_R(i+1,2)>road_Width_R(i,2) + 10)
+            else if(road_Width_R(i+1,2)>road_Width_R(i,2) + 5)
             {
                 road_Bottom_Right = i;
                 break;
@@ -1199,10 +1139,9 @@ void ring_in_Mend(void)
         {
             leastSquareMethod(MendBasis_left[0], MendBasis_left[1], 5, &k_left, &b_left);
 
-            if(ABS(k_left)>6)
+            if(ABS(k_left)<1)
             {
                 ring_in_lost_right = 1;
-                ring_in_mend_count++;
                 return;
             }
             //开始补线
@@ -1304,7 +1243,8 @@ void ring_out_turnPoint_filter_mend(void)
             if (count == 5)//有5个点即可开始补线
             {
                 leastSquareMethod(MendBasis_right[0], MendBasis_right[1], 5, &k_right, &b_right);
-
+                if(k_right>-1)
+                    k_right = -1;
                 //开始补线
                 for (i = 0; i < ring_out_turnPoint_row; i++)
                 {
@@ -1384,7 +1324,8 @@ void ring_out_turnPoint_filter_mend(void)
             if (count == 5)//有5个点即可开始补线
             {
                 leastSquareMethod(MendBasis[0], MendBasis[1], 5, &k, &b);
-
+                if(k < 1)
+                    k = 1;
                 //开始补线
                 for (i = 0; i < ring_out_turnPoint_row; i++)
                 {
@@ -1417,18 +1358,18 @@ void ring_LostCenter_mend(void)
     if(ring_in_lost_left)
     {
         imageLine.Exist_Center[AIM_LINE_SET] = true;
-        imageLine.Point_Center[AIM_LINE_SET] = 10;
+        imageLine.Point_Center[AIM_LINE_SET] = 30;
         imageLine.Lost_Center = false;
         ring_in_lost_left = 0;
     }
     else if(ring_in_lost_right)
     {
         imageLine.Exist_Center[AIM_LINE_SET] = true;
-        imageLine.Point_Center[AIM_LINE_SET] = 84;
+        imageLine.Point_Center[AIM_LINE_SET] = 64;
         imageLine.Lost_Center = false;
         ring_in_lost_right = 0;
     }
-    if (flag_isLeft_ring && !find_ring_Left && imageLine.Lost_Right)
+    if (flag_isLeft_ring && !find_ring_Left && imageLine.Lost_Left)
     {
         for(j = MT9V03X_H_4; j < MT9V03X_H; j++)
         {
@@ -1449,7 +1390,7 @@ void ring_LostCenter_mend(void)
             imageLine.Lost_Center = false;
         }
     }
-    else if (flag_isRight_ring && !find_ring_Right && imageLine.Lost_Left)
+    else if (flag_isRight_ring && !find_ring_Right && imageLine.Lost_Right)
     {
         count = 0;
         for(j = MT9V03X_H_4; j < MT9V03X_H; j++)
@@ -1522,7 +1463,7 @@ void link_Mend(void)
    uint8_t i,j,k;
    if(isLeft || isRight)
    {
-       for(i = MT9V03X_H_3; i < MT9V03X_H_2_3; i++)
+       for(i = MT9V03X_H_6; i < MT9V03X_H_5_6; i++)
        {
            if(!isStraightLeft(i))
            {
@@ -1633,7 +1574,7 @@ uint8_t find_cross_Lost = 0;
 *****************************************************************/
 bool crossPreDetect(uint8_t way)
 {
-    uint8_t i,flag = 0,turn_row;
+    uint8_t i,flag = 0,turn_row = 0;
     if(way == 0)
     {
         for(i = 0; i < MT9V03X_H-1; i++)
@@ -1849,7 +1790,7 @@ void crossout_mend(void)
         {
             flag_LostCenter_Left = 1;
         }
-        if(flag_LostCenter_Left || imageLine.Lost_Center)
+        if((flag_LostCenter_Left && imageLine.Lost_Right) || imageLine.Lost_Center)
         {
 
             find_cross_Lost=1;
@@ -1884,7 +1825,7 @@ void crossout_mend(void)
         {
             flag_LostCenter_Right = 1;
         }
-        if(flag_LostCenter_Right || imageLine.Lost_Center)
+        if((flag_LostCenter_Right && imageLine.Lost_Left) || imageLine.Lost_Center)
         {
             find_cross_Lost = 1;
             imageLine.Lost_Right = true;
@@ -2013,9 +1954,6 @@ void trackDFS(void)
             }
         }
     }
-
-    i = 0;
-    j = 0;
 
     while (stackTopPos >= 0)
     {
@@ -2168,7 +2106,8 @@ void doFilter(void)
     //slope_Filter();//斜率不对滤去
 
     lostLine_Filter();
-    //singlePoint_Filter();//测试：单独点滤去
+    if(flag_isLeft_ring || flag_isRight_ring)
+    singlePoint_Filter();//测试：单独点滤去
 
 }
 
@@ -2329,19 +2268,6 @@ void singlePoint_Filter(void)
         if (!imageLine.Exist_Right[i - 1] && imageLine.Exist_Right[i] && !imageLine.Exist_Right[i + 1])
         {
             imageLine.Exist_Right[i] = false;
-        }
-    }
-    for (i = EFFECTIVE_ROW; i < MT9V03X_H - 2; i++)
-    {
-        if (!imageLine.Exist_Left[i - 1] && imageLine.Exist_Left[i] && imageLine.Exist_Left[i + 1] && !imageLine.Exist_Left[i + 2])
-        {
-            imageLine.Exist_Left[i] = false;
-            imageLine.Exist_Left[i + 1] = false;
-        }
-        if (!imageLine.Exist_Right[i - 1] && imageLine.Exist_Right[i] && !imageLine.Exist_Right[i + 1] && !imageLine.Exist_Right[i + 2])
-        {
-            imageLine.Exist_Right[i] = false;
-            imageLine.Exist_Right[i + 1] = false;
         }
     }
 
@@ -2602,15 +2528,7 @@ void doMend(void)
 
     if((crossLeft_flag && !flag_crossLeft_find) || (crossRight_flag && !flag_crossRight_find))
         cross_Check();
-    if(!flag_forkRoad_find)
-        ring_detect();
-    else
-    {
-        isLeft = 0;
-        isRight = 0;
-        find_ring_Left = 0;
-        find_ring_Right = 0;
-    }
+    ring_detect();
     ring_out_detect();
     if(isLeft)
         ring_Check(0);

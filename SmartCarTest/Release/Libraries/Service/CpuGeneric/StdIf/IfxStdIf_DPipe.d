@@ -1,5 +1,5 @@
 ################################################################################
-# Automatically-generated file. Do not edit!
+# 自动生成的文件。不要编辑！
 ################################################################################
 
 IfxStdIf_DPipe.o :	../Libraries/Service/CpuGeneric/StdIf/IfxStdIf_DPipe.c

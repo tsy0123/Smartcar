@@ -111,9 +111,9 @@ QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ*/
 App_Cpu0 g_AppCpu0; // brief CPU 0 global data
 IfxCpu_mutexLock mutexCpu0InitIsOk = 1;   // CPU0 初始化完成标志位
 volatile char mutexCpu0TFTIsOk=0;         // CPU1 0占用/1释放 TFT
-bool show_Road = true;
+bool show_Road = false;
 bool show_Binary = false;
-bool WIFI_show_Pic = false;
+bool WIFI_show_Pic = true;
 bool WIFI_show_Chart = false;
 bool WIFIInitIsOk = false;
 extern uint8_t sendPic;
@@ -185,13 +185,18 @@ int core0_main (void)
     if(PIN_Read(P33_9)==0)
     {
         manControl = true;
+        WIFI_show_Pic = true;
+
     }
     else
+    {
         manControl = false;
+    }
+
 
     while (1)	//主循环
     {
-
+        //CAMERA_Reprot();
         /*if(PIN_Read(P33_9)==0)
         {
                 show_Road = true;
@@ -205,7 +210,7 @@ int core0_main (void)
         else
             show_Binary = false;
         // 显示摄像头图像
-        if(WIFI_show_Pic && sendPic == 1)
+        if(WIFI_show_Pic && sendPic)
         {
             //LCD_ShowPicture(0,0,94,60,(unsigned char *) Image_Use);
             CAMERA_Reprot();

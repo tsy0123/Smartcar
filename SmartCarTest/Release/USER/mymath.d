@@ -1,8 +1,6 @@
 ################################################################################
-# Automatically-generated file. Do not edit!
+# 自动生成的文件。不要编辑！
 ################################################################################
 
-math.o :	../USER/math.c
-../USER/math.c :
-math.o :	../USER/math.h
-../USER/math.h :
+mymath.o :	../USER/mymath.c
+../USER/mymath.c :

@@ -1,6 +1,4 @@
-/* 注意 IIC总线规定，IIC空闲时 SCL和SDA都为高电平 最好外部上拉（一定不能下拉） */
-/* 模拟 IIC需要注意，IIC地址左移一位 例如MPU6050 模拟就是地址 0xD0 */
-/* 想换用别的IO 直接修改宏定义 SOFT_IIC_SCL_PIN 、 SOFT_IIC_SDA_PIN 即可 */
+
 #define TM1620_IIC_SCL_PIN   P13_1   /*!< P13_1  作为 SCL */
 #define TM1620_IIC_SDA_PIN   P13_2   /*!< P13_2  作为 SDA */
 
@@ -24,6 +22,24 @@
 
 #define ModeDisTM1620  0x02
 
+#define SIGNAL_DETECT_1         0x0000
+#define SIGNAL_DETECT_2         0x0202
+#define CAPACITOR_VOLTAGE       0x0505
+#define BATTERY_VOTAGE          0x0707
+#define VOLTAGE_IN              0x0A09
+#define CONSTANT_VOLTAGE_OUT    0x0B0A
+#define CONSTANT_CURRENT_OUT    0x0C0B
+
+enum TSY_Charge_ADC_Channel
+{
+    ADC_SIGNAL_1 = 0,
+    ADC_SIGNAL_2,
+    ADC_CAPACITOR_VOLTAGE,
+    ADC_BATTERY_VOTAGE,
+    ADC_VOLTAGE_IN,
+    ADC_CONSTANT_VOLTAGE_OUT,
+    ADC_CONSTANT_CURRENT_OUT,
+}TSY_Charge_ADC_t;
 void TM1620_IIC_Start(void);               //发送IIC开始信号
 void TM1620_IIC_Stop(void);                //发送IIC停止信号
 void TM1620_IIC_Ack(void);                 //IIC发送ACK信号

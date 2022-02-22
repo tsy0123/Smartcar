@@ -1,5 +1,5 @@
 ################################################################################
-# Automatically-generated file. Do not edit!
+# 自动生成的文件。不要编辑！
 ################################################################################
 
 -include ../makefile.init
@@ -94,24 +94,24 @@ SECONDARY_SIZE += \
 SmartCarTest.siz \
 
 
-# All Target
+# 所有目标
 all: SmartCarTest.elf secondary-outputs
 
-# Tool invocations
+# 工具调用
 SmartCarTest.elf: $(OBJS)
-	@echo 'Building target: $@'
-	@echo 'Invoking: TASKING Linker'
+	@echo '正在构建目标： $@'
+	@echo '正在调用： TASKING Linker'
 	cctc -lrt -lfp_fpu -lcs_fpu  -Wl-Oc -Wl-OL -Wl-Ot -Wl-Ox -Wl-Oy -Wl--map-file="SmartCarTest.map" -Wl-mc -Wl-mf -Wl-mi -Wl-mk -Wl-ml -Wl-mm -Wl-md -Wl-mr -Wl-mu --no-warnings= -Wl--error-limit=42 --exceptions --strict --anachronisms --force-c++ -Ctc26xb   -o"SmartCarTest.elf" -Wl-o"SmartCarTest.hex:IHEX" --lsl-core=vtc  --lsl-file=../Lcf_Tasking_Tricore_Tc.lsl $(OBJS)
-	@echo 'Finished building target: $@'
+	@echo '已结束构建目标： $@'
 	@echo ' '
 
 SmartCarTest.siz: SmartCarTest.elf
-	@echo 'Invoking: Print Size'
+	@echo '正在调用： Print Size'
 	elfsize  "SmartCarTest.elf"
-	@echo 'Finished building: $@'
+	@echo '已结束构建： $@'
 	@echo ' '
 
-# Other Targets
+# 其他目标
 clean:
 	find . ! -name "*.mk" ! -name "makefile" ! -name "." -type f -delete 
 	-@echo ' '

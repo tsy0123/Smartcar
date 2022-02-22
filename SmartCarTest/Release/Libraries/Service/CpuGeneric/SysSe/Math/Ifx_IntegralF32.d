@@ -1,5 +1,5 @@
 ################################################################################
-# Automatically-generated file. Do not edit!
+# 自动生成的文件。不要编辑！
 ################################################################################
 
 Ifx_IntegralF32.o :	../Libraries/Service/CpuGeneric/SysSe/Math/Ifx_IntegralF32.c

@@ -177,7 +177,7 @@ void InductorNormal (void)
         }
         else
         {
-            LastAngle =TempAngle = Servo_Right_Min;
+            TempAngle = Servo_Right_Min;
         }
         LastAngle =TempAngle;// 记忆有效参数，记忆偏移方向
     }

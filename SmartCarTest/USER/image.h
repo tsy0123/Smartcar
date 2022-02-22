@@ -52,23 +52,23 @@
 
 //圆环相关参数
 #define JUDGE_LEFT_RIGHT_START_ROW      25
-#define RING_EDGE_DECREASE_START_ROW    11
-#define RING_EDGE_DECREASE_END_ROW      45
+#define RING_EDGE_DECREASE_START_ROW    8
+#define RING_EDGE_DECREASE_END_ROW      50
 #define RING_EDGE_INCREASE_START_ROW    15
 #define RING_EDGE_INCREASE_END_ROW      40
-#define RING_SUDDEN_CHANGE_START_ROW    8
+#define RING_SUDDEN_CHANGE_START_ROW    15
 #define RING_SUDDEN_CHANGE_END_ROW      45
 #define RING_IN_MEND_START_ROW          55
-#define RING_IN_MEND_END_ROW            10
+#define RING_IN_MEND_END_ROW            8
 #define LOST_PICTURE_NUM                3
 #define RING_OUT_TURNPOINT_START_ROW    50
 #define RING_OUT_TURNPOINT_END_ROW      10
-#define RING_LOST_COUNT                 10
+#define RING_LOST_COUNT                 4
 #define RING_OUT_DETECT_START_ROW       30
 #define RING_OUT_DETECT_END_ROW         57
 
 //十字相关参数
-#define CROSS_DETECT_LINE_COUNT         12
+#define CROSS_DETECT_LINE_COUNT         15
 #define CROSS_LOST_ROW_COUNT            15
 #define CROSS_OUT_EXIST                 50
 extern uint8_t mt9v03x_image[MT9V03X_W][MT9V03X_H];//原始图像
@@ -122,10 +122,10 @@ extern uint8_t crossLeft_flag;
 //图像处理函数///////////////////////////////////////////////////////////////
 //imageAPI
 //bool isTopExistPoint(uint8_t dir);//顶部是否存在边界点判断
-bool isWhite(uint8_t row, uint8_t line);//白点判断
-bool isLeftPoint(uint8_t i, uint8_t j);//左边界点判断
-bool isRightPoint(uint8_t i, uint8_t j);//右边界点判断
-bool isEdgePoint(short i, uint8_t j);//边界点判断
+bool isWhite(short row, short line);//白点判断
+bool isLeftPoint(short i, short j);//左边界点判断
+bool isRightPoint(short i, short j);//右边界点判断
+bool isEdgePoint(short i, short j);//边界点判断
 void Get_White_Num(uint8_t mode);//得到某一行白点个数
 void Get_Left_Right_Num(void);
 void Get_White_Num_Left(void);
@@ -175,7 +175,6 @@ void ring_Check(uint8_t way);
 void ring_LostCenter_mend(void);//出环丢线补线(do_mend)
 void ring_out_turnPoint_filter_mend(void);//出环找拐点并滤除拐点上面的边界点
 void ring_out_detect(void);
-void ring_out_finish_mend(void);
 void link_Mend(void);
 
 //十字

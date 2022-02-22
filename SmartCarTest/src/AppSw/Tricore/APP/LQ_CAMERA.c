@@ -138,7 +138,7 @@ void Test_CAMERA (void)
             ImageProcessInit();
             updateMediumLine();
 
-
+            sendPic=1;
             if(show_Binary)
             {
                 LCD_ShowPictureBin(0,0,94,60,(unsigned char *) Bin_Pixle);
@@ -152,7 +152,7 @@ void Test_CAMERA (void)
                 LED_Ctrl(LED1,ON);
             else
                 LED_Ctrl(LED1,OFF);
-            sendPic=1;
+
 
 #endif
 #endif
@@ -178,7 +178,7 @@ void Test_CAMERA (void)
 void CAMERA_Reprot (void)
 {
     short j, i;
-    delayms(18);
+    delayms(20);
     UART_PutChar(UART0, 0xaa);  //֡ͷ
     UART_PutChar(UART0, 0x55);  //֡ͷ
 
@@ -217,7 +217,6 @@ void CAMERA_Reprot (void)
         else
             sendBuffer = 0;
         UART_PutChar(UART0, sendBuffer);
-        sendBuffer = 0;
     }
     for (i = 0; i < 60; i++)
     {
@@ -226,7 +225,6 @@ void CAMERA_Reprot (void)
         else
             sendBuffer = 0;
         UART_PutChar(UART0, sendBuffer);
-        sendBuffer = 0;
     }
     for (i = 0; i < 60; i++)
     {
@@ -235,7 +233,6 @@ void CAMERA_Reprot (void)
         else
             sendBuffer = 0;
         UART_PutChar(UART0, sendBuffer);
-        sendBuffer = 0;
     }
     UART_PutChar(UART0, 0x55);  //֡β
     UART_PutChar(UART0, 0xaa);  //֡β
