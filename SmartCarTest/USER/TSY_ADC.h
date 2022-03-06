@@ -1,4 +1,4 @@
-
+#include "stdint.h"
 #define TM1620_IIC_SCL_PIN   P13_1   /*!< P13_1  作为 SCL */
 #define TM1620_IIC_SDA_PIN   P13_2   /*!< P13_2  作为 SDA */
 
@@ -38,8 +38,11 @@ enum TSY_Charge_ADC_Channel
     ADC_BATTERY_VOTAGE,
     ADC_VOLTAGE_IN,
     ADC_CONSTANT_VOLTAGE_OUT,
-    ADC_CONSTANT_CURRENT_OUT,
+    ADC_CONSTANT_CURRENT_OUT
 }TSY_Charge_ADC_t;
+void LEDChoose(uint8_t num);
+void LEDControl(uint8_t num);
+void TM1620_Init(void);
 void TM1620_IIC_Start(void);               //发送IIC开始信号
 void TM1620_IIC_Stop(void);                //发送IIC停止信号
 void TM1620_IIC_Ack(void);                 //IIC发送ACK信号
@@ -47,7 +50,4 @@ void TM1620_IIC_NAck(void);                //IIC不发送ACK信号
 unsigned char TM1620_IIC_WaitAck(void);            //IIC等待ACK信号
 void TM1620_IIC_SendByte(unsigned char data_t);    //IIC发送一个字节
 unsigned char TM1620_IIC_ReadByte(unsigned char ack);      //IIC读取一个字节
-
-
-void TM1620_IIC_Init(void);
 

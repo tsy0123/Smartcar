@@ -138,18 +138,19 @@ void STM1_CH0_IRQHandler(void)
 	if(STM1_time > 4)
 	/* 用户代码 */
     {
-	    isLeft = 0;
+	    /*isLeft = 0;
         isRight = 0;
         find_ring_flag_Left = 0;
         find_ring_flag_Right = 0;
         flag_isRight_ring = 0;
-        flag_isLeft_ring = 0;
+        flag_isLeft_ring = 0;*/
         STM1_time=0;
         startTick=0;
     }
 }
 
-extern uint8_t sendPic;
+extern uint8_t imageProcess_Tick;
+extern unsigned short imageProcess_Time;
 /*************************************************************************
 *  函数名称：void STM1_CH1_IRQHandler(void)
 *  功能说明：无线图传标志位
@@ -170,7 +171,10 @@ void STM1_CH1_IRQHandler(void)
 	IfxStm_increaseCompare(&MODULE_STM1, g_StmCompareConfig[3].comparator, g_StmCompareConfig[3].ticks);
 
 	/* 用户代码 */
-
+	if(imageProcess_Tick)
+	{
+	    imageProcess_Time++;
+	}
 	//STM_DisableInterrupt(STM1, STM_Channel_1);
 }
 

@@ -12,6 +12,9 @@
 //配置摄像头参数
 #define MT9V03X_W               94                      // 图像宽度  范围1-752
 #define MT9V03X_W_2             47
+#define MT9V03X_W_2_3           62
+#define MT9V03X_W_3             31
+
 #define MT9V03X_H               60                      // 图像高度 范围1-480
 #define MT9V03X_H_2             30
 #define MT9V03X_H_3             20
@@ -37,9 +40,11 @@
 #define MINRoadLen               4                      //最小路宽
 #define AIM_LINE_SET             30                     //目标行
 
-#define IS_WHITE_ROW_NUM         91
+#define IS_WHITE_ROW_NUM         92
 #define IS_BLACK_ROW_NUM         30
 
+#define BOTTOM_LEFT              10
+#define BOTTOM_RIGHT             84
 //斑马线相关参数
 #define ZEBRA_DETECT_START_ROW          25
 #define ZEBRA_DETECT_END_ROW            50
@@ -56,24 +61,30 @@
 #define RING_EDGE_DECREASE_END_ROW      50
 #define RING_EDGE_INCREASE_START_ROW    15
 #define RING_EDGE_INCREASE_END_ROW      40
-#define RING_SUDDEN_CHANGE_START_ROW    15
-#define RING_SUDDEN_CHANGE_END_ROW      45
+#define RING_SUDDEN_CHANGE_START_ROW    13
+#define RING_SUDDEN_CHANGE_END_ROW      30
 #define RING_IN_MEND_START_ROW          55
 #define RING_IN_MEND_END_ROW            8
-#define LOST_PICTURE_NUM                3
-#define RING_OUT_TURNPOINT_START_ROW    50
-#define RING_OUT_TURNPOINT_END_ROW      10
+#define LOST_PICTURE_NUM                0
+#define RING_OUT_TURNPOINT_START_ROW    55
+#define RING_OUT_TURNPOINT_END_ROW      15
 #define RING_LOST_COUNT                 4
-#define RING_OUT_DETECT_START_ROW       30
-#define RING_OUT_DETECT_END_ROW         57
+#define RING_OUT_DETECT_START_ROW       12
+#define RING_OUT_DETECT_END_ROW         40
 
 //十字相关参数
-#define CROSS_DETECT_LINE_COUNT         15
-#define CROSS_LOST_ROW_COUNT            15
-#define CROSS_OUT_EXIST                 50
+#define CROSS_DETECT_LINE_COUNT         10
+#define CROSS_LOST_ROW_COUNT            9
+#define CROSS_OUT_EXIST                 35
 extern uint8_t mt9v03x_image[MT9V03X_W][MT9V03X_H];//原始图像
 typedef struct
 {
+    volatile short Point_Left[MT9V03X_H];                //存放某一行的左边界点
+    volatile short Point_Right[MT9V03X_H];               //存放某一行的右边界点
+    volatile short Point_Center[MT9V03X_H];              //存放某一行的中心点
+
+    volatile short White_Num[MT9V03X_H];                 //某一行的白点个数
+
     volatile bool Exist_Left[MT9V03X_H];                 //某一行左边边界点存在
     volatile bool Exist_Right[MT9V03X_H];                //某一行右边边界点存在
     volatile bool Exist_Center[MT9V03X_H];               //某一行中心点存在
@@ -82,11 +93,9 @@ typedef struct
     volatile bool Lost_Left;                             //是否丢了左线
     volatile bool Lost_Right;                            //是否丢了右线
 
-    volatile short Point_Left[MT9V03X_H];                //存放某一行的左边界点
-    volatile short Point_Right[MT9V03X_H];               //存放某一行的右边界点
-    volatile short Point_Center[MT9V03X_H];              //存放某一行的中心点
+    volatile char pad;
 
-    volatile short White_Num[MT9V03X_H];                 //某一行的白点个数
+
 }imageLine_t;
 
 typedef struct
@@ -123,9 +132,9 @@ extern uint8_t crossLeft_flag;
 //imageAPI
 //bool isTopExistPoint(uint8_t dir);//顶部是否存在边界点判断
 bool isWhite(short row, short line);//白点判断
-bool isLeftPoint(short i, short j);//左边界点判断
-bool isRightPoint(short i, short j);//右边界点判断
-bool isEdgePoint(short i, short j);//边界点判断
+bool isLeftPoint(short i, uint8_t j);//左边界点判断
+bool isRightPoint(short i, uint8_t j);//右边界点判断
+bool isEdgePoint(short i, uint8_t j);//边界点判断
 void Get_White_Num(uint8_t mode);//得到某一行白点个数
 void Get_Left_Right_Num(void);
 void Get_White_Num_Left(void);
@@ -165,6 +174,7 @@ void singlePoint_Filter(void);//滤除单个点
 
 //imageMend
 void doMend(void);
+
 //void centerChangeLimit(void);//中心点不突变///////////////////
 
 //圆环

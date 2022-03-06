@@ -34,9 +34,10 @@ void ADC_Init(void)
     PIN_InitConfig(P22_3, PIN_MODE_OUTPUT, 1);//SD
 
     ATOM_PWM_InitConfig(CHARGE_PWM, 0, CHARGE_FREQUENCY);
+    TM1620_Init();
+    LEDControl(0);
 
-    //记得初始化恒功率pid
-    //记得初始化I2C
+    PidSet(pid_PowerControl, 0.0, 0.0, 0.0, 90000.0);
     ADC_InitConfig(SIGNAL_DETECT_1, 80000); //初始化
     ADC_InitConfig(SIGNAL_DETECT_2, 80000);
     ADC_InitConfig(CAPACITOR_VOLTAGE, 80000);

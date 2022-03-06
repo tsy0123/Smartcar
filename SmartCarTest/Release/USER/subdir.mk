@@ -5,6 +5,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../USER/Drive.c \
+../USER/ICM42605.c \
 ../USER/TSY_ADC.c \
 ../USER/TSY_WIFI.c \
 ../USER/image.c \
@@ -12,6 +13,7 @@ C_SRCS += \
 
 OBJS += \
 ./USER/Drive.o \
+./USER/ICM42605.o \
 ./USER/TSY_ADC.o \
 ./USER/TSY_WIFI.o \
 ./USER/image.o \
@@ -19,6 +21,7 @@ OBJS += \
 
 COMPILED_SRCS += \
 ./USER/Drive.src \
+./USER/ICM42605.src \
 ./USER/TSY_ADC.src \
 ./USER/TSY_WIFI.src \
 ./USER/image.src \
@@ -26,6 +29,7 @@ COMPILED_SRCS += \
 
 C_DEPS += \
 ./USER/Drive.d \
+./USER/ICM42605.d \
 ./USER/TSY_ADC.d \
 ./USER/TSY_WIFI.d \
 ./USER/image.d \

@@ -38,7 +38,7 @@ void iic_delay()
 	/* 200MHz 系统时钟下 模拟IIC速度为 400Khz */
 	
 	unsigned char  i = 0;
-	for(i = 0; i < 30; i++) //修改这里可以调整IIC速率
+	for(i = 0; i < 50; i++) //修改这里可以调整IIC速率
 	{
 		__asm("NOP"); /* delay */
 	}
@@ -217,7 +217,7 @@ void IIC_SendByte(unsigned char data_t)
         iic_delay();
 		iic_delay();
         IIC_SCL_L;	 
-		iic_delay();		
+		iic_delay();
     }
     iic_delay();
 } 	 

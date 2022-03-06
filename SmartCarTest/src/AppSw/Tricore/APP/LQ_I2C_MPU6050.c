@@ -130,7 +130,7 @@ unsigned char MPU6050_Init(void)
     {
         printf("MPU6050 is OK!\r\n");
     }
-    else if(res == 0x12)                                  //ICM20602 器件ID正确
+    else if(res == 0x42)                                  //ICM20602 器件ID正确
     {
 
         //printf("ICM20602 is OK!\r\n");

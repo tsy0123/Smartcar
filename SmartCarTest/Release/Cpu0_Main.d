@@ -864,3 +864,5 @@ Cpu0_Main.o :	"D:\software\AURIX-Studio-1.5.2\workspace\SmartCarTest\src\AppSw\T
 "D:\software\AURIX-Studio-1.5.2\workspace\SmartCarTest\src\AppSw\Tricore\Main\Main.h" :
 Cpu0_Main.o :	"D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\USER\TSY_WIFI.h"
 "D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\USER\TSY_WIFI.h" :
+Cpu0_Main.o :	"D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\USER\ICM42605.h"
+"D:\\software\\AURIX-Studio-1.5.2\\workspace\\SmartCarTest\\USER\ICM42605.h" :

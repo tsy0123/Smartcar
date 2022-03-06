@@ -77,7 +77,7 @@ void leastSquareMethod(short*x, short*y, uint8_t len, float* k, float* b);
 float getLineK(short x1, short y1, short x2, short y2);
 float getLeastSquareMethodERROR(short*x, short*y, uint8_t len, float k, float b);
 float getLineValue(uint8_t x, float k, float b);
-float getLineValueX(uint8_t x, float k, float b);
+float getLineValueX(uint8_t x, uint8_t x1, short y1, float k);
 int16_t constrain_int16_LOW(int16_t amt, int16_t low);
 int16_t constrain_int16_MAX(int16_t amt, int16_t high);
 

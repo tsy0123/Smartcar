@@ -92,6 +92,8 @@ uint8_t sendPic = 0;
  *
  * @date     2019/10/22 星期二
  */
+unsigned short imageProcess_Time = 0;
+uint8_t imageProcess_Tick = 0;
 void Test_CAMERA (void)
 {
 #ifdef USEOLED
@@ -105,11 +107,14 @@ void Test_CAMERA (void)
     /* 摄像头初始化 */
     CAMERA_Init(50);
 
+
     while (1)
     {
         if (Camera_Flag == 2)
         {
             sendPic = 0;
+            imageProcess_Tick = 1;
+            imageProcess_Time = 0;
             /* 提取部分使用的数据 */
             Get_Use_Image();
 
@@ -139,6 +144,7 @@ void Test_CAMERA (void)
             updateMediumLine();
 
             sendPic=1;
+            imageProcess_Tick = 0;
             if(show_Binary)
             {
                 LCD_ShowPictureBin(0,0,94,60,(unsigned char *) Bin_Pixle);
@@ -178,11 +184,11 @@ void Test_CAMERA (void)
 void CAMERA_Reprot (void)
 {
     short j, i;
-    delayms(20);
     UART_PutChar(UART0, 0xaa);  //帧头
     UART_PutChar(UART0, 0x55);  //帧头
 
     char sendBuffer = 0;
+    printf("%04d",imageProcess_Time);
     for (i = 0; i < 60; i++)
     {
         for (j = 0; j < 12; j++)
@@ -236,6 +242,7 @@ void CAMERA_Reprot (void)
     }
     UART_PutChar(UART0, 0x55);  //帧尾
     UART_PutChar(UART0, 0xaa);  //帧尾
+    delayms(15);
 }
 
 /*!

@@ -108,6 +108,7 @@ QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ*/
 #include <image.h>
 #include <Drive.h>
 #include <TSY_WIFI.h>
+#include "ICM42605.h"
 App_Cpu0 g_AppCpu0; // brief CPU 0 global data
 IfxCpu_mutexLock mutexCpu0InitIsOk = 1;   // CPU0 初始化完成标志位
 volatile char mutexCpu0TFTIsOk=0;         // CPU1 0占用/1释放 TFT
@@ -193,7 +194,7 @@ int core0_main (void)
         manControl = false;
     }
 
-
+    //ICM42605_Init();
     while (1)	//主循环
     {
         //CAMERA_Reprot();

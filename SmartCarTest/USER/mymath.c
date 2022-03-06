@@ -108,9 +108,9 @@ float getLineValue(uint8_t x, float k, float b)
     return (k*x + b);
 }
 
-float getLineValueX(uint8_t x, float k, float b)
+float getLineValueX(uint8_t x, uint8_t x1, short y1, float k)
 {
-        return ((x-b)/k);
+    return k*(x - x1) + y1;
 }
 
 //求两点斜率
