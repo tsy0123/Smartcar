@@ -108,7 +108,8 @@ QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ*/
 #include <image.h>
 #include <Drive.h>
 #include <TSY_WIFI.h>
-#include "ICM42605.h"
+#include <LQ_ICM42605.h>
+#include <TSY_ADC.h>
 App_Cpu0 g_AppCpu0; // brief CPU 0 global data
 IfxCpu_mutexLock mutexCpu0InitIsOk = 1;   // CPU0 初始化完成标志位
 volatile char mutexCpu0TFTIsOk=0;         // CPU1 0占用/1释放 TFT
@@ -142,18 +143,20 @@ int core0_main (void)
 	// 开启CPU总中断
 	IfxCpu_enableInterrupts();
 
-	PIN_InitConfig(P33_9, PIN_MODE_INPUT, 1); //拨码0
-    PIN_InitConfig(P33_11, PIN_MODE_INPUT, 1); //拨码1
+	//PIN_InitConfig(P33_9, PIN_MODE_INPUT, 1); //拨码0
+    //PIN_InitConfig(P33_11, PIN_MODE_INPUT, 1); //拨码1
     GPIO_LED_Init();
 
     PidInit(&pid_Drive);
     PidInit(&pid_Left);
     PidInit(&pid_Right);
-    PidSet(&pid_Drive, 7.5, 0.0, 0.30, 5000.0);
-    PidSet(&pid_Left, 80.0, 8.0, 0.0, 90000.0);
-    PidSet(&pid_Right, 80.0, 8.0, 0.0, 90000.0);
+    PidSet(&pid_Drive, 7.5, 0.0, 0.3, 5000.0);
+    PidSet(&pid_Left, 45.0, 3.5, 0.0, 90000.0);
+    PidSet(&pid_Right, 45.0, 3.5, 0.0, 90000.0);
+
+    //icm42605_init();
     EncInit();
-    MotorInit();
+    MotorInit_TSY();
     delayms(1000);
     UART_InitConfig(UART0_RX_P14_1,UART0_TX_P14_0, 921600);
     UART_PutStr(UART0,"\r\n");
@@ -165,6 +168,8 @@ int core0_main (void)
     UART_PutStr(UART0,"AT+CIPSEND\r\n");
     delayms(500);
     WIFIInitIsOk = true;
+    ADC_Init_TSY();
+    GPIO_KEY_Init();
     STM_InitConfig(STM0, STM_Channel_0, 10000);//控制
 
     //STM_InitConfig(STM1, STM_Channel_1, 40000);
@@ -183,33 +188,48 @@ int core0_main (void)
 	//    Test_9AX();            //PASS,测试龙邱九轴 IIC接线   P13_1接SCL  P13_2接SDA OLED显示原始数据
 	//    Test_MPU6050();        //PASS,测试MPU6050或者ICM20602 IIC接线   P13_1接SCL  P13_2接SDA OLED显示原始数据
 
-    if(PIN_Read(P33_9)==0)
-    {
-        manControl = true;
-        WIFI_show_Pic = true;
-
-    }
-    else
-    {
-        manControl = false;
-    }
 
     //ICM42605_Init();
     while (1)	//主循环
     {
         //CAMERA_Reprot();
+        if(!KEY_Read(KEY0))
+        {
+            manControl = 1;
+        }
+        if(!KEY_Read(KEY1))
+        {
+            delayms(2000);
+            crossLeft_flag = 0;
+            crossRight_flag = 0;
+            flag_crossLeft_find = 0;
+            flag_crossRight_find = 0;
+            isLeft = 0;
+            isRight = 0;
+            find_ring_flag_Left = 0;
+            find_ring_flag_Right = 0;
+            flag_isRight_ring = 0;
+            flag_isLeft_ring = 0;
+            zebra_cross_count = 0;
+            garage_in = 0;
+            flag_garage_turn = 0;
+            manControl = 1;
+        }
+        if(!KEY_Read(KEY2))
+        {
+            uint16_t vol;
+            vol = ADC_Read_filter(ADC_BATTERY_VOTAGE,10);
+            printf("\r\nBATTERY VOLTAGE:%d",vol);
+            delayms(20);
+            while(!KEY_Read(KEY2));
+        }
         /*if(PIN_Read(P33_9)==0)
         {
                 show_Road = true;
         }
         else
             show_Road = false;*/
-        if(PIN_Read(P33_11)==0)
-        {
-                show_Binary = true;
-        }
-        else
-            show_Binary = false;
+        //CAMERA_Reprot();
         // 显示摄像头图像
         if(WIFI_show_Pic && sendPic)
         {
@@ -218,5 +238,6 @@ int core0_main (void)
             sendPic=0;
             //STM_EnableInterrupt(STM1, STM_Channel_1);
         }
+
     }
 }

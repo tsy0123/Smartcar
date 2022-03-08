@@ -283,6 +283,7 @@ uint8_t fork_Point_row = 0;
 uint8_t fork_Point_line = 0;
 uint8_t fork_Ypoint_Left = 0;
 uint8_t fork_Ypoint_Right = 0;
+
 /*****************************************************************
 *Function: forkRoad_find(*)
 *Description: 三岔路口判断（左拐）
@@ -320,131 +321,264 @@ void forkRoad_find(void)
         else
             flag_forkRoad_prefind = 0;
     }
-    if(flag_forkRoad_prefind)
+    if(isForkRoadTurnLeft)
     {
-        for (i = MIN(turnPoint_Left,turnPoint_Right); i > FORK_DETECT_TURN_END_ROW; i--)
+        if(flag_forkRoad_prefind)
         {
-            if(White_Black_White_detect(i,2))
-            {
-                for(uint8_t j = i - 1; j > MIN(turnPoint_Left,turnPoint_Right) - 2; j--)
-                {
-                    if(imageLine.White_Num[j -1] < imageLine.White_Num[j])
-                    {
-                        flag_forkRoad_prefind = 0;
-                        return;
-                    }
-                }
-                for(uint8_t j = 0; j < 93; j++)
-                {
-                    if(isWhite(j, i) && !isWhite(j+1, i))
-                    {
-                        fork_Point_line = j+1;
-                        break;
-                    }
-                }
-                flag_forkRoad_prefind = 0;
-                fork_Point_row = i;
-                flag_forkRoad_find = 1;
-                fork_Ypoint_Left = turnPoint_Left;
-                fork_Ypoint_Right = turnPoint_Right;
-                //printf("%d %d %d %d \r\n",fork_Point_line,fork_Point_row,fork_Ypoint_Left,fork_Ypoint_Right);
-                break;
-            }
-        }
-        if(i == 0)
-        {
-            flag_forkRoad_prefind = 0;
-        }
-    }
-    else if(!flag_forkRoad_prefind && turnPoint_Left > 0)
-    {
-        for(i = turnPoint_Left; i > 0; i--)
-        {
-            if(imageLine.Exist_Left[i] && !imageLine.Exist_Left[i+1] && !imageLine.Exist_Left[i+2])
+            for (i = MIN(turnPoint_Left,turnPoint_Right); i > FORK_DETECT_TURN_END_ROW; i--)
             {
                 if(White_Black_White_detect(i,2))
                 {
-                    flag_forkRoad_prefind = 1;
+                    for(uint8_t j = i - 1; j > MIN(turnPoint_Left,turnPoint_Right) - 2; j--)
+                    {
+                        if(imageLine.White_Num[j -1] < imageLine.White_Num[j])
+                        {
+                            flag_forkRoad_prefind = 0;
+                            return;
+                        }
+                    }
+                    for(uint8_t j = 0; j < 93; j++)
+                    {
+                        if(isWhite(j, i) && !isWhite(j+1, i))
+                        {
+                            fork_Point_line = j+1;
+                            break;
+                        }
+                    }
+                    flag_forkRoad_prefind = 0;
+                    fork_Point_row = i;
+                    flag_forkRoad_find = 1;
+                    fork_Ypoint_Left = turnPoint_Left;
+                    fork_Ypoint_Right = turnPoint_Right;
+                    //printf("%d %d %d %d \r\n",fork_Point_line,fork_Point_row,fork_Ypoint_Left,fork_Ypoint_Right);
                     break;
+                }
+            }
+            if(i == 0)
+            {
+                flag_forkRoad_prefind = 0;
+            }
+        }
+        else if(turnPoint_Left > 0)
+        {
+            for(i = turnPoint_Left; i > 0; i--)
+            {
+                if(imageLine.Exist_Left[i] && !imageLine.Exist_Left[i+1] && !imageLine.Exist_Left[i+2])
+                {
+                    if(White_Black_White_detect(i,2))
+                    {
+                        flag_forkRoad_prefind = 1;
+                        break;
+                    }
+                }
+            }
+            if(flag_forkRoad_prefind)
+            {
+                uint8_t left_point = i;
+                uint8_t isfork = 1;
+                for(uint8_t j = left_point; j > 1; j--)
+                {
+                    if(imageLine.Exist_Left[j] && imageLine.Exist_Left[j-1] && imageLine.Point_Left[j-1]-imageLine.Point_Left[j]>=2)
+                        continue;
+                    else
+                    {
+                        isfork = 0;
+                        break;
+                    }
+                }
+
+                //三岔判断条件
+                if (isfork)
+                {
+                    for(uint8_t j = left_point; j > 0; j--)
+                    {
+                        if(imageLine.Exist_Left[j])
+                            imageLine.Exist_Left[j] = false;
+                    }
+                    flag_forkRoad_prefind = 0;
+                    flag_forkRoad_find = 1;
+                    fork_Point_row = left_point;
+                    fork_Ypoint_Left = turnPoint_Left;
+                    fork_Ypoint_Right = 59;
+                    imageLine.Exist_Right[fork_Ypoint_Right] = true;
+                    imageLine.Point_Right[fork_Ypoint_Right] = 93;
+                }
+                else
+                {
+                    flag_forkRoad_prefind = 0;
                 }
             }
         }
-        if(flag_forkRoad_prefind)
+        else if(imageLine.Lost_Right)
         {
-            uint8_t left_point = i;
-            uint8_t isfork = 1;
-            for(uint8_t j = left_point; j > 1; j--)
+            uint8_t isWBW = 0;
+            if(!White_Black_White_detect(0,2) || imageLine.White_Num[0] > 60)
+                return;
+            for(i = 59; i > FORK_DETECT_LOST_WHITE_ROW; i--)
             {
-                if(imageLine.Exist_Left[j] && imageLine.Exist_Left[j-1] && imageLine.Point_Left[j-1]-imageLine.Point_Left[j]>=2)
-                    continue;
-                else
-                {
-                    isfork = 0;
-                    break;
-                }
+                if(imageLine.White_Num[i]<IS_WHITE_ROW_NUM)
+                    return;
             }
-
-            //三岔判断条件
-            if (isfork)
+            for(i = FORK_DETECT_LOST_TURN_ROW; i > 0; i--)
             {
-                for(uint8_t j = left_point; j > 0; j--)
+                if(White_Black_White_detect(i,2))
                 {
-                    if(imageLine.Exist_Left[j])
-                        imageLine.Exist_Left[j] = false;
+                    if(isWBW == 0)
+                    {
+                        fork_Point_row = i;
+                        for(uint8_t j = 2; j < 93; j++)
+                            if(isWhite(j,i)&&!isWhite(j+1,i))
+                            {
+                                    fork_Point_line = j - 2;
+                                    break;
+                            }
+                    }
+                    isWBW++;
+                    if(isWBW > 8)
+                    {
+                        fork_Ypoint_Left = 59;
+                        fork_Ypoint_Right = 59;
+                        flag_forkRoad_find = 1;
+                        imageLine.Exist_Right[fork_Ypoint_Right] = true;
+                        imageLine.Point_Right[fork_Ypoint_Right] = 93;
+                        imageLine.Exist_Left[fork_Ypoint_Left] = true;
+                        imageLine.Point_Left[fork_Ypoint_Left] = 0;
+                        return;
+                    }
                 }
-                flag_forkRoad_prefind = 0;
-                flag_forkRoad_find = 1;
-                fork_Point_row = left_point;
-                fork_Ypoint_Left = turnPoint_Left;
-                fork_Ypoint_Right = 59;
-                imageLine.Exist_Right[fork_Ypoint_Right] = true;
-                imageLine.Point_Right[fork_Ypoint_Right] = 93;
-            }
-            else
-            {
-                flag_forkRoad_prefind = 0;
+                else if(isWBW>0)
+                    return;
             }
         }
     }
-    else if(!flag_forkRoad_prefind && imageLine.Lost_Right)
+    else
     {
-        uint8_t isWBW = 0;
-        if(!White_Black_White_detect(0,2) || imageLine.White_Num[0] > 60)
-            return;
-        for(i = 59; i > FORK_DETECT_LOST_WHITE_ROW; i--)
+        if(flag_forkRoad_prefind)
         {
-            if(imageLine.White_Num[i]<IS_WHITE_ROW_NUM)
-                return;
-        }
-        for(i = FORK_DETECT_LOST_TURN_ROW; i > 0; i--)
-        {
-            if(White_Black_White_detect(i,2))
+            for (i = MIN(turnPoint_Left,turnPoint_Right); i > FORK_DETECT_TURN_END_ROW; i--)
             {
-                if(isWBW == 0)
+                if(White_Black_White_detect(i,2))
                 {
-                    fork_Point_row = i;
-                    for(uint8_t j = 2; j < 93; j++)
-                        if(isWhite(j,i)&&!isWhite(j+1,i))
+                    for(uint8_t j = i - 1; j > MIN(turnPoint_Left,turnPoint_Right) - 2; j--)
+                    {
+                        if(imageLine.White_Num[j -1] < imageLine.White_Num[j])
                         {
-                                fork_Point_line = j - 2;
-                                break;
+                            flag_forkRoad_prefind = 0;
+                            return;
                         }
-                }
-                isWBW++;
-                if(isWBW > 8)
-                {
-                    fork_Ypoint_Left = 59;
-                    fork_Ypoint_Right = 59;
+                    }
+                    for(uint8_t j = 0; j < 93; j++)
+                    {
+                        if(isWhite(j, i) && !isWhite(j+1, i))
+                        {
+                            fork_Point_line = j+1;
+                            break;
+                        }
+                    }
+                    flag_forkRoad_prefind = 0;
+                    fork_Point_row = i;
                     flag_forkRoad_find = 1;
-                    imageLine.Exist_Right[fork_Ypoint_Right] = true;
-                    imageLine.Point_Right[fork_Ypoint_Right] = 93;
-                    imageLine.Exist_Left[fork_Ypoint_Left] = true;
-                    imageLine.Point_Left[fork_Ypoint_Left] = 0;
-                    return;
+                    fork_Ypoint_Left = turnPoint_Left;
+                    fork_Ypoint_Right = turnPoint_Right;
+                    //printf("%d %d %d %d \r\n",fork_Point_line,fork_Point_row,fork_Ypoint_Left,fork_Ypoint_Right);
+                    break;
                 }
             }
-            else if(isWBW>0)
+            if(i == 0)
+            {
+                flag_forkRoad_prefind = 0;
+            }
+        }
+        else if(turnPoint_Right > 0)
+        {
+            for(i = turnPoint_Right; i > 0; i--)
+            {
+                if(imageLine.Exist_Right[i] && !imageLine.Exist_Right[i+1] && !imageLine.Exist_Right[i+2])
+                {
+                    if(White_Black_White_detect(i,2))
+                    {
+                        flag_forkRoad_prefind = 1;
+                        break;
+                    }
+                }
+            }
+            if(flag_forkRoad_prefind)
+            {
+                uint8_t right_point = i;
+                uint8_t isfork = 1;
+                for(uint8_t j = right_point; j > 1; j--)
+                {
+                    if(imageLine.Exist_Right[j] && imageLine.Exist_Right[j-1] && imageLine.Point_Right[j-1]-imageLine.Point_Right[j]>=2)
+                        continue;
+                    else
+                    {
+                        isfork = 0;
+                        break;
+                    }
+                }
+
+                //三岔判断条件
+                if (isfork)
+                {
+                    for(uint8_t j = right_point; j > 0; j--)
+                    {
+                        if(imageLine.Exist_Right[j])
+                            imageLine.Exist_Right[j] = false;
+                    }
+                    flag_forkRoad_prefind = 0;
+                    flag_forkRoad_find = 1;
+                    fork_Point_row = right_point;
+                    fork_Ypoint_Left = turnPoint_Right;
+                    fork_Ypoint_Right = 59;
+                    imageLine.Exist_Left[fork_Ypoint_Right] = true;
+                    imageLine.Point_Left[fork_Ypoint_Right] = 0;
+                }
+                else
+                {
+                    flag_forkRoad_prefind = 0;
+                }
+            }
+        }
+        else if(imageLine.Lost_Left)
+        {
+            uint8_t isWBW = 0;
+            if(!White_Black_White_detect(0,2) || imageLine.White_Num[0] > 60)
                 return;
+            for(i = 59; i > FORK_DETECT_LOST_WHITE_ROW; i--)
+            {
+                if(imageLine.White_Num[i]<IS_WHITE_ROW_NUM)
+                    return;
+            }
+            for(i = FORK_DETECT_LOST_TURN_ROW; i > 0; i--)
+            {
+                if(White_Black_White_detect(i,2))
+                {
+                    if(isWBW == 0)
+                    {
+                        fork_Point_row = i;
+                        for(uint8_t j = 2; j < 93; j++)
+                            if(isWhite(j,i)&&!isWhite(j+1,i))
+                            {
+                                    fork_Point_line = j - 2;
+                                    break;
+                            }
+                    }
+                    isWBW++;
+                    if(isWBW > 8)
+                    {
+                        fork_Ypoint_Left = 59;
+                        fork_Ypoint_Right = 59;
+                        flag_forkRoad_find = 1;
+                        imageLine.Exist_Right[fork_Ypoint_Right] = true;
+                        imageLine.Point_Right[fork_Ypoint_Right] = 93;
+                        imageLine.Exist_Left[fork_Ypoint_Left] = true;
+                        imageLine.Point_Left[fork_Ypoint_Left] = 0;
+                        return;
+                    }
+                }
+                else if(isWBW>0)
+                    return;
+            }
         }
     }
 }
@@ -511,6 +645,36 @@ void forkRoad_mend(short select)
         {
             imageLine.Exist_Left[k] = true;
             imageLine.Point_Left[k] = (short)(x3 * (k - y1) / y3 + x1);
+        }
+        uint8_t count = 0;
+        short MendBasis_left[2][5];
+        float k_left, b_left;
+
+        for (i = 0; i < MT9V03X_H; i++)
+        {
+            if (imageLine.Exist_Left[i])
+            {
+                MendBasis_left[0][count] = i;
+                MendBasis_left[1][count] = imageLine.Point_Left[i];
+                count++;
+            }
+            if (count == 5)
+                break;
+        }
+        if (count == 5)//有5个点即可开始补线
+        {
+            leastSquareMethod(MendBasis_left[0], MendBasis_left[1], 5, &k_left, &b_left);
+
+            //开始补线
+            for (i = 0; i < fork_Point_row; i++)
+            {
+                if (!imageLine.Exist_Left[i])
+                {
+                    imageLine.Point_Left[i] = getLineValue(i, k_left, b_left);
+                    imageLine.Exist_Left[i] = true;
+                }
+
+            }
         }
         flag_forkRoad_find = 0;
     }
@@ -583,7 +747,7 @@ void garage_find(void)
     static short existRight_count = 0;
     if(flag_garage_turn == 0)
     {
-        for (i = MT9V03X_H - 1; i > 10; i--)
+        for (i = MT9V03X_H - 1; i > 15; i--)
         {
             for (j = 1; j < MT9V03X_W; j++)//找全黑行
             {
@@ -614,12 +778,12 @@ void garage_find(void)
             }
         }
     }
-    else if(flag_garage_turn == 1)
+    else if(flag_garage_turn == 1 && !imageLine.Lost_Right)
     {
         for(i = 0; i < MT9V03X_H; i++)
             if(imageLine.Exist_Right[i])
                 existRight_count++;
-        if(existRight_count>35)
+        if(existRight_count>40)
         {
             flag_garage_turn = 2;
             lock_zebra = 1;
@@ -695,11 +859,11 @@ void zebra_cross_detect(void)
 void garage_in_mend(void)
 {
     imageLine.Exist_Center[AIM_LINE_SET] = true;
-    imageLine.Point_Center[AIM_LINE_SET] = 55;
+    imageLine.Point_Center[AIM_LINE_SET] = 65;
     imageLine.Lost_Center = false;
-    for(uint8_t i = MT9V03X_H_4; i < MT9V03X_H_2_3; i++)//检测黑点数，检测到停下
+    for(uint8_t i = MT9V03X_H_3; i < MT9V03X_H_2_3; i++)//检测黑点数，检测到停下
     {
-        if(imageLine.White_Num[i] < 10)
+        if(imageLine.White_Num[i] < 20 && !imageLine.Lost_Left && !imageLine.Lost_Right)
         {
             manControl = 1;
             break;
@@ -839,7 +1003,7 @@ void ring_detect(void)
             case 0:
                 for(i = JUDGE_LEFT_RIGHT_START_ROW; i < MT9V03X_H; i++)
                 {
-                    if(road_Width_L(i, 0) > road_Width_L(i+1, 0) + 6)
+                    if(road_Width_L(i-2, 0) > road_Width_L(i, 0) + 4 && road_Width_L(i, 0)!=0)
                     {
                         find_ring_flag_Left++;
                         break;
@@ -852,7 +1016,7 @@ void ring_detect(void)
                     if(imageLine.Exist_Left[i] && imageLine.Exist_Left[i+1])
                         if(imageLine.Point_Left[i]-imageLine.Point_Left[i+1]>1)
                             count++;
-                    if(count > 2)
+                    if(count > 1)
                     {
                         find_ring_flag_Left++;
                         break;
@@ -866,7 +1030,7 @@ void ring_detect(void)
                     if(imageLine.Exist_Left[i] && imageLine.Exist_Left[i+1] && imageLine.Exist_Left[i+2])
                         if(imageLine.Point_Left[i] < imageLine.Point_Left[i+1]&& imageLine.Point_Left[i+1] < imageLine.Point_Left[i+2])
                                 count++;
-                    if(count > 4)
+                    if(count > 0)
                     {
                         find_ring_flag_Left++;
                         break;
@@ -877,7 +1041,7 @@ void ring_detect(void)
 
                 for(i = RING_SUDDEN_CHANGE_START_ROW; i < RING_SUDDEN_CHANGE_END_ROW; i++)
                 {
-                    if(road_Width_L(i + 3, 0) > road_Width_L(i, 0) + 10)
+                    if(road_Width_L(i + 2, 0) > road_Width_L(i, 0) + 8 && road_Width_L(i, 0)!=0)
                     {
                         road_Bottom_Left = i;
                         break;
@@ -909,7 +1073,7 @@ void ring_detect(void)
             case 0:
                 for(i = JUDGE_LEFT_RIGHT_START_ROW; i < MT9V03X_H; i++)
                 {
-                    if(road_Width_R(i,0)>road_Width_R(i+1,0)+6)
+                    if(road_Width_R(i-2,0)>road_Width_R(i,0)+4 && road_Width_R(i,0)!=0)
                     {
                         find_ring_flag_Right++;
                         //printf("R0");
@@ -923,7 +1087,7 @@ void ring_detect(void)
                     if(imageLine.Exist_Right[i]&&imageLine.Exist_Right[i+1])
                         if(imageLine.Point_Right[i+1]-imageLine.Point_Right[i]>1)
                             count++;
-                        if(count>4)
+                        if(count>1)
                         {
                             find_ring_flag_Right++;
                             //printf("R1");
@@ -937,18 +1101,19 @@ void ring_detect(void)
                     if(imageLine.Exist_Right[i] && imageLine.Exist_Right[i+1] && imageLine.Exist_Right[i+2])
                         if(imageLine.Point_Right[i] > imageLine.Point_Right[i+1]&& imageLine.Point_Right[i+1] > imageLine.Point_Right[i+2])
                             count++;
-                    if(count>1)
+                    if(count>0)
                     {
                         find_ring_flag_Right++;
                         //printf("R2");
                         break;
                     }
                 }
+                find_ring_flag_Right++;
                 break;
             case 3:
                 for(i = RING_SUDDEN_CHANGE_START_ROW; i < RING_SUDDEN_CHANGE_END_ROW; i++)
                 {
-                    if(road_Width_R(i+3,0)>road_Width_R(i,0)+10)
+                    if(road_Width_R(i+2,0)>road_Width_R(i,0)+8 && road_Width_R(i,0)!=0)
                     {
                         road_Bottom_Right = i;
                         break;
@@ -985,12 +1150,7 @@ void ring_in_Mend(void)
     {
         for(i = RING_IN_MEND_START_ROW; i > RING_IN_MEND_END_ROW; i--)//从下往上
         {
-            if(White_Black_White_detect(i,2) && i > MT9V03X_H_2)
-            {
-                road_Bottom_Left = i;
-                break;
-            }
-            else if(road_Width_L(i+1,2)>road_Width_L(i,2) + 5)
+            if(road_Width_L(i+2,2)>road_Width_L(i,2) + 8)
             {
                 road_Bottom_Left = i;
                 break;
@@ -1016,7 +1176,7 @@ void ring_in_Mend(void)
             imageLine.Exist_Left[i] = false;
             imageLine.Exist_Right[i] = false;
         }
-        for(i=MT9V03X_W - 2; i>0; i--)
+        for(i=MT9V03X_W - 10; i>0; i--)
         {
             if(isWhite(i+1,road_Bottom_Left)&&!isWhite(i,road_Bottom_Left))
             {
@@ -1024,6 +1184,11 @@ void ring_in_Mend(void)
                 imageLine.Exist_Right[road_Bottom_Left] = true;
                 break;
             }
+        }
+        if(!imageLine.Exist_Right[road_Bottom_Right])
+        {
+            imageLine.Point_Right[road_Bottom_Right] = 47;
+            imageLine.Exist_Right[road_Bottom_Right] = true;
         }
         //和拐点连线
         short x1 = imageLine.Point_Right[road_Bottom_Left];
@@ -1094,12 +1259,7 @@ void ring_in_Mend(void)
         {
             //printf("%d %d\r\n",road_Width_R(i+1,2),road_Width_R(i,2));
 
-            if(White_Black_White_detect(i,2) && i > MT9V03X_H_2)
-            {
-                road_Bottom_Right = i;
-                break;
-            }
-            else if(road_Width_R(i+1,2)>road_Width_R(i,2) + 5)
+            if(road_Width_R(i+2,2)>road_Width_R(i,2) + 8)
             {
                 road_Bottom_Right = i;
                 break;
@@ -1127,7 +1287,7 @@ void ring_in_Mend(void)
             imageLine.Exist_Left[i] = false;
             imageLine.Exist_Right[i] = false;
         }
-        for(i = 0; i < MT9V03X_W - 1; i++)
+        for(i = 10; i < MT9V03X_W - 1; i++)
         {
             if(isWhite(i,road_Bottom_Right) && !isWhite(i+1,road_Bottom_Right))
             {
@@ -1135,6 +1295,11 @@ void ring_in_Mend(void)
                 imageLine.Exist_Left[road_Bottom_Right] = true;
                 break;
             }
+        }
+        if(!imageLine.Exist_Left[road_Bottom_Right])
+        {
+            imageLine.Point_Left[road_Bottom_Right] = 47;
+            imageLine.Exist_Left[road_Bottom_Right] = true;
         }
         short x1 = imageLine.Point_Left[road_Bottom_Right];
         short y1 = road_Bottom_Right;
@@ -1419,20 +1584,20 @@ void ring_LostCenter_mend(void)
     if(ring_in_lost_left)
     {
         imageLine.Exist_Center[AIM_LINE_SET] = true;
-        imageLine.Point_Center[AIM_LINE_SET] = 35;
+        imageLine.Point_Center[AIM_LINE_SET] = 41;
         imageLine.Lost_Center = false;
         ring_in_lost_left = 0;
     }
     else if(ring_in_lost_right)
     {
         imageLine.Exist_Center[AIM_LINE_SET] = true;
-        imageLine.Point_Center[AIM_LINE_SET] = 59;
+        imageLine.Point_Center[AIM_LINE_SET] = 53;
         imageLine.Lost_Center = false;
         ring_in_lost_right = 0;
     }
     if (flag_isLeft_ring && !find_ring_Left)
     {
-        for(j = MT9V03X_H_6; j < MT9V03X_H; j++)
+        for(j = MT9V03X_H_3; j < MT9V03X_H; j++)
         {
             if(imageLine.White_Num[j]>IS_WHITE_ROW_NUM && !(imageLine.Exist_Left[j] && imageLine.Exist_Right[j]))
                 count++;
@@ -1469,7 +1634,7 @@ void ring_LostCenter_mend(void)
     else if (flag_isRight_ring && !find_ring_Right)
     {
         count = 0;
-        for(j = MT9V03X_H_6; j < MT9V03X_H; j++)
+        for(j = MT9V03X_H_3; j < MT9V03X_H; j++)
         {
             if(imageLine.White_Num[j]>IS_WHITE_ROW_NUM && !(imageLine.Exist_Left[j] && imageLine.Exist_Right[j]))
                 count++;
@@ -1553,46 +1718,43 @@ void link_Mend(void)
 {
    uint8_t i,j,k;
    //if(isLeft || isRight)
-   if(1)
+   for(i = 3; i < MT9V03X_H - 1; i++)
    {
-       for(i = 3; i < MT9V03X_H - 1; i++)
+       if(!isStraightLeft(i))
        {
-           if(!isStraightLeft(i))
+           imageLine.Exist_Left[i+1] = false;
+           imageLine.Exist_Left[i] = false;
+       }
+       if(!isStraightRight(i))
+       {
+           imageLine.Exist_Right[i+1] = false;
+           imageLine.Exist_Right[i] = false;
+       }
+       if(imageLine.Exist_Left[i+1] && imageLine.Exist_Left[i] && imageLine.Point_Left[i+1]>imageLine.Point_Left[i])
+       {
+           imageLine.Exist_Left[i+1] = false;
+          imageLine.Exist_Left[i] = false;
+       }
+       if(imageLine.Exist_Right[i+1] && imageLine.Exist_Right[i] && imageLine.Point_Right[i+1]<imageLine.Point_Right[i])
+       {
+           imageLine.Exist_Right[i+1] = false;
+           imageLine.Exist_Right[i] = false;
+       }
+       if(isLeft || isRight)
+       {
+           if(imageLine.Exist_Left[i+1] && imageLine.Exist_Left[i] && imageLine.Exist_Left[i - 1] &&\
+               imageLine.Point_Left[i] == 1 + imageLine.Point_Left[i+1] &&\
+               imageLine.Point_Left[i-1] == 1 + imageLine.Point_Left[i])
            {
                imageLine.Exist_Left[i+1] = false;
                imageLine.Exist_Left[i] = false;
            }
-           if(!isStraightRight(i))
+           if(imageLine.Exist_Right[i+1] && imageLine.Exist_Right[i] && imageLine.Exist_Right[i - 1] &&\
+                              imageLine.Point_Right[i+1] == 1 + imageLine.Point_Right[i]\
+                              && imageLine.Point_Right[i] == 1 + imageLine.Point_Right[i - 1])
            {
                imageLine.Exist_Right[i+1] = false;
                imageLine.Exist_Right[i] = false;
-           }
-           if(imageLine.Exist_Left[i+1] && imageLine.Exist_Left[i] && imageLine.Point_Left[i+1]>imageLine.Point_Left[i])
-           {
-               imageLine.Exist_Left[i+1] = false;
-              imageLine.Exist_Left[i] = false;
-           }
-           if(imageLine.Exist_Right[i+1] && imageLine.Exist_Right[i] && imageLine.Point_Right[i+1]<imageLine.Point_Right[i])
-           {
-               imageLine.Exist_Right[i+1] = false;
-               imageLine.Exist_Right[i] = false;
-           }
-           if(isLeft || isRight)
-           {
-               if(imageLine.Exist_Left[i+1] && imageLine.Exist_Left[i] && imageLine.Exist_Left[i - 1] &&\
-                   imageLine.Point_Left[i] == 1 + imageLine.Point_Left[i+1] &&\
-                   imageLine.Point_Left[i-1] == 1 + imageLine.Point_Left[i])
-               {
-                   imageLine.Exist_Left[i+1] = false;
-                   imageLine.Exist_Left[i] = false;
-               }
-               if(imageLine.Exist_Right[i+1] && imageLine.Exist_Right[i] && imageLine.Exist_Right[i - 1] &&\
-                                  imageLine.Point_Right[i+1] == 1 + imageLine.Point_Right[i]\
-                                  && imageLine.Point_Right[i] == 1 + imageLine.Point_Right[i - 1])
-               {
-                   imageLine.Exist_Right[i+1] = false;
-                   imageLine.Exist_Right[i] = false;
-               }
            }
        }
    }
@@ -1666,6 +1828,7 @@ void link_Mend(void)
       }
    }
    left_right_Limit();
+   lostLine_Filter();
 }
 
 
@@ -2294,7 +2457,8 @@ void doFilter(void)
     lostLine_Filter();
     if(flag_isLeft_ring || flag_isRight_ring)
     singlePoint_Filter();//测试：单独点滤去
-
+    if(flag_garage_turn == 1)
+        garage_find();
 }
 
 /*****************************************************************
@@ -2566,6 +2730,7 @@ short road_Width_R(uint8_t row,uint8_t way)
     return 0;
 }
 
+uint8_t road_Width_Last = 47;
 /*****************************************************************
 *Function: road_Width_L(uint8_t row,uint8_t way)
 *Description: 检测左方元素时所用的路宽检测
@@ -2669,7 +2834,7 @@ bool isStraightRight(uint8_t row)
 {
     if(imageLine.Exist_Right[row] && imageLine.Exist_Right[row + 1])
     {
-        if(ABS(imageLine.Point_Right[row]-imageLine.Point_Right[row + 1])>1)
+        if(ABS(imageLine.Point_Right[row+1]-imageLine.Point_Right[row])>1)
             return false;
     }
     return true;
@@ -2924,7 +3089,7 @@ void StraightLineJudge(void)
     bool temp_rightLine_lost = false;//丢右线（临时标志
 
     //拟合左线---------------------
-    for (i = EFFECTIVE_ROW+2; i < MT9V03X_H; i++)
+    for (i = EFFECTIVE_ROW+6; i < MT9V03X_H; i++)
     {
         if (imageLine.Exist_Left[i])
         {
@@ -2940,7 +3105,7 @@ void StraightLineJudge(void)
         imageLine.Lost_Left = true;
 
     //拟合右线---------------------
-    for (i = EFFECTIVE_ROW+2; i < MT9V03X_H; i++)
+    for (i = EFFECTIVE_ROW+6; i < MT9V03X_H; i++)
     {
         if (imageLine.Exist_Right[i])
         {
@@ -2963,7 +3128,7 @@ void StraightLineJudge(void)
     {
         temp_leftLine_lost = true;
         //左线丢了 再找一次左线----------
-        for (i = EFFECTIVE_ROW+2; i < MT9V03X_H; i++)//从上往下
+        for (i = EFFECTIVE_ROW+6; i < MT9V03X_H; i++)//从上往下
         {
             if (imageLine.Exist_Right[i])//找到右边界点
             {
@@ -2982,7 +3147,7 @@ void StraightLineJudge(void)
 
         //第二次拟合------
         count1 = 0;
-        for (i = EFFECTIVE_ROW+2; i < MT9V03X_H; i++)
+        for (i = EFFECTIVE_ROW+6; i < MT9V03X_H; i++)
         {
             if (imageLine.Exist_Left[i])
             {
@@ -3002,7 +3167,7 @@ void StraightLineJudge(void)
     {
         temp_rightLine_lost = true;
         //右线丢了 再找一次右线----------
-        for (i = EFFECTIVE_ROW+2; i < MT9V03X_H; i++)//从上往下
+        for (i = EFFECTIVE_ROW+6; i < MT9V03X_H; i++)//从上往下
         {
             if (imageLine.Exist_Left[i])//找到左边界点
             {
@@ -3021,7 +3186,7 @@ void StraightLineJudge(void)
 
         //第二次拟合------
         count2 = 0;
-        for (i = EFFECTIVE_ROW+2; i < MT9V03X_H; i++)
+        for (i = EFFECTIVE_ROW+6; i < MT9V03X_H; i++)
         {
             if (imageLine.Exist_Right[i])
             {
@@ -3893,7 +4058,7 @@ void updateMediumLine(void)
         imageLine.Lost_Center = false;
         imageLine.Exist_Center[AIM_LINE_SET] = true;
         imageLine.Point_Center[AIM_LINE_SET] = 90;
-        garage_find();
+
     }
     //2. 计算中线打角
     rst = MediumLineCal(camERR.cam_finalCenterERR);

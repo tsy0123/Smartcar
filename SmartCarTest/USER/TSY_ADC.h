@@ -1,6 +1,6 @@
 #include "stdint.h"
-#define TM1620_IIC_SCL_PIN   P13_1   /*!< P13_1  作为 SCL */
-#define TM1620_IIC_SDA_PIN   P13_2   /*!< P13_2  作为 SDA */
+#define TM1620_IIC_SCL_PIN   P33_10   /*!< P13_1  作为 SCL */
+#define TM1620_IIC_SDA_PIN   P33_13   /*!< P13_2  作为 SDA */
 
 #define TM1620_SDA_OUT        PIN_Dir(TM1620_IIC_SDA_PIN, 1);
 #define TM1620_SDA_IN         PIN_Dir(TM1620_IIC_SDA_PIN, 0);
@@ -39,7 +39,9 @@ enum TSY_Charge_ADC_Channel
     ADC_VOLTAGE_IN,
     ADC_CONSTANT_VOLTAGE_OUT,
     ADC_CONSTANT_CURRENT_OUT
-}TSY_Charge_ADC_t;
+};
+unsigned short ADC_Read_filter(uint8_t adc, uint8_t count);
+void ADC_Init_TSY(void);
 void LEDChoose(uint8_t num);
 void LEDControl(uint8_t num);
 void TM1620_Init(void);

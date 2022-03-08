@@ -31,8 +31,8 @@ QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ*/
 #include <stdio.h>
 //龙邱TFT SPI口模块管脚顺序
 #define TFTSPI_CS       P20_13     // CS管脚 默认拉低，可以不用
-#define TFTSPI_SCK      P20_14     // SPI SCK管脚
-#define TFTSPI_SDI      P20_11     // SPI MOSI管脚
+#define TFTSPI_SCK      P20_11     // SPI SCK管脚
+#define TFTSPI_SDI      P20_14     // SPI MOSI管脚
 #define TFTSPI_DC       P20_12     // D/C管脚
 #define TFTSPI_RST      P20_10     // RESET管脚
 
@@ -112,195 +112,86 @@ void TFTSPI_Init(unsigned char type)
 #endif
 
     TFTSPI_RST_L;
-        lq_tft_delayms(50);
+        lq_tft_delayms(100);
         TFTSPI_RST_H;
-        lq_tft_delayms(50);
-        TFTSPI_Write_Cmd(0x11);                 //关闭睡眠，振荡器工作
-        lq_tft_delayms(120);
+        lq_tft_delayms(100);
 
-    TFTSPI_Write_Cmd(0xB1);
-        TFTSPI_Write_Byte(0x01);
-        TFTSPI_Write_Byte(0x2C);
-        TFTSPI_Write_Byte(0x2D);
+          //************* Start Initial Sequence **********//
+          LCD_WR_REG(0x11); //Sleep out
+          lq_tft_delayms(120);              //Delay 120ms
+          //************* Start Initial Sequence **********//
+          LCD_WR_REG(0x36);
+          LCD_WR_DATA(0xC0);
 
-        TFTSPI_Write_Cmd(0xB2);
-        TFTSPI_Write_Byte(0x01);
-        TFTSPI_Write_Byte(0x2C);
-        TFTSPI_Write_Byte(0x2D);
+          LCD_WR_REG(0x3A);
+          LCD_WR_DATA(0x05);
 
-        TFTSPI_Write_Cmd(0xB3);
-        TFTSPI_Write_Byte(0x01);
-        TFTSPI_Write_Byte(0x2C);
-        TFTSPI_Write_Byte(0x2D);
-        TFTSPI_Write_Byte(0x01);
-        TFTSPI_Write_Byte(0x2C);
-        TFTSPI_Write_Byte(0x2D);
+          LCD_WR_REG(0xB2);
+          LCD_WR_DATA(0x0C);
+          LCD_WR_DATA(0x0C);
+          LCD_WR_DATA(0x00);
+          LCD_WR_DATA(0x33);
+          LCD_WR_DATA(0x33);
 
-        TFTSPI_Write_Cmd(0xB4); //Column inversion
-        TFTSPI_Write_Byte(0x00);
+          LCD_WR_REG(0xB7);
+          LCD_WR_DATA(0x35);
 
-        //ST7735R Power Sequence
-        TFTSPI_Write_Cmd(0xC0);
-        TFTSPI_Write_Byte(0xA2);
-        TFTSPI_Write_Byte(0x02);
-        TFTSPI_Write_Byte(0x84);
-        TFTSPI_Write_Cmd(0xC1);
-        TFTSPI_Write_Byte(0xC5);
+          LCD_WR_REG(0xBB);
+          LCD_WR_DATA(0x19);
 
-        TFTSPI_Write_Cmd(0xC2);
-        TFTSPI_Write_Byte(0x0A);
-        TFTSPI_Write_Byte(0x00);
+          LCD_WR_REG(0xC0);
+          LCD_WR_DATA(0x2C);
 
-        TFTSPI_Write_Cmd(0xC3);
-        TFTSPI_Write_Byte(0x8A);
-        TFTSPI_Write_Byte(0x2A);
-        TFTSPI_Write_Cmd(0xC4);
-        TFTSPI_Write_Byte(0x8A);
-        TFTSPI_Write_Byte(0xEE);
+          LCD_WR_REG(0xC2);
+          LCD_WR_DATA(0x01);
 
-        TFTSPI_Write_Cmd(0xC5); //VCOM
-        TFTSPI_Write_Byte(0x0E);
+          LCD_WR_REG(0xC3);
+          LCD_WR_DATA(0x12);
 
-        TFTSPI_Write_Cmd(0x36);
-        TFTSPI_Write_Byte(0xC8);
+          LCD_WR_REG(0xC4);
+          LCD_WR_DATA(0x20);
 
-        //ST7735R Gamma Sequence
-        TFTSPI_Write_Cmd(0xe0);
-        TFTSPI_Write_Byte(0x0f);
-        TFTSPI_Write_Byte(0x1a);
-        TFTSPI_Write_Byte(0x0f);
-        TFTSPI_Write_Byte(0x18);
-        TFTSPI_Write_Byte(0x2f);
-        TFTSPI_Write_Byte(0x28);
-        TFTSPI_Write_Byte(0x20);
-        TFTSPI_Write_Byte(0x22);
-        TFTSPI_Write_Byte(0x1f);
-        TFTSPI_Write_Byte(0x1b);
-        TFTSPI_Write_Byte(0x23);
-        TFTSPI_Write_Byte(0x37);
-        TFTSPI_Write_Byte(0x00);
-        TFTSPI_Write_Byte(0x07);
-        TFTSPI_Write_Byte(0x02);
-        TFTSPI_Write_Byte(0x10);
+          LCD_WR_REG(0xC6);
+          LCD_WR_DATA(0x0F);
 
-        TFTSPI_Write_Cmd(0xe1);
-        TFTSPI_Write_Byte(0x0f);
-        TFTSPI_Write_Byte(0x1b);
-        TFTSPI_Write_Byte(0x0f);
-        TFTSPI_Write_Byte(0x17);
-        TFTSPI_Write_Byte(0x33);
-        TFTSPI_Write_Byte(0x2c);
-        TFTSPI_Write_Byte(0x29);
-        TFTSPI_Write_Byte(0x2e);
-        TFTSPI_Write_Byte(0x30);
-        TFTSPI_Write_Byte(0x30);
-        TFTSPI_Write_Byte(0x39);
-        TFTSPI_Write_Byte(0x3f);
-        TFTSPI_Write_Byte(0x00);
-        TFTSPI_Write_Byte(0x07);
-        TFTSPI_Write_Byte(0x03);
-        TFTSPI_Write_Byte(0x10);
+          LCD_WR_REG(0xD0);
+          LCD_WR_DATA(0xA4);
+          LCD_WR_DATA(0xA1);
 
-        TFTSPI_Write_Cmd(0x2a);
-        TFTSPI_Write_Byte(0x00);
-        TFTSPI_Write_Byte(0x00);
-        TFTSPI_Write_Byte(0x00);
-        TFTSPI_Write_Byte(0x7f);
+          LCD_WR_REG(0xE0);
+          LCD_WR_DATA(0xD0);
+          LCD_WR_DATA(0x04);
+          LCD_WR_DATA(0x0D);
+          LCD_WR_DATA(0x11);
+          LCD_WR_DATA(0x13);
+          LCD_WR_DATA(0x2B);
+          LCD_WR_DATA(0x3F);
+          LCD_WR_DATA(0x54);
+          LCD_WR_DATA(0x4C);
+          LCD_WR_DATA(0x18);
+          LCD_WR_DATA(0x0D);
+          LCD_WR_DATA(0x0B);
+          LCD_WR_DATA(0x1F);
+          LCD_WR_DATA(0x23);
 
-        TFTSPI_Write_Cmd(0x2b);
-        TFTSPI_Write_Byte(0x00);
-        TFTSPI_Write_Byte(0x00);
-        TFTSPI_Write_Byte(0x00);
-        TFTSPI_Write_Byte(0x9f);
+          LCD_WR_REG(0xE1);
+          LCD_WR_DATA(0xD0);
+          LCD_WR_DATA(0x04);
+          LCD_WR_DATA(0x0C);
+          LCD_WR_DATA(0x11);
+          LCD_WR_DATA(0x13);
+          LCD_WR_DATA(0x2C);
+          LCD_WR_DATA(0x3F);
+          LCD_WR_DATA(0x44);
+          LCD_WR_DATA(0x51);
+          LCD_WR_DATA(0x2F);
+          LCD_WR_DATA(0x1F);
+          LCD_WR_DATA(0x1F);
+          LCD_WR_DATA(0x20);
+          LCD_WR_DATA(0x23);
+          LCD_WR_REG(0x21);
 
-        TFTSPI_Write_Cmd(0xF0); //Enable test command
-        TFTSPI_Write_Byte(0x01);
-        TFTSPI_Write_Cmd(0xF6); //Disable ram power save mode
-        TFTSPI_Write_Byte(0x00);
-
-        TFTSPI_Write_Cmd(0x3A); //65k mode
-        TFTSPI_Write_Byte(0x05);
-
-        TFTSPI_Write_Cmd(0x29);//Display on
-/*	TFTSPI_RST_L;
-    lq_tft_delayms(50);
-    TFTSPI_RST_H;
-    lq_tft_delayms(50);
-	TFTSPI_Write_Cmd(0x11);       		  	//关闭睡眠，振荡器工作
-	lq_tft_delayms(10);
-	TFTSPI_Write_Cmd(0x3a);       		  	//每次传送16位数据(VIPF3-0=0101)，每个像素16位(IFPF2-0=101)
-	TFTSPI_Write_Byte(0x55);
-	TFTSPI_Write_Cmd(0x26);
-	TFTSPI_Write_Byte(0x04);
-	TFTSPI_Write_Cmd(0xf2);              		//Driver Output Control(1)
-	TFTSPI_Write_Byte(0x01);
-	TFTSPI_Write_Cmd(0xe0);              		//Driver Output Control(1)
-	TFTSPI_Write_Byte(0x3f);
-	TFTSPI_Write_Byte(0x25);
-	TFTSPI_Write_Byte(0x1c);
-	TFTSPI_Write_Byte(0x1e);
-	TFTSPI_Write_Byte(0x20);
-	TFTSPI_Write_Byte(0x12);
-	TFTSPI_Write_Byte(0x2a);
-	TFTSPI_Write_Byte(0x90);
-	TFTSPI_Write_Byte(0x24);
-	TFTSPI_Write_Byte(0x11);
-	TFTSPI_Write_Byte(0x00);
-	TFTSPI_Write_Byte(0x00);
-	TFTSPI_Write_Byte(0x00);
-	TFTSPI_Write_Byte(0x00);
-	TFTSPI_Write_Byte(0x00);
-	TFTSPI_Write_Cmd(0xe1);              //Driver Output Control(1)
-	TFTSPI_Write_Byte(0x20);
-	TFTSPI_Write_Byte(0x20);
-	TFTSPI_Write_Byte(0x20);
-	TFTSPI_Write_Byte(0x20);
-	TFTSPI_Write_Byte(0x05);
-	TFTSPI_Write_Byte(0x00);
-	TFTSPI_Write_Byte(0x15);
-	TFTSPI_Write_Byte(0xa7);
-	TFTSPI_Write_Byte(0x3d);
-	TFTSPI_Write_Byte(0x18);
-	TFTSPI_Write_Byte(0x25);
-	TFTSPI_Write_Byte(0x2a);
-	TFTSPI_Write_Byte(0x2b);
-	TFTSPI_Write_Byte(0x2b);
-	TFTSPI_Write_Byte(0x3a);
-	TFTSPI_Write_Cmd(0xb1);      //0xb1      	//设置屏幕刷新频率
-	TFTSPI_Write_Byte(0x00);     //0x08		//DIVA=8
-	TFTSPI_Write_Byte(0x00);	    //0x08		//VPA =8，约90Hz
-	TFTSPI_Write_Cmd(0xb4);              	//LCD Driveing control
-	TFTSPI_Write_Byte(0x07);			//NLA=1,NLB=1,NLC=1
-	TFTSPI_Write_Cmd(0xc0);              //LCD Driveing control  Power_Control1
-	TFTSPI_Write_Byte(0x0a);
-	TFTSPI_Write_Byte(0x02);
-	TFTSPI_Write_Cmd(0xc1);              //LCD Driveing control
-	TFTSPI_Write_Byte(0x02);
-	TFTSPI_Write_Cmd(0xc5);              //LCD Driveing control
-	TFTSPI_Write_Byte(0x4f);
-	TFTSPI_Write_Byte(0x5a);
-	TFTSPI_Write_Cmd(0xc7);              //LCD Driveing control
-	TFTSPI_Write_Byte(0x40);
-	TFTSPI_Write_Cmd(0x2a);              //配置MCU可操作的LCD内部RAM横坐标起始、结束参数
-	TFTSPI_Write_Byte(0x00);		//横坐标起始地址0x0000
-	TFTSPI_Write_Byte(0x00);
-	TFTSPI_Write_Byte(0x00);		//横坐标结束地址0x007f(127)
-	TFTSPI_Write_Byte(0xa8);                //7f
-	TFTSPI_Write_Cmd(0x2b);              //配置MCU可操作的LCD内部RAM纵坐标起始结束参数
-	TFTSPI_Write_Byte(0x00);		//纵坐标起始地址0x0000
-	TFTSPI_Write_Byte(0x00);
-	TFTSPI_Write_Byte(0x00);		//纵坐标结束地址0x009f(159)
-	TFTSPI_Write_Byte(0xb3);                //9f
-	TFTSPI_Write_Cmd(0x36);              //配置MPU和DDRAM对应关系
-	if(type)
-	TFTSPI_Write_Byte(0xC0);                //竖屏显示          //MX=1,MY=1
-	else
-	TFTSPI_Write_Byte(0xA0);            	  //横屏显示
-
-	TFTSPI_Write_Cmd(0xb7);              //LCD Driveing control
-	TFTSPI_Write_Byte(0x00);		       //CRL=0
-	TFTSPI_Write_Cmd(0x29);   		   //开启屏幕显示
-	TFTSPI_Write_Cmd(0x2c);   		   //设置为LCD接收数据/命令模式*/
+          LCD_WR_REG(0x29);
 }
 
 /*!
@@ -462,12 +353,13 @@ void TFTSPI_Write_Byte(unsigned char dat)
 void LCD_Address_Set(uint16_t x1,uint16_t y1,uint16_t x2,uint16_t y2)
 {
         LCD_WR_REG(0x2a);//列地址设置
-        LCD_WR_DATA(x1+2);
-        LCD_WR_DATA(x2+2);
+        LCD_WR_DATA(x1);
+        LCD_WR_DATA(x2);
         LCD_WR_REG(0x2b);//行地址设置
-        LCD_WR_DATA(y1+67);
-        LCD_WR_DATA(y2+67);
+        LCD_WR_DATA(y1+80);
+        LCD_WR_DATA(y2+80);
         LCD_WR_REG(0x2c);//储存器写
+
 }
 /******************************************************************************
       函数说明：显示图片（二值化）

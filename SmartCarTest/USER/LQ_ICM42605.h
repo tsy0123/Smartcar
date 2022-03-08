@@ -1,43 +1,47 @@
-/*
- * ICM42605.h
- *
- *  Created on: 2022年3月2日
- *      Author: 67552
- */
+/*LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+【平    台】北京龙邱智能科技K66核心板
+【编    写】chiusir
+【E-mail  】chiusir@163.com
+【软件版本】V1.1 版权所有，单位使用请先联系授权
+【最后更新】2020年8月10日
+【相关信息参考下列地址】
+【网    站】http://www.lqist.cn
+【淘宝店铺】http://longqiu.taobao.com
+------------------------------------------------
+【dev.env.】IAR/KEIL
+【Target 】 K60
+【Crystal】 50.000Mhz
+【SYS PLL】 180MHz
+________________________________________________________________
 
-#ifndef ICM42605_H_
-#define ICM42605_H_
+QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ*/
+#ifndef __LQ_ICM42605_H
+#define __LQ_ICM42605_H
 
-#define ICM42605_ADDR  0x68  //IIC写入时的地址字节数据，+1为读取
-#define ICM42605_ID    0x42  //IIC地址寄存器(默认数值0x68，只读)
-//****************************************
-// 定义MPU6050内部地址
-//****************************************
-//MPU6500的内部寄存器
-#define ICM_BANK_SEL            0X76    //BANK选择寄存器
-
+#include <stdint.h>
 #define fifo_packet_structure_size   16
 #define fifo_packet_num              32
 #define fifo_packet_size             fifo_packet_structure_size*fifo_packet_num
 
 #define who_am_i                     0x75
+#define ICM42605_ID	             0x42	
 
-#define ICM4_TEMP_OUTH_REG       0X1D    //温度值高八位寄存器
-#define ICM4_TEMP_OUTL_REG       0X1E    //温度值低8位寄存器
+#define ICM_TEMP_OUTH_REG		0X1D	//温度值高八位寄存器
+#define ICM_TEMP_OUTL_REG		0X1E	//温度值低8位寄存器
 
-#define ICM4_ACCEL_XOUTH_REG     0X1F    //加速度值,X轴高8位寄存器
-#define ICM4_ACCEL_XOUTL_REG     0X20    //加速度值,X轴低8位寄存器
-#define ICM4_ACCEL_YOUTH_REG     0X21    //加速度值,Y轴高8位寄存器
-#define ICM4_ACCEL_YOUTL_REG     0X22    //加速度值,Y轴低8位寄存器
-#define ICM4_ACCEL_ZOUTH_REG     0X23    //加速度值,Z轴高8位寄存器
-#define ICM4_ACCEL_ZOUTL_REG     0X24    //加速度值,Z轴低8位寄存器
+#define ICM_ACCEL_XOUTH_REG		0X1F	//加速度值,X轴高8位寄存器
+#define ICM_ACCEL_XOUTL_REG		0X20	//加速度值,X轴低8位寄存器
+#define ICM_ACCEL_YOUTH_REG		0X21	//加速度值,Y轴高8位寄存器
+#define ICM_ACCEL_YOUTL_REG		0X22	//加速度值,Y轴低8位寄存器
+#define ICM_ACCEL_ZOUTH_REG		0X23	//加速度值,Z轴高8位寄存器
+#define ICM_ACCEL_ZOUTL_REG		0X24	//加速度值,Z轴低8位寄存器
 
-#define ICM4_GYRO_XOUTH_REG      0X25    //陀螺仪值,X轴高8位寄存器
-#define ICM4_GYRO_XOUTL_REG      0X26    //陀螺仪值,X轴低8位寄存器
-#define ICM4_GYRO_YOUTH_REG      0X27    //陀螺仪值,Y轴高8位寄存器
-#define ICM4_GYRO_YOUTL_REG      0X28    //陀螺仪值,Y轴低8位寄存器
-#define ICM4_GYRO_ZOUTH_REG      0X29    //陀螺仪值,Z轴高8位寄存器
-#define ICM4_GYRO_ZOUTL_REG      0X2A    //陀螺仪值,Z轴低8位寄存器
+#define ICM_GYRO_XOUTH_REG		0X25	//陀螺仪值,X轴高8位寄存器
+#define ICM_GYRO_XOUTL_REG		0X26	//陀螺仪值,X轴低8位寄存器
+#define ICM_GYRO_YOUTH_REG		0X27	//陀螺仪值,Y轴高8位寄存器
+#define ICM_GYRO_YOUTL_REG		0X28	//陀螺仪值,Y轴低8位寄存器
+#define ICM_GYRO_ZOUTH_REG		0X29	//陀螺仪值,Z轴高8位寄存器
+#define ICM_GYRO_ZOUTL_REG		0X2A	//陀螺仪值,Z轴低8位寄存器
 
 
 #define reg_bank_sel                 0x76
@@ -67,7 +71,7 @@
 #define bit_gyro_odr_100hz           ((0x08)<<0)
 #define bit_gyro_odr_50hz            ((0x09)<<0)
 #define bit_gyro_odr_nonflame_mask   ((0x0F)<<0)
-
+	
 #define accel_config0_reg            0x50
 #define bit_accel_ui_fs_sel_shift    5
 #define bit_accel_ui_fs_sel_8g       ((0x01)<<bit_accel_ui_fs_sel_shift)
@@ -75,8 +79,8 @@
 #define bit_accel_odr_100hz          ((0x08)<<0)
 #define bit_accel_odr_50hz           ((0x09)<<0)
 #define bit_accel_odr_nonflame_mask  ((0x0F)<<0)
-
-#define int_source0_reg               0x65
+	
+#define int_source0_reg               0x65	
 #define bit_int_ui_fsync_int1_en      0x40
 #define bit_int_pll_rdy_int1_en       0x20
 #define bit_int_reset_done_int1_en    0x10
@@ -90,7 +94,7 @@
 #define bit_gyro_st_result            0x04
 #define bit_accel_st_status           0x02
 #define bit_gyro_st_status            0x01
-
+	
 #define int_config_reg                0x14
 #define bit_int2_mode                 0x20
 #define bit_int2_drive_circuit        0x10
@@ -98,13 +102,13 @@
 #define bit_int1_mode                 0x04
 #define bit_int1_drive_circuit        0x02
 #define bit_int1_polarity             0x01
-
+	
 #define fifo_config_reg               0x16
 #define bit_fifo_mode_ctrl_mask       ((0x03)<<6)
 #define bit_fifo_mode_ctrl_bypass     ((0x00)<<6)
 #define bit_fifo_mode_ctrl_stream     ((0x01)<<6)
 #define bit_fifo_mode_ctrl_snapshot   ((0x02)<<6)
-
+	
 #define tmst_config_reg                0x54
 #define bit_fifo_ram_iso_ena           0x40
 #define bit_en_dreg_fifo_d2a           0x20
@@ -113,11 +117,11 @@
 #define bit_tmst_delta_en              0x04
 #define bit_tmst_fsync_en              0x02
 #define bit_tmst_en                    0x01
-
-#define fifo_config2_reg               0x60
+	
+#define fifo_config2_reg               0x60	
 #define fifo_config3_reg               0x61
 
-#define fsync_config_reg               0x62
+#define fsync_config_reg               0x62				
 #define bit_fsync_ui_sel_mask          ((0x07)<<4)
 #define bit_fsync_ui_sel_tag_temp      ((0x01)<<4)
 #define bit_fsync_ui_flag_clear_sel    0x02
@@ -130,7 +134,7 @@
 #define bit_fifo_temp_en               0x04
 #define bit_fifo_gyro_en               0x02
 #define bit_fifo_accel_en              0x01
-
+	
 #define int_config0_reg                0x63
 #define int_config1_reg                0x64
 #define bit_int_asy_rst_disable        0x10
@@ -147,5 +151,53 @@
 #define gyr_ssl                        32.8f
 #define acc_ssl                        0.244f
 
-void ICM42605_Init(void);
-#endif /* ICM42605_H_ */
+
+typedef struct
+{
+	int16_t Sample_accdata[3*fifo_packet_num];
+	int16_t Sample_gyrdata[3*fifo_packet_num];
+}Sample_data_type_t;
+
+typedef struct {
+    float Xdata;
+    float Ydata;
+    float Zdata;
+}gyro_param_t;
+
+typedef struct {
+    float acc_x;
+    float acc_y;
+    float acc_z;
+    float gyro_x;
+    float gyro_y;
+    float gyro_z;
+}icm_param_t;
+
+typedef struct{
+    float q0;
+    float q1;
+    float q2;
+    float q3;
+    }quater_param_t;
+
+typedef struct {
+    float yaw;
+    float roll;
+    float pitch;
+}euler_param_t;
+
+void SPI_SoftInit(void);
+void SPI_SoftReadWriteNbyte(uint8_t *buff,uint16_t len);
+void ICM_Read_Len(uint8_t reg,uint8_t len,uint8_t *buf);
+uint8_t icm42605_read_reg(uint8_t reg);
+uint8_t icm42605_write_reg(uint8_t reg,uint8_t value);
+uint8_t icm42605_read_regs(uint8_t reg,uint8_t *buf,uint16_t len);
+void ICM_Get_Gyroscope(short *gx,short *gy,short *gz);
+void ICM_Get_Accelerometer(short *ax,short *ay,short *az);
+void ICM_Get_Raw_data(short *ax,short *ay,short *az,short *gx,short *gy,short *gz);
+uint8_t icm42605_init(void);
+void icm42605_read_fifo(Sample_data_type_t *data,uint16_t len);
+void icm42605_stop(void);
+void Test_ICM42605FIFO(void);
+
+#endif

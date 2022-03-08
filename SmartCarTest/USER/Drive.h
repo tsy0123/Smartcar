@@ -12,11 +12,11 @@ extern int turnSpeed;
 #define MOTOR_FREQUENCY    10000
 
 //电机PWM 宏定义
-#define MOTOR1_P          IfxGtm_ATOM0_6_TOUT42_P23_1_OUT
-#define MOTOR1_N          IfxGtm_ATOM0_5_TOUT40_P32_4_OUT
+#define MOTOR1_P          P21_2
+#define MOTOR1_N          IfxGtm_ATOM0_1_TOUT54_P21_3_OUT
 
-#define MOTOR2_P          IfxGtm_ATOM0_4_TOUT50_P22_3_OUT
-#define MOTOR2_N          IfxGtm_ATOM0_0_TOUT53_P21_2_OUT
+#define MOTOR2_P          P21_4
+#define MOTOR2_N          IfxGtm_ATOM0_3_TOUT56_P21_5_OUT
 
 
 #define MOTOR3_P          IfxGtm_ATOM0_7_TOUT64_P20_8_OUT
@@ -32,7 +32,7 @@ extern int turnSpeed;
 
 void TSY_MortorCtrl(sint32 motor1, sint32 motor2);
 void TSY_Drive(pid_param_t *pidDrive, pid_param_t *pidLeft, pid_param_t *pidRight);
-
+void MotorInit_TSY (void);
 extern pid_param_t pid_Drive;
 extern pid_param_t pid_Left;
 extern pid_param_t pid_Right;

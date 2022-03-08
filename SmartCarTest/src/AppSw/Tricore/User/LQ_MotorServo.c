@@ -47,10 +47,10 @@ uint16 BatVolt = 0;           // 电池电压采集
 #define MOTOR_FREQUENCY    10000
 
 //电机PWM 宏定义
-#define MOTOR1_P          IfxGtm_ATOM0_6_TOUT42_P23_1_OUT
-#define MOTOR1_N          IfxGtm_ATOM0_5_TOUT40_P32_4_OUT
+#define MOTOR1_P          IfxGtm_ATOM0_3_TOUT56_P21_5_OUT
+#define MOTOR1_N          IfxGtm_ATOM0_2_TOUT55_P21_4_OUT
 
-#define MOTOR2_P          IfxGtm_ATOM0_4_TOUT50_P22_3_OUT
+#define MOTOR2_P          IfxGtm_ATOM0_1_TOUT54_P21_3_OUT
 #define MOTOR2_N          IfxGtm_ATOM0_0_TOUT53_P21_2_OUT
 
 
@@ -78,14 +78,14 @@ uint16 BatVolt = 0;           // 电池电压采集
  *************************************************************************/
 void MotorInit (void)
 {
-    PIN_InitConfig(P23_1, PIN_MODE_OUTPUT, 0);
-    PIN_InitConfig(P32_4, PIN_MODE_OUTPUT, 0);
     PIN_InitConfig(P21_2, PIN_MODE_OUTPUT, 0);
-    PIN_InitConfig(P22_3, PIN_MODE_OUTPUT, 0);
+    PIN_InitConfig(P21_3, PIN_MODE_OUTPUT, 0);
+    PIN_InitConfig(P21_4, PIN_MODE_OUTPUT, 0);
+    PIN_InitConfig(P21_5, PIN_MODE_OUTPUT, 0);
 
-    ATOM_PWM_InitConfig(MOTOR1_P, 0, MOTOR_FREQUENCY);
+    //ATOM_PWM_InitConfig(MOTOR1_P, 0, MOTOR_FREQUENCY);
     ATOM_PWM_InitConfig(MOTOR1_N, 0, MOTOR_FREQUENCY);
-    ATOM_PWM_InitConfig(MOTOR2_P, 0, MOTOR_FREQUENCY);
+    //ATOM_PWM_InitConfig(MOTOR2_P, 0, MOTOR_FREQUENCY);
     ATOM_PWM_InitConfig(MOTOR2_N, 0, MOTOR_FREQUENCY);
 
     //ATOM_PWM_SetDuty(MOTOR1_P, 10000, MOTOR_FREQUENCY);
@@ -103,7 +103,7 @@ void MotorInit (void)
 void EncInit (void)
 {
     ENC_InitConfig(ENC2_InPut_P33_7, ENC2_Dir_P33_6);
-    ENC_InitConfig(ENC4_InPut_P02_8, ENC4_Dir_P33_5);
+    ENC_InitConfig(ENC6_InPut_P20_3, ENC6_Dir_P20_0);
 }
 
 /*************************************************************************

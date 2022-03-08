@@ -158,7 +158,7 @@ void Test_CAMERA (void)
                 LED_Ctrl(LED1,ON);
             else
                 LED_Ctrl(LED1,OFF);
-
+            //CAMERA_Reprot();
 
 #endif
 #endif

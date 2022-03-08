@@ -5,7 +5,7 @@
 pid_param_t pid_Drive;
 pid_param_t pid_Left;
 pid_param_t pid_Right;
-int roadSpeed = 120;
+int roadSpeed = 150;
 int turnSpeed;
 int time = 0;
 float CenterERR = 0;
@@ -15,22 +15,23 @@ void TSY_MortorCtrl(sint32 motor1, sint32 motor2)
 {
     if(motor1 > 0)
     {
-        ATOM_PWM_SetDuty(MOTOR1_P, motor1, MOTOR_FREQUENCY);
-        ATOM_PWM_SetDuty(MOTOR1_N, 0, MOTOR_FREQUENCY);
+        //ATOM_PWM_SetDuty(MOTOR1_P, motor1, MOTOR_FREQUENCY);
+        PIN_Write(MOTOR1_P,1);
+        ATOM_PWM_SetDuty(MOTOR1_N, motor1, MOTOR_FREQUENCY);
     }
     else
     {
-        ATOM_PWM_SetDuty(MOTOR1_P, 0, MOTOR_FREQUENCY);
+        PIN_Write(MOTOR1_P,0);
         ATOM_PWM_SetDuty(MOTOR1_N, -motor1, MOTOR_FREQUENCY);
     }
     if(motor2 > 0)
     {
-        ATOM_PWM_SetDuty(MOTOR2_P, motor2, MOTOR_FREQUENCY);
-        ATOM_PWM_SetDuty(MOTOR2_N, 0, MOTOR_FREQUENCY);
+        PIN_Write(MOTOR2_P,1);
+        ATOM_PWM_SetDuty(MOTOR2_N, motor2, MOTOR_FREQUENCY);
     }
     else
     {
-        ATOM_PWM_SetDuty(MOTOR2_P, 0, MOTOR_FREQUENCY);
+        PIN_Write(MOTOR2_P,0);
         ATOM_PWM_SetDuty(MOTOR2_N, -motor2, MOTOR_FREQUENCY);
     }
 
@@ -38,15 +39,15 @@ void TSY_MortorCtrl(sint32 motor1, sint32 motor2)
 void TSY_Drive(pid_param_t *pidDrive, pid_param_t *pidLeft, pid_param_t *pidRight)
 {
     short ENCLeft = ENC_GetCounter(ENC2_InPut_P33_7);
-    short ENCRight = -ENC_GetCounter(ENC4_InPut_P02_8);
+    short ENCRight = -ENC_GetCounter(ENC6_InPut_P20_3);
     short MotorLeft = 0;
     short MotorRight = 0;
     float speedSet = (float)roadSpeed;
-    if((camERR.cam_finalCenterERR[0]>-4 && camERR.cam_finalCenterERR[0] < 4)\
+    /*if((camERR.cam_finalCenterERR[0]>-4 && camERR.cam_finalCenterERR[0] < 4)\
             && (camERR.cam_finalCenterERR[1]>-4 && camERR.cam_finalCenterERR[1] < 4)\
             && (camERR.cam_finalCenterERR[2]>-4 && camERR.cam_finalCenterERR[2] < 4))
         speedSet = roadSpeed * 1.2;
-    else
+    else*/
         speedSet = (float)roadSpeed;
     if(WIFI_show_Chart == true)
         time++;
@@ -109,4 +110,20 @@ void TSY_Drive(pid_param_t *pidDrive, pid_param_t *pidLeft, pid_param_t *pidRigh
     if(MotorRight>5000) MotorRight = 5000;
     if(MotorRight<-5000) MotorRight = -5000;
     TSY_MortorCtrl(MotorLeft,MotorRight);
+}
+
+void MotorInit_TSY (void)
+{
+    PIN_InitConfig(P21_2, PIN_MODE_OUTPUT, 0);
+    PIN_InitConfig(MOTOR1_P, PIN_MODE_OUTPUT, 1);
+    PIN_InitConfig(P21_4, PIN_MODE_OUTPUT, 0);
+    PIN_InitConfig(MOTOR2_P, PIN_MODE_OUTPUT, 1);
+
+    //ATOM_PWM_InitConfig(MOTOR1_P, 0, MOTOR_FREQUENCY);
+    ATOM_PWM_InitConfig(MOTOR1_N, 0, MOTOR_FREQUENCY);
+    //ATOM_PWM_InitConfig(MOTOR2_P, 0, MOTOR_FREQUENCY);
+    ATOM_PWM_InitConfig(MOTOR2_N, 0, MOTOR_FREQUENCY);
+
+    //ATOM_PWM_SetDuty(MOTOR1_P, 10000, MOTOR_FREQUENCY);
+    //ATOM_PWM_SetDuty(MOTOR2_P, 10000, MOTOR_FREQUENCY);
 }

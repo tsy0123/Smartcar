@@ -46,8 +46,8 @@
 #define BOTTOM_LEFT              10
 #define BOTTOM_RIGHT             84
 //斑马线相关参数
-#define ZEBRA_DETECT_START_ROW          25
-#define ZEBRA_DETECT_END_ROW            50
+#define ZEBRA_DETECT_START_ROW          15
+#define ZEBRA_DETECT_END_ROW            45
 //三叉相关参数
 #define FORK_DETECT_START_ROW           56
 #define FORK_DETECT_END_ROW             30
@@ -56,21 +56,21 @@
 #define FORK_DETECT_LOST_TURN_ROW       40
 
 //圆环相关参数
-#define JUDGE_LEFT_RIGHT_START_ROW      25
-#define RING_EDGE_DECREASE_START_ROW    8
-#define RING_EDGE_DECREASE_END_ROW      50
-#define RING_EDGE_INCREASE_START_ROW    15
-#define RING_EDGE_INCREASE_END_ROW      40
-#define RING_SUDDEN_CHANGE_START_ROW    13
-#define RING_SUDDEN_CHANGE_END_ROW      30
-#define RING_IN_MEND_START_ROW          55
-#define RING_IN_MEND_END_ROW            8
+#define JUDGE_LEFT_RIGHT_START_ROW      30
+#define RING_EDGE_DECREASE_START_ROW    30
+#define RING_EDGE_DECREASE_END_ROW      55
+#define RING_EDGE_INCREASE_START_ROW    25
+#define RING_EDGE_INCREASE_END_ROW      58
+#define RING_SUDDEN_CHANGE_START_ROW    17
+#define RING_SUDDEN_CHANGE_END_ROW      45
+#define RING_IN_MEND_START_ROW          45
+#define RING_IN_MEND_END_ROW            15
 #define LOST_PICTURE_NUM                0
-#define RING_OUT_TURNPOINT_START_ROW    55
-#define RING_OUT_TURNPOINT_END_ROW      15
+#define RING_OUT_TURNPOINT_START_ROW    45
+#define RING_OUT_TURNPOINT_END_ROW      20
 #define RING_LOST_COUNT                 4
-#define RING_OUT_DETECT_START_ROW       12
-#define RING_OUT_DETECT_END_ROW         40
+#define RING_OUT_DETECT_START_ROW       40
+#define RING_OUT_DETECT_END_ROW         50
 
 //十字相关参数
 #define CROSS_DETECT_LINE_COUNT         10
@@ -128,6 +128,9 @@ extern uint8_t flag_crossLeft_find;
 extern uint8_t flag_crossRight_find;
 extern uint8_t crossRight_flag;
 extern uint8_t crossLeft_flag;
+extern uint8_t zebra_cross_count;
+extern uint8_t garage_in;
+extern short flag_garage_turn;
 //图像处理函数///////////////////////////////////////////////////////////////
 //imageAPI
 //bool isTopExistPoint(uint8_t dir);//顶部是否存在边界点判断

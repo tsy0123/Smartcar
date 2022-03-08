@@ -28,25 +28,25 @@ float CapPower = 0;
 #define CHARGE_PWM          IfxGtm_ATOM0_6_TOUT42_P23_1_OUT
 #define CHARGE_FREQUENCY    1000
 
-void ADC_Init(void)
+void ADC_Init_TSY(void)
 {
     PIN_InitConfig(P23_1, PIN_MODE_OUTPUT, 0);//IN
     PIN_InitConfig(P22_3, PIN_MODE_OUTPUT, 1);//SD
 
-    ATOM_PWM_InitConfig(CHARGE_PWM, 0, CHARGE_FREQUENCY);
+    //ATOM_PWM_InitConfig(CHARGE_PWM, 0, CHARGE_FREQUENCY);
     TM1620_Init();
     LEDControl(0);
 
-    PidSet(pid_PowerControl, 0.0, 0.0, 0.0, 90000.0);
-    ADC_InitConfig(SIGNAL_DETECT_1, 80000); //初始化
+    //PidSet(pid_PowerControl, 0.0, 0.0, 0.0, 90000.0);
+    /*ADC_InitConfig(SIGNAL_DETECT_1, 80000); //初始化
     ADC_InitConfig(SIGNAL_DETECT_2, 80000);
     ADC_InitConfig(CAPACITOR_VOLTAGE, 80000);
     ADC_InitConfig(BATTERY_VOTAGE, 80000);
     ADC_InitConfig(VOLTAGE_IN, 80000);
     ADC_InitConfig(CONSTANT_VOLTAGE_OUT, 80000);
-    ADC_InitConfig(CONSTANT_CURRENT_OUT, 80000);
+    ADC_InitConfig(CONSTANT_CURRENT_OUT, 80000);*/
 
-    pid_PowerControl->target = 50;
+    //pid_PowerControl->target = 50;
 }
 
 unsigned short ADC_Read_filter(uint8_t adc, uint8_t count)

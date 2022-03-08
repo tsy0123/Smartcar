@@ -41,6 +41,7 @@ void GPIO_KEY_Init(void)
 	  PIN_InitConfig(KEY0p, PIN_MODE_INPUT, 1);
 	  PIN_InitConfig(KEY1p, PIN_MODE_INPUT, 1);
 	  PIN_InitConfig(KEY2p, PIN_MODE_INPUT, 1);
+	  PIN_InitConfig(P33_12, PIN_MODE_INPUT, 1);
 	  PIN_InitConfig(DSW0p, PIN_MODE_INPUT, 1);
 	  PIN_InitConfig(DSW1p, PIN_MODE_INPUT, 1);
 }

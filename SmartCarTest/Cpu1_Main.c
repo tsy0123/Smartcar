@@ -104,6 +104,7 @@ QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ*/
 #include <LQ_ADC.h>
 #include <Drive.h>
 #include <TSY_WIFI.h>
+
 // 定时器 5ms和50ms标志位
 volatile uint8 cpu1Flage5ms = 0;
 volatile uint8 cpu1Flage50ms = 0;
@@ -128,8 +129,8 @@ int core1_main (void)
 
 
 
-    PIN_InitConfig(P33_8, PIN_MODE_OUTPUT, 0); //拨码0
-    ATOM_PWM_InitConfig(IfxGtm_ATOM2_4_TOUT30_P33_8_OUT, 0, 1000);
+    //PIN_InitConfig(P33_8, PIN_MODE_OUTPUT, 0); //拨码0
+    //ATOM_PWM_InitConfig(IfxGtm_ATOM2_4_TOUT30_P33_8_OUT, 0, 1000);
     STM_InitConfig(STM1, STM_Channel_0, 1000000);//STM初始化，中断函数在LQ_STM.c
     STM_InitConfig(STM1, STM_Channel_1, 100);//STM初始化，中断函数在LQ_STM.c
 
