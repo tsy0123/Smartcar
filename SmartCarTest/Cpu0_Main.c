@@ -115,7 +115,7 @@ IfxCpu_mutexLock mutexCpu0InitIsOk = 1;   // CPU0 初始化完成标志位
 volatile char mutexCpu0TFTIsOk=0;         // CPU1 0占用/1释放 TFT
 bool show_Road = false;
 bool show_Binary = false;
-bool WIFI_show_Pic = true;
+bool WIFI_show_Pic = false;
 bool WIFI_show_Chart = false;
 bool WIFIInitIsOk = false;
 extern uint8_t sendPic;

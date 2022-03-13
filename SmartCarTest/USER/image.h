@@ -48,7 +48,7 @@
 #define BOTTOM_LEFT              10
 #define BOTTOM_RIGHT             84
 //斑马线相关参数
-#define ZEBRA_DETECT_START_ROW          30
+#define ZEBRA_DETECT_START_ROW          27
 #define ZEBRA_DETECT_END_ROW            50
 #define GARAGE_OUT_LOST                 4
 //三叉相关参数
@@ -69,8 +69,8 @@
 #define RING_IN_MEND_START_ROW          50
 #define RING_IN_MEND_END_ROW            18
 #define LOST_PICTURE_NUM                0
-#define RING_OUT_TURNPOINT_START_ROW    45
-#define RING_OUT_TURNPOINT_END_ROW      20
+#define RING_OUT_TURNPOINT_START_ROW    59
+#define RING_OUT_TURNPOINT_END_ROW      5
 #define RING_LOST_COUNT                 4
 #define RING_OUT_DETECT_START_ROW       35
 #define RING_OUT_DETECT_END_ROW         50
@@ -216,6 +216,7 @@ bool isStraightRight(uint8_t row);
 void updateMediumLine(void);//更新中线打角
 bool MediumLineCal(volatile short* final);//计算中线打角
 
+void lost_mend(void);
 
 #endif
 

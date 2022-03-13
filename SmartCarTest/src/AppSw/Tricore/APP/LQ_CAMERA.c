@@ -243,7 +243,7 @@ void CAMERA_Reprot (void)
     }
     UART_PutChar(UART0, 0x55);  //֡β
     UART_PutChar(UART0, 0xaa);  //֡β
-    delayms(3);
+    delayms(15);
 }
 
 /*!
