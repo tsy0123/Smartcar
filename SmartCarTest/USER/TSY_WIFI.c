@@ -22,7 +22,7 @@ uint8_t USART_RX_BUF[100];     //接收缓冲,最大8个字节.
 uint16_t USART_RX_STA=0;       //接收状态标记
 uint8_t aRxBuffer[1];
 uint8_t waySwitch = 0;
-uint8_t manControl = 0;
+uint8_t manControl = 1;
 uint8_t startWIFI = 0;
 uint8_t stopWIFI = 0;
 extern bool WIFI_show_Pic;

@@ -97,17 +97,17 @@ static void lq_tft_delayms(unsigned short ms)
 void TFTSPI_Init(unsigned char type)
 {
   //-----端口初始化----//
-	PIN_InitConfig(TFTSPI_CS,  PIN_MODE_OUTPUT, 1);
-	PIN_InitConfig(TFTSPI_DC,  PIN_MODE_OUTPUT, 0);
-	PIN_InitConfig(TFTSPI_RST, PIN_MODE_OUTPUT, 0);
+	//PIN_InitConfig(TFTSPI_CS,  PIN_MODE_OUTPUT, 0);
+	PIN_InitConfig(TFTSPI_DC,  PIN_MODE_OUTPUT, 1);
+	PIN_InitConfig(TFTSPI_RST, PIN_MODE_OUTPUT, 1);
 
 #if USE_QSPI
 	SPI_InitConfig(SPI3_CLK_P00_2, SPI3_MISO_NULL, SPI3_MOSI_P00_1, SPI3_CS_P21_2, 10000000);
 //	QSPI_InitConfig(QSPI0_CLK_P20_11, QSPI_MISO_NULL, QSPI0_MOSI_P20_12, QSPI0_CS_P15_0, 15000000, 3);
 
 #else
-	PIN_InitConfig(TFTSPI_SCK, PIN_MODE_OUTPUT, 0);
-	PIN_InitConfig(TFTSPI_SDI, PIN_MODE_OUTPUT, 0);
+	PIN_InitConfig(TFTSPI_SCK, PIN_MODE_OUTPUT, 1);
+	PIN_InitConfig(TFTSPI_SDI, PIN_MODE_OUTPUT, 1);
 
 #endif
 
@@ -121,77 +121,81 @@ void TFTSPI_Init(unsigned char type)
           lq_tft_delayms(120);              //Delay 120ms
           //************* Start Initial Sequence **********//
           LCD_WR_REG(0x36);
-          LCD_WR_DATA(0xC0);
+          if(type==0)LCD_WR_DATA8(0x00);
+          else if(type==1)LCD_WR_DATA8(0xC0);
+          else if(type==2)LCD_WR_DATA8(0x70);
+          else LCD_WR_DATA8(0xA0);
 
           LCD_WR_REG(0x3A);
-          LCD_WR_DATA(0x05);
+            LCD_WR_DATA8(0x05);
 
-          LCD_WR_REG(0xB2);
-          LCD_WR_DATA(0x0C);
-          LCD_WR_DATA(0x0C);
-          LCD_WR_DATA(0x00);
-          LCD_WR_DATA(0x33);
-          LCD_WR_DATA(0x33);
+            LCD_WR_REG(0xB2);
+            LCD_WR_DATA8(0x0C);
+            LCD_WR_DATA8(0x0C);
+            LCD_WR_DATA8(0x00);
+            LCD_WR_DATA8(0x33);
+            LCD_WR_DATA8(0x33);
 
-          LCD_WR_REG(0xB7);
-          LCD_WR_DATA(0x35);
+            LCD_WR_REG(0xB7);
+            LCD_WR_DATA8(0x35);
 
-          LCD_WR_REG(0xBB);
-          LCD_WR_DATA(0x19);
+            LCD_WR_REG(0xBB);
+            LCD_WR_DATA8(0x19);
 
-          LCD_WR_REG(0xC0);
-          LCD_WR_DATA(0x2C);
+            LCD_WR_REG(0xC0);
+            LCD_WR_DATA8(0x2C);
 
-          LCD_WR_REG(0xC2);
-          LCD_WR_DATA(0x01);
+            LCD_WR_REG(0xC2);
+            LCD_WR_DATA8(0x01);
 
-          LCD_WR_REG(0xC3);
-          LCD_WR_DATA(0x12);
+            LCD_WR_REG(0xC3);
+            LCD_WR_DATA8(0x12);
 
-          LCD_WR_REG(0xC4);
-          LCD_WR_DATA(0x20);
+            LCD_WR_REG(0xC4);
+            LCD_WR_DATA8(0x20);
 
-          LCD_WR_REG(0xC6);
-          LCD_WR_DATA(0x0F);
+            LCD_WR_REG(0xC6);
+            LCD_WR_DATA8(0x0F);
 
-          LCD_WR_REG(0xD0);
-          LCD_WR_DATA(0xA4);
-          LCD_WR_DATA(0xA1);
+            LCD_WR_REG(0xD0);
+            LCD_WR_DATA8(0xA4);
+            LCD_WR_DATA8(0xA1);
 
-          LCD_WR_REG(0xE0);
-          LCD_WR_DATA(0xD0);
-          LCD_WR_DATA(0x04);
-          LCD_WR_DATA(0x0D);
-          LCD_WR_DATA(0x11);
-          LCD_WR_DATA(0x13);
-          LCD_WR_DATA(0x2B);
-          LCD_WR_DATA(0x3F);
-          LCD_WR_DATA(0x54);
-          LCD_WR_DATA(0x4C);
-          LCD_WR_DATA(0x18);
-          LCD_WR_DATA(0x0D);
-          LCD_WR_DATA(0x0B);
-          LCD_WR_DATA(0x1F);
-          LCD_WR_DATA(0x23);
+            LCD_WR_REG(0xE0);
+            LCD_WR_DATA8(0xD0);
+            LCD_WR_DATA8(0x04);
+            LCD_WR_DATA8(0x0D);
+            LCD_WR_DATA8(0x11);
+            LCD_WR_DATA8(0x13);
+            LCD_WR_DATA8(0x2B);
+            LCD_WR_DATA8(0x3F);
+            LCD_WR_DATA8(0x54);
+            LCD_WR_DATA8(0x4C);
+            LCD_WR_DATA8(0x18);
+            LCD_WR_DATA8(0x0D);
+            LCD_WR_DATA8(0x0B);
+            LCD_WR_DATA8(0x1F);
+            LCD_WR_DATA8(0x23);
 
-          LCD_WR_REG(0xE1);
-          LCD_WR_DATA(0xD0);
-          LCD_WR_DATA(0x04);
-          LCD_WR_DATA(0x0C);
-          LCD_WR_DATA(0x11);
-          LCD_WR_DATA(0x13);
-          LCD_WR_DATA(0x2C);
-          LCD_WR_DATA(0x3F);
-          LCD_WR_DATA(0x44);
-          LCD_WR_DATA(0x51);
-          LCD_WR_DATA(0x2F);
-          LCD_WR_DATA(0x1F);
-          LCD_WR_DATA(0x1F);
-          LCD_WR_DATA(0x20);
-          LCD_WR_DATA(0x23);
-          LCD_WR_REG(0x21);
+            LCD_WR_REG(0xE1);
+            LCD_WR_DATA8(0xD0);
+            LCD_WR_DATA8(0x04);
+            LCD_WR_DATA8(0x0C);
+            LCD_WR_DATA8(0x11);
+            LCD_WR_DATA8(0x13);
+            LCD_WR_DATA8(0x2C);
+            LCD_WR_DATA8(0x3F);
+            LCD_WR_DATA8(0x44);
+            LCD_WR_DATA8(0x51);
+            LCD_WR_DATA8(0x2F);
+            LCD_WR_DATA8(0x1F);
+            LCD_WR_DATA8(0x1F);
+            LCD_WR_DATA8(0x20);
+            LCD_WR_DATA8(0x23);
+            LCD_WR_REG(0x21);
 
-          LCD_WR_REG(0x29);
+            LCD_WR_REG(0x29);
+            TFTSPI_Fill_Area(0,0,240,240,0x0000);
 }
 
 /*!
@@ -352,13 +356,13 @@ void TFTSPI_Write_Byte(unsigned char dat)
 }
 void LCD_Address_Set(uint16_t x1,uint16_t y1,uint16_t x2,uint16_t y2)
 {
-        LCD_WR_REG(0x2a);//列地址设置
-        LCD_WR_DATA(x1);
-        LCD_WR_DATA(x2);
-        LCD_WR_REG(0x2b);//行地址设置
-        LCD_WR_DATA(y1+80);
-        LCD_WR_DATA(y2+80);
-        LCD_WR_REG(0x2c);//储存器写
+    LCD_WR_REG(0x2a);//列地址设置
+    LCD_WR_DATA(x1);
+    LCD_WR_DATA(x2);
+    LCD_WR_REG(0x2b);//行地址设置
+    LCD_WR_DATA(y1);
+    LCD_WR_DATA(y2);
+    LCD_WR_REG(0x2c);//储存器写
 
 }
 /******************************************************************************
@@ -373,9 +377,9 @@ void LCD_ShowPictureBin(u16 x,u16 y,u16 length,u16 width,const u8 pic[])
 {
     u16 i,j;
     LCD_Address_Set(x,y,x+length-1,y+width-1);
-    for(i=0;i<width;i++)
+    for(i=0;i<60;i++)
     {
-        for(j=0;j<length;j++)
+        for(j=0;j<94;j++)
         {
             if(imageLine.Exist_Left[i] == 1&&(j == imageLine.Point_Left[i]))
             {
@@ -577,16 +581,15 @@ void TFTSPI_Addr_Rst(void)
   */
 void TFTSPI_Fill_Area(unsigned char xs,unsigned char ys,unsigned char xe,unsigned char ye,unsigned short color)
 {
-  unsigned int i,j;
-  
-  TFTSPI_Set_Pos(xs,ys,xe,ye);
-  for(i=0;i<(xe-xs);i++)  
-  {
-    for(j=0;j<(ye-ys);j++)
+    u16 i,j;
+    LCD_Address_Set(xs,ys,xe-1,ye-1);//设置显示范围
+    for(i=ys;i<ye;i++)
     {
-      TFTSPI_Write_Word(color);
+        for(j=xs;j<xe;j++)
+        {
+            LCD_WR_DATA(color);
+        }
     }
-  }
 }
 
 

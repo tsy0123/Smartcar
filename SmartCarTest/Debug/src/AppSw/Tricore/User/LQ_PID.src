@@ -1,0 +1,1093 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 21111057"
+	.compiler_invocation	"ctc -f cc21500a --dep-file=src/AppSw/Tricore/User/LQ_PID.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gpt12 -ID:\\\\software\\\\AURIX-Studio-1.5.4\\\\workspace\\\\SmartCarTest\\\\USER -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/src/AppSw/Tricore/Driver -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/src/AppSw/Tricore/Main -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/src/AppSw/Tricore/User -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/src/AppSw/Tricore/APP -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/src/AppSw -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/Infra/Platform/Tricore/Compilers -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Multican/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/Infra/Platform -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Cif/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Hssl/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Cpu/Trap -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/Service/CpuGeneric/If/Ccu6If -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dsadc/Dsadc -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Port -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Stm/Timer -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dts/Dts -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Eth -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Flash -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Vadc -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Msc -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Qspi/SpiMaster -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Scu/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/Service/CpuGeneric/SysSe/Comm -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/Service/CpuGeneric/SysSe/Math -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/Infra/Platform/Tricore -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Trig -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Tim -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Ccu6/TimerWithTrigger -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Emem -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Mtu -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/Infra -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Fft -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/I2c/I2c -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Asclin/Asc -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/Service/CpuGeneric/SysSe -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Flash/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/Service/CpuGeneric/If -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Psi5 -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Cpu -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Fce/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Stm/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Msc/Msc -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Vadc/Adc -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Asclin -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Tom/Pwm -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Atom -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Port/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Psi5/Psi5 -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Eray -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Qspi/SpiSlave -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Ccu6/Icu -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Cpu/CStart -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Hssl -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Cif -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Eth/Phy_Pef7071 -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Hssl/Hssl -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Iom/Driver -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Multican/Can -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Psi5s/Psi5s -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Fft/Fft -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Ccu6/PwmHl -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Iom/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/_Lib -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Tom/Timer -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Sent -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Eray/Eray -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gpt12/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dma -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Fce/Crc -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Qspi -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/Infra/Sfr -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/Infra/Sfr/TC26B -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/Service/CpuGeneric/SysSe/Bsp -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/Service/CpuGeneric/SysSe/General -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Cpu/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dts -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Src -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dma/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Cif/Cam -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Src/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Asclin/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/I2c/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Configurations -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/_Lib/DataHandling -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Sent/Sent -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Ccu6/Timer -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Psi5/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Psi5s -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Emem/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Ccu6/PwmBc -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Iom -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Ccu6/TPwm -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/Service/CpuGeneric -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Multican -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Mtu/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/Infra/Sfr/TC26B/_Reg -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Tom/PwmHl -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dma/Dma -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Atom/Timer -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Ccu6/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/Service/CpuGeneric/SysSe/Time -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dsadc/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Cpu/Irq -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Ccu6 -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gpt12/IncrEnc -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Psi5s/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Scu -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/_Lib/InternalMux -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Stm -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dsadc/Rdc -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Vadc/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dts/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/Service -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Eth/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Smu -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/_PinMap -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Asclin/Lin -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/Service/CpuGeneric/StdIf -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Dsadc -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Fce -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Atom/PwmHl -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Qspi/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Tom -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Tim/In -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Msc/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Fft/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Atom/Pwm -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/Service/CpuGeneric/_Utilities -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Gtm/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Smu/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/I2c -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Asclin/Spi -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Eray/Std -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Port/Io -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/_Impl -ID:/software/AURIX-Studio-1.5.4/workspace/SmartCarTest/Libraries/iLLD/TC26B/Tricore/Sent/Std -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2012 -o src/AppSw/Tricore/User/LQ_PID.src ../src/AppSw/Tricore/User/LQ_PID.c"
+	.compiler_name		"ctc"
+	;source	'../src/AppSw/Tricore/User/LQ_PID.c'
+
+	
+$TC16X
+	
+	.sdecl	'.text.LQ_PID.constrain_float',code,cluster('constrain_float')
+	.sect	'.text.LQ_PID.constrain_float'
+	.align	2
+	
+	.global	constrain_float
+; Function constrain_float
+.L10:
+constrain_float:	.type	func
+	cmp.f	d15,d4,d5
+	extr.u	d15,d15,#0,#1
+.L121:
+	jeq	d15,#0,.L2
+.L122:
+	j	.L3
+.L2:
+	cmp.f	d15,d4,d6
+	jnz.t	d15:2,.L4
+.L123:
+	j	.L5
+.L4:
+	mov	d4,d6
+.L5:
+	mov	d5,d4
+.L3:
+	mov	d2,d5
+	j	.L6
+.L6:
+	ret
+.L59:
+	
+__constrain_float_function_end:
+	.size	constrain_float,__constrain_float_function_end-constrain_float
+.L34:
+	; End of function
+	
+	.sdecl	'.text.LQ_PID.PidInit',code,cluster('PidInit')
+	.sect	'.text.LQ_PID.PidInit'
+	.align	2
+	
+	.global	PidInit
+; Function PidInit
+.L12:
+PidInit:	.type	func
+	mov	d15,#0
+.L91:
+	st.w	[a4],d15
+.L92:
+	mov	d15,#0
+.L93:
+	st.w	[a4]4,d15
+.L94:
+	mov	d15,#0
+.L95:
+	st.w	[a4]8,d15
+.L96:
+	mov	d15,#0
+.L97:
+	st.w	[a4]12,d15
+.L98:
+	mov	d15,#0
+.L99:
+	st.w	[a4]16,d15
+.L100:
+	mov	d15,#0
+.L101:
+	st.w	[a4]20,d15
+.L102:
+	mov	d15,#0
+.L103:
+	st.w	[a4]24,d15
+.L104:
+	mov	d15,#0
+.L105:
+	st.w	[a4]28,d15
+.L106:
+	mov	d15,#0
+.L107:
+	st.w	[a4]32,d15
+.L108:
+	mov	d15,#0
+.L109:
+	st.w	[a4]36,d15
+.L110:
+	mov	d15,#0
+.L111:
+	st.w	[a4]40,d15
+.L112:
+	mov	d15,#0
+.L113:
+	st.w	[a4]44,d15
+.L114:
+	mov	d15,#0
+.L115:
+	st.w	[a4]48,d15
+.L116:
+	ret
+.L55:
+	
+__PidInit_function_end:
+	.size	PidInit,__PidInit_function_end-PidInit
+.L29:
+	; End of function
+	
+	.sdecl	'.text.LQ_PID.PidLocCtrl',code,cluster('PidLocCtrl')
+	.sect	'.text.LQ_PID.PidLocCtrl'
+	.align	2
+	
+	.global	PidLocCtrl
+; Function PidLocCtrl
+.L14:
+PidLocCtrl:	.type	func
+	mov.aa	a15,a4
+.L81:
+	ld.w	d15,[a15]48
+.L128:
+	sub.f	d8,d15,d4
+.L82:
+	ld.w	d15,[a15]32
+.L129:
+	add.f	d15,d15,d8
+	st.w	[a15]32,d15
+.L130:
+	ld.w	d4,[a15]32
+.L79:
+	ld.w	d15,[a15]12
+.L131:
+	insn.t	d5,d15:31,d15:31
+.L132:
+	ld.w	d6,[a15]12
+	call	constrain_float
+.L80:
+	st.w	[a15]32,d2
+.L133:
+	ld.w	d0,[a15]
+.L134:
+	mul.f	d15,d0,d8
+.L135:
+	st.w	[a15]16,d15
+.L136:
+	ld.w	d0,[a15]4
+.L137:
+	ld.w	d15,[a15]32
+.L138:
+	mul.f	d15,d0,d15
+.L139:
+	st.w	[a15]20,d15
+.L140:
+	ld.w	d0,[a15]8
+.L141:
+	ld.w	d15,[a15]36
+.L142:
+	sub.f	d15,d8,d15
+.L143:
+	mul.f	d15,d0,d15
+.L144:
+	st.w	[a15]24,d15
+.L145:
+	st.w	[a15]36,d8
+.L146:
+	ld.w	d15,[a15]16
+.L147:
+	ld.w	d0,[a15]20
+.L148:
+	add.f	d0,d15,d0
+.L149:
+	ld.w	d15,[a15]24
+.L150:
+	add.f	d15,d0,d15
+.L151:
+	st.w	[a15]28,d15
+.L152:
+	ld.w	d2,[a15]28
+.L153:
+	j	.L7
+.L7:
+	ret
+.L63:
+	
+__PidLocCtrl_function_end:
+	.size	PidLocCtrl,__PidLocCtrl_function_end-PidLocCtrl
+.L39:
+	; End of function
+	
+	.sdecl	'.text.LQ_PID.PidIncCtrl',code,cluster('PidIncCtrl')
+	.sect	'.text.LQ_PID.PidIncCtrl'
+	.align	2
+	
+	.global	PidIncCtrl
+; Function PidIncCtrl
+.L16:
+PidIncCtrl:	.type	func
+	ld.w	d0,[a4]
+.L158:
+	ld.w	d15,[a4]36
+.L159:
+	sub.f	d15,d4,d15
+.L160:
+	mul.f	d15,d0,d15
+.L161:
+	st.w	[a4]16,d15
+.L162:
+	ld.w	d15,[a4]4
+.L163:
+	mul.f	d15,d15,d4
+.L164:
+	st.w	[a4]20,d15
+.L165:
+	ld.w	d0,[a4]8
+.L166:
+	ld.w	d15,[a4]36
+.L167:
+	sub.f	d1,d4,d15
+.L168:
+	ld.w	d15,[a4]40
+.L169:
+	sub.f	d15,d1,d15
+.L170:
+	mul.f	d15,d0,d15
+.L171:
+	st.w	[a4]24,d15
+.L172:
+	ld.w	d15,[a4]36
+.L173:
+	sub.f	d15,d4,d15
+.L174:
+	st.w	[a4]40,d15
+.L175:
+	st.w	[a4]36,d4
+.L176:
+	ld.w	d0,[a4]28
+.L177:
+	ld.w	d1,[a4]16
+.L178:
+	ld.w	d15,[a4]20
+.L179:
+	add.f	d1,d1,d15
+.L180:
+	ld.w	d15,[a4]24
+.L181:
+	add.f	d15,d1,d15
+.L182:
+	add.f	d15,d0,d15
+	st.w	[a4]28,d15
+.L183:
+	ld.w	d2,[a4]28
+.L184:
+	j	.L8
+.L8:
+	ret
+.L67:
+	
+__PidIncCtrl_function_end:
+	.size	PidIncCtrl,__PidIncCtrl_function_end-PidIncCtrl
+.L44:
+	; End of function
+	
+	.sdecl	'.text.LQ_PID.PidSet',code,cluster('PidSet')
+	.sect	'.text.LQ_PID.PidSet'
+	.align	2
+	
+	.global	PidSet
+; Function PidSet
+.L18:
+PidSet:	.type	func
+	st.w	[a4],d4
+.L189:
+	st.w	[a4]4,d5
+.L190:
+	st.w	[a4]8,d6
+.L191:
+	st.w	[a4]12,d7
+.L192:
+	ret
+.L70:
+	
+__PidSet_function_end:
+	.size	PidSet,__PidSet_function_end-PidSet
+.L49:
+	; End of function
+	
+	.sdecl	'.text.LQ_PID.pidSetTarget',code,cluster('pidSetTarget')
+	.sect	'.text.LQ_PID.pidSetTarget'
+	.align	2
+	
+	.global	pidSetTarget
+; Function pidSetTarget
+.L20:
+pidSetTarget:	.type	func
+	st.w	[a4]48,d4
+.L197:
+	ret
+.L76:
+	
+__pidSetTarget_function_end:
+	.size	pidSetTarget,__pidSetTarget_function_end-pidSetTarget
+.L54:
+	; End of function
+	
+	.calls	'PidLocCtrl','constrain_float'
+	.calls	'constrain_float','',0
+	.calls	'PidInit','',0
+	.calls	'PidLocCtrl','',0
+	.calls	'PidIncCtrl','',0
+	.calls	'PidSet','',0
+	.calls	'pidSetTarget','',0
+	.sdecl	'.debug_info',debug
+	.sect	'.debug_info'
+.L22:
+	.word	541
+	.half	3
+	.word	.L23
+	.byte	4
+.L21:
+	.byte	1
+	.byte	'../src/AppSw/Tricore/User/LQ_PID.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.4\\workspace\\SmartCarTest\\Debug\\',0,12,1
+	.word	.L24
+.L58:
+	.byte	2
+	.byte	'float',0,4,4,2
+	.byte	'unsigned long int',0,4,7,3,1,22,9,52,4
+	.byte	'kp',0
+	.word	191
+	.byte	4,2,35,0,4
+	.byte	'ki',0
+	.word	191
+	.byte	4,2,35,4,4
+	.byte	'kd',0
+	.word	191
+	.byte	4,2,35,8,4
+	.byte	'imax',0
+	.word	191
+	.byte	4,2,35,12,4
+	.byte	'out_p',0
+	.word	191
+	.byte	4,2,35,16,4
+	.byte	'out_i',0
+	.word	191
+	.byte	4,2,35,20,4
+	.byte	'out_d',0
+	.word	191
+	.byte	4,2,35,24,4
+	.byte	'out',0
+	.word	191
+	.byte	4,2,35,28,4
+	.byte	'integrator',0
+	.word	191
+	.byte	4,2,35,32,4
+	.byte	'last_error',0
+	.word	191
+	.byte	4,2,35,36,4
+	.byte	'last_derivative',0
+	.word	191
+	.byte	4,2,35,40,4
+	.byte	'last_t',0
+	.word	200
+	.byte	4,2,35,44,4
+	.byte	'target',0
+	.word	191
+	.byte	4,2,35,48,0
+.L56:
+	.byte	5
+	.word	221
+	.byte	6,1,5
+	.word	437
+	.byte	7
+	.byte	'__codeptr',0,2,1,1
+	.word	439
+	.byte	2
+	.byte	'int',0,4,5,7
+	.byte	'__intptr_t',0,2,1,1
+	.word	462
+	.byte	2
+	.byte	'unsigned int',0,4,7,7
+	.byte	'__uintptr_t',0,2,1,1
+	.word	488
+	.byte	7
+	.byte	'pid_param_t',0,1,40,2
+	.word	221
+	.byte	0
+	.sdecl	'.debug_abbrev',debug
+	.sect	'.debug_abbrev'
+.L23:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,36,0,3,8,11,15,62,15,0,0,3,19,1,58,15,59,15,57,15,11,15
+	.byte	0,0,4,13,0,3,8,73,19,11,15,56,9,0,0,5,15,0,73,19,0,0,6,21,0,54,15,0,0,7,22,0,3,8,58,15,59,15,57,15,73
+	.byte	19,0,0,0
+	.sdecl	'.debug_line',debug
+	.sect	'.debug_line'
+.L24:
+	.word	.L84-.L83
+.L83:
+	.half	3
+	.word	.L86-.L85
+.L85:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1
+	.byte	'D:\\software\\AURIX-Studio-1.5.4\\workspace\\SmartCarTest\\src\\AppSw\\Tricore\\User',0,0
+	.byte	'LQ_PID.h',0,1,0,0
+	.byte	'../src/AppSw/Tricore/User/LQ_PID.c',0,0,0,0,0
+.L86:
+.L84:
+	.sdecl	'.debug_info',debug,cluster('PidInit')
+	.sect	'.debug_info'
+.L25:
+	.word	250
+	.half	3
+	.word	.L26
+	.byte	4,1
+	.byte	'../src/AppSw/Tricore/User/LQ_PID.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.4\\workspace\\SmartCarTest\\Debug\\',0,12,1
+	.word	.L28,.L27
+	.byte	2
+	.word	.L21
+	.byte	3
+	.byte	'PidInit',0,1,36,6,1,1,1
+	.word	.L12,.L55,.L11
+	.byte	4
+	.byte	'pid',0,1,36,28
+	.word	.L56,.L57
+	.byte	5
+	.word	.L12,.L55
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('PidInit')
+	.sect	'.debug_abbrev'
+.L26:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('PidInit')
+	.sect	'.debug_line'
+.L27:
+	.word	.L88-.L87
+.L87:
+	.half	3
+	.word	.L90-.L89
+.L89:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../src/AppSw/Tricore/User/LQ_PID.c',0,0,0,0,0
+.L90:
+	.byte	5,22,7,0,5,2
+	.word	.L12
+	.byte	3,37,1,5,20,9
+	.half	.L91-.L12
+	.byte	1,5,22,9
+	.half	.L92-.L91
+	.byte	3,1,1,5,20,9
+	.half	.L93-.L92
+	.byte	1,5,22,9
+	.half	.L94-.L93
+	.byte	3,1,1,5,20,9
+	.half	.L95-.L94
+	.byte	1,5,22,9
+	.half	.L96-.L95
+	.byte	3,1,1,5,20,9
+	.half	.L97-.L96
+	.byte	1,5,22,9
+	.half	.L98-.L97
+	.byte	3,1,1,5,20,9
+	.half	.L99-.L98
+	.byte	1,5,22,9
+	.half	.L100-.L99
+	.byte	3,1,1,5,20,9
+	.half	.L101-.L100
+	.byte	1,5,22,9
+	.half	.L102-.L101
+	.byte	3,1,1,5,20,9
+	.half	.L103-.L102
+	.byte	1,5,22,9
+	.half	.L104-.L103
+	.byte	3,1,1,5,20,9
+	.half	.L105-.L104
+	.byte	1,5,22,9
+	.half	.L106-.L105
+	.byte	3,1,1,5,20,9
+	.half	.L107-.L106
+	.byte	1,5,22,9
+	.half	.L108-.L107
+	.byte	3,1,1,5,20,9
+	.half	.L109-.L108
+	.byte	1,5,30,9
+	.half	.L110-.L109
+	.byte	3,1,1,5,28,9
+	.half	.L111-.L110
+	.byte	1,5,22,9
+	.half	.L112-.L111
+	.byte	3,1,1,5,20,9
+	.half	.L113-.L112
+	.byte	1,5,22,9
+	.half	.L114-.L113
+	.byte	3,1,1,5,20,9
+	.half	.L115-.L114
+	.byte	1,5,1,9
+	.half	.L116-.L115
+	.byte	3,1,1,7,9
+	.half	.L29-.L116
+	.byte	0,1,1
+.L88:
+	.sdecl	'.debug_ranges',debug,cluster('PidInit')
+	.sect	'.debug_ranges'
+.L28:
+	.word	-1,.L12,0,.L29-.L12,0,0
+	.sdecl	'.debug_info',debug,cluster('constrain_float')
+	.sect	'.debug_info'
+.L30:
+	.word	295
+	.half	3
+	.word	.L31
+	.byte	4,1
+	.byte	'../src/AppSw/Tricore/User/LQ_PID.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.4\\workspace\\SmartCarTest\\Debug\\',0,12,1
+	.word	.L33,.L32
+	.byte	2
+	.word	.L21
+	.byte	3
+	.byte	'constrain_float',0,1,30,7
+	.word	.L58
+	.byte	1,1,1
+	.word	.L10,.L59,.L9
+	.byte	4
+	.byte	'amt',0,1,30,29
+	.word	.L58,.L60
+	.byte	4
+	.byte	'low',0,1,30,40
+	.word	.L58,.L61
+	.byte	4
+	.byte	'high',0,1,30,51
+	.word	.L58,.L62
+	.byte	5
+	.word	.L10,.L59
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('constrain_float')
+	.sect	'.debug_abbrev'
+.L31:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('constrain_float')
+	.sect	'.debug_line'
+.L32:
+	.word	.L118-.L117
+.L117:
+	.half	3
+	.word	.L120-.L119
+.L119:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../src/AppSw/Tricore/User/LQ_PID.c',0,0,0,0,0
+.L120:
+	.byte	5,18,7,0,5,2
+	.word	.L10
+	.byte	3,31,1,5,13,9
+	.half	.L121-.L10
+	.byte	1,5,30,7,9
+	.half	.L122-.L121
+	.byte	1,5,32,9
+	.half	.L2-.L122
+	.byte	1,5,51,9
+	.half	.L123-.L2
+	.byte	1,5,44,9
+	.half	.L4-.L123
+	.byte	1,5,24,9
+	.half	.L5-.L4
+	.byte	1,5,5,9
+	.half	.L3-.L5
+	.byte	1,5,1,9
+	.half	.L6-.L3
+	.byte	3,1,1,7,9
+	.half	.L34-.L6
+	.byte	0,1,1
+.L118:
+	.sdecl	'.debug_ranges',debug,cluster('constrain_float')
+	.sect	'.debug_ranges'
+.L33:
+	.word	-1,.L10,0,.L34-.L10,0,0
+	.sdecl	'.debug_info',debug,cluster('PidLocCtrl')
+	.sect	'.debug_info'
+.L35:
+	.word	299
+	.half	3
+	.word	.L36
+	.byte	4,1
+	.byte	'../src/AppSw/Tricore/User/LQ_PID.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.4\\workspace\\SmartCarTest\\Debug\\',0,12,1
+	.word	.L38,.L37
+	.byte	2
+	.word	.L21
+	.byte	3
+	.byte	'PidLocCtrl',0,1,63,7
+	.word	.L58
+	.byte	1,1,1
+	.word	.L14,.L63,.L13
+	.byte	4
+	.byte	'pid',0,1,63,32
+	.word	.L56,.L64
+	.byte	4
+	.byte	'actual_val',0,1,63,43
+	.word	.L58,.L65
+	.byte	5
+	.word	.L14,.L63
+	.byte	6
+	.byte	'error',0,1,66,11
+	.word	.L58,.L66
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('PidLocCtrl')
+	.sect	'.debug_abbrev'
+.L36:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('PidLocCtrl')
+	.sect	'.debug_line'
+.L37:
+	.word	.L125-.L124
+.L124:
+	.half	3
+	.word	.L127-.L126
+.L126:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../src/AppSw/Tricore/User/LQ_PID.c',0,0,0,0,0
+.L127:
+	.byte	5,7,7,0,5,2
+	.word	.L14
+	.byte	3,62,1,5,22,9
+	.half	.L81-.L14
+	.byte	3,3,1,5,31,9
+	.half	.L128-.L81
+	.byte	1,5,8,9
+	.half	.L82-.L128
+	.byte	3,1,1,5,21,9
+	.half	.L129-.L82
+	.byte	1,5,42,9
+	.half	.L130-.L129
+	.byte	3,3,1,5,60,9
+	.half	.L79-.L130
+	.byte	1,5,56,9
+	.half	.L131-.L79
+	.byte	1,5,71,9
+	.half	.L132-.L131
+	.byte	1,5,21,9
+	.half	.L80-.L132
+	.byte	1,9
+	.half	.L133-.L80
+	.byte	3,3,1,5,26,9
+	.half	.L134-.L133
+	.byte	1,5,16,9
+	.half	.L135-.L134
+	.byte	1,5,21,9
+	.half	.L136-.L135
+	.byte	3,1,1,5,31,9
+	.half	.L137-.L136
+	.byte	1,5,26,9
+	.half	.L138-.L137
+	.byte	1,5,16,9
+	.half	.L139-.L138
+	.byte	1,5,21,9
+	.half	.L140-.L139
+	.byte	3,1,1,5,40,9
+	.half	.L141-.L140
+	.byte	1,5,35,9
+	.half	.L142-.L141
+	.byte	1,5,26,9
+	.half	.L143-.L142
+	.byte	1,5,16,9
+	.half	.L144-.L143
+	.byte	1,5,21,9
+	.half	.L145-.L144
+	.byte	3,2,1,5,19,9
+	.half	.L146-.L145
+	.byte	3,2,1,5,32,9
+	.half	.L147-.L146
+	.byte	1,5,27,9
+	.half	.L148-.L147
+	.byte	1,5,45,9
+	.half	.L149-.L148
+	.byte	1,5,40,9
+	.half	.L150-.L149
+	.byte	1,5,14,9
+	.half	.L151-.L150
+	.byte	1,5,15,9
+	.half	.L152-.L151
+	.byte	3,2,1,5,5,9
+	.half	.L153-.L152
+	.byte	1,5,1,9
+	.half	.L7-.L153
+	.byte	3,1,1,7,9
+	.half	.L39-.L7
+	.byte	0,1,1
+.L125:
+	.sdecl	'.debug_ranges',debug,cluster('PidLocCtrl')
+	.sect	'.debug_ranges'
+.L38:
+	.word	-1,.L14,0,.L39-.L14,0,0
+	.sdecl	'.debug_info',debug,cluster('PidIncCtrl')
+	.sect	'.debug_info'
+.L40:
+	.word	275
+	.half	3
+	.word	.L41
+	.byte	4,1
+	.byte	'../src/AppSw/Tricore/User/LQ_PID.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.4\\workspace\\SmartCarTest\\Debug\\',0,12,1
+	.word	.L43,.L42
+	.byte	2
+	.word	.L21
+	.byte	3
+	.byte	'PidIncCtrl',0,1,93,7
+	.word	.L58
+	.byte	1,1,1
+	.word	.L16,.L67,.L15
+	.byte	4
+	.byte	'pid',0,1,93,32
+	.word	.L56,.L68
+	.byte	4
+	.byte	'error',0,1,93,43
+	.word	.L58,.L69
+	.byte	5
+	.word	.L16,.L67
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('PidIncCtrl')
+	.sect	'.debug_abbrev'
+.L41:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('PidIncCtrl')
+	.sect	'.debug_line'
+.L42:
+	.word	.L155-.L154
+.L154:
+	.half	3
+	.word	.L157-.L156
+.L156:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../src/AppSw/Tricore/User/LQ_PID.c',0,0,0,0,0
+.L157:
+	.byte	5,21,7,0,5,2
+	.word	.L16
+	.byte	3,223,0,1,5,40,9
+	.half	.L158-.L16
+	.byte	1,5,35,9
+	.half	.L159-.L158
+	.byte	1,5,26,9
+	.half	.L160-.L159
+	.byte	1,5,16,9
+	.half	.L161-.L160
+	.byte	1,5,21,9
+	.half	.L162-.L161
+	.byte	3,1,1,5,26,9
+	.half	.L163-.L162
+	.byte	1,5,16,9
+	.half	.L164-.L163
+	.byte	1,5,21,9
+	.half	.L165-.L164
+	.byte	3,1,1,5,41,9
+	.half	.L166-.L165
+	.byte	1,5,36,9
+	.half	.L167-.L166
+	.byte	1,5,60,9
+	.half	.L168-.L167
+	.byte	1,5,55,9
+	.half	.L169-.L168
+	.byte	1,5,26,9
+	.half	.L170-.L169
+	.byte	1,5,16,9
+	.half	.L171-.L170
+	.byte	1,5,39,9
+	.half	.L172-.L171
+	.byte	3,2,1,5,34,9
+	.half	.L173-.L172
+	.byte	1,5,26,9
+	.half	.L174-.L173
+	.byte	1,5,21,9
+	.half	.L175-.L174
+	.byte	3,1,1,5,8,9
+	.half	.L176-.L175
+	.byte	3,2,1,5,20,9
+	.half	.L177-.L176
+	.byte	1,5,33,9
+	.half	.L178-.L177
+	.byte	1,5,28,9
+	.half	.L179-.L178
+	.byte	1,5,46,9
+	.half	.L180-.L179
+	.byte	1,5,41,9
+	.half	.L181-.L180
+	.byte	1,5,14,9
+	.half	.L182-.L181
+	.byte	1,5,15,9
+	.half	.L183-.L182
+	.byte	3,2,1,5,5,9
+	.half	.L184-.L183
+	.byte	1,5,1,9
+	.half	.L8-.L184
+	.byte	3,1,1,7,9
+	.half	.L44-.L8
+	.byte	0,1,1
+.L155:
+	.sdecl	'.debug_ranges',debug,cluster('PidIncCtrl')
+	.sect	'.debug_ranges'
+.L43:
+	.word	-1,.L16,0,.L44-.L16,0,0
+	.sdecl	'.debug_info',debug,cluster('PidSet')
+	.sect	'.debug_info'
+.L45:
+	.word	308
+	.half	3
+	.word	.L46
+	.byte	4,1
+	.byte	'../src/AppSw/Tricore/User/LQ_PID.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.4\\workspace\\SmartCarTest\\Debug\\',0,12,1
+	.word	.L48,.L47
+	.byte	2
+	.word	.L21
+	.byte	3
+	.byte	'PidSet',0,1,108,6,1,1,1
+	.word	.L18,.L70,.L17
+	.byte	4
+	.byte	'pid',0,1,108,27
+	.word	.L56,.L71
+	.byte	4
+	.byte	'p',0,1,108,38
+	.word	.L58,.L72
+	.byte	4
+	.byte	'i',0,1,108,47
+	.word	.L58,.L73
+	.byte	4
+	.byte	'd',0,1,108,56
+	.word	.L58,.L74
+	.byte	4
+	.byte	'imax',0,1,108,65
+	.word	.L58,.L75
+	.byte	5
+	.word	.L18,.L70
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('PidSet')
+	.sect	'.debug_abbrev'
+.L46:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('PidSet')
+	.sect	'.debug_line'
+.L47:
+	.word	.L186-.L185
+.L185:
+	.half	3
+	.word	.L188-.L187
+.L187:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../src/AppSw/Tricore/User/LQ_PID.c',0,0,0,0,0
+.L188:
+	.byte	5,13,7,0,5,2
+	.word	.L18
+	.byte	3,237,0,1,9
+	.half	.L189-.L18
+	.byte	3,1,1,9
+	.half	.L190-.L189
+	.byte	3,1,1,5,15,9
+	.half	.L191-.L190
+	.byte	3,1,1,5,1,9
+	.half	.L192-.L191
+	.byte	3,1,1,7,9
+	.half	.L49-.L192
+	.byte	0,1,1
+.L186:
+	.sdecl	'.debug_ranges',debug,cluster('PidSet')
+	.sect	'.debug_ranges'
+.L48:
+	.word	-1,.L18,0,.L49-.L18,0,0
+	.sdecl	'.debug_info',debug,cluster('pidSetTarget')
+	.sect	'.debug_info'
+.L50:
+	.word	269
+	.half	3
+	.word	.L51
+	.byte	4,1
+	.byte	'../src/AppSw/Tricore/User/LQ_PID.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\software\\AURIX-Studio-1.5.4\\workspace\\SmartCarTest\\Debug\\',0,12,1
+	.word	.L53,.L52
+	.byte	2
+	.word	.L21
+	.byte	3
+	.byte	'pidSetTarget',0,1,116,6,1,1,1
+	.word	.L20,.L76,.L19
+	.byte	4
+	.byte	'pid',0,1,116,33
+	.word	.L56,.L77
+	.byte	4
+	.byte	't',0,1,116,44
+	.word	.L58,.L78
+	.byte	5
+	.word	.L20,.L76
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('pidSetTarget')
+	.sect	'.debug_abbrev'
+.L51:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('pidSetTarget')
+	.sect	'.debug_line'
+.L52:
+	.word	.L194-.L193
+.L193:
+	.half	3
+	.word	.L196-.L195
+.L195:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../src/AppSw/Tricore/User/LQ_PID.c',0,0,0,0,0
+.L196:
+	.byte	5,17,7,0,5,2
+	.word	.L20
+	.byte	3,245,0,1,5,1,9
+	.half	.L197-.L20
+	.byte	3,1,1,7,9
+	.half	.L54-.L197
+	.byte	0,1,1
+.L194:
+	.sdecl	'.debug_ranges',debug,cluster('pidSetTarget')
+	.sect	'.debug_ranges'
+.L53:
+	.word	-1,.L20,0,.L54-.L20,0,0
+	.sdecl	'.debug_loc',debug,cluster('PidIncCtrl')
+	.sect	'.debug_loc'
+.L15:
+	.word	-1,.L16,0,.L67-.L16
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L69:
+	.word	-1,.L16,0,.L67-.L16
+	.half	1
+	.byte	84
+	.word	0,0
+.L68:
+	.word	-1,.L16,0,.L67-.L16
+	.half	1
+	.byte	100
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('PidInit')
+	.sect	'.debug_loc'
+.L11:
+	.word	-1,.L12,0,.L55-.L12
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L57:
+	.word	-1,.L12,0,.L55-.L12
+	.half	1
+	.byte	100
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('PidLocCtrl')
+	.sect	'.debug_loc'
+.L13:
+	.word	-1,.L14,0,.L63-.L14
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L65:
+	.word	-1,.L14,0,.L79-.L14
+	.half	1
+	.byte	84
+	.word	0,0
+.L66:
+	.word	-1,.L14,.L82-.L14,.L63-.L14
+	.half	1
+	.byte	88
+	.word	0,0
+.L64:
+	.word	-1,.L14,0,.L80-.L14
+	.half	1
+	.byte	100
+	.word	.L81-.L14,.L63-.L14
+	.half	1
+	.byte	111
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('PidSet')
+	.sect	'.debug_loc'
+.L17:
+	.word	-1,.L18,0,.L70-.L18
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L74:
+	.word	-1,.L18,0,.L70-.L18
+	.half	1
+	.byte	86
+	.word	0,0
+.L73:
+	.word	-1,.L18,0,.L70-.L18
+	.half	1
+	.byte	85
+	.word	0,0
+.L75:
+	.word	-1,.L18,0,.L70-.L18
+	.half	1
+	.byte	87
+	.word	0,0
+.L72:
+	.word	-1,.L18,0,.L70-.L18
+	.half	1
+	.byte	84
+	.word	0,0
+.L71:
+	.word	-1,.L18,0,.L70-.L18
+	.half	1
+	.byte	100
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('constrain_float')
+	.sect	'.debug_loc'
+.L60:
+	.word	-1,.L10,0,.L59-.L10
+	.half	1
+	.byte	84
+	.word	0,0
+.L9:
+	.word	-1,.L10,0,.L59-.L10
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L62:
+	.word	-1,.L10,0,.L59-.L10
+	.half	1
+	.byte	86
+	.word	0,0
+.L61:
+	.word	-1,.L10,0,.L59-.L10
+	.half	1
+	.byte	85
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('pidSetTarget')
+	.sect	'.debug_loc'
+.L77:
+	.word	-1,.L20,0,.L76-.L20
+	.half	1
+	.byte	100
+	.word	0,0
+.L19:
+	.word	-1,.L20,0,.L76-.L20
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L78:
+	.word	-1,.L20,0,.L76-.L20
+	.half	1
+	.byte	84
+	.word	0,0
+	.sdecl	'.debug_frame',debug
+	.sect	'.debug_frame'
+.L198:
+	.word	48
+	.word	-1
+	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
+	.byte	8,39
+	.sdecl	'.debug_frame',debug,cluster('constrain_float')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L198,.L10,.L59-.L10
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('PidInit')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L198,.L12,.L55-.L12
+	.byte	8,18,8,19,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('PidLocCtrl')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L198,.L14,.L63-.L14
+	.sdecl	'.debug_frame',debug,cluster('PidIncCtrl')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L198,.L16,.L67-.L16
+	.byte	8,18,8,19,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('PidSet')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L198,.L18,.L70-.L18
+	.byte	8,18,8,19,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('pidSetTarget')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L198,.L20,.L76-.L20
+	.byte	8,18,8,19,8,21,8,22,8,23,0,0
+	; Module end

@@ -89,23 +89,37 @@ endif
 
 -include ../makefile.defs
 
+OPTIONAL_TOOL_DEPS := \
+$(wildcard ../makefile.defs) \
+$(wildcard ../makefile.init) \
+$(wildcard ../makefile.targets) \
+
+
+BUILD_ARTIFACT_NAME := SmartCarTest
+BUILD_ARTIFACT_EXTENSION := elf
+BUILD_ARTIFACT_PREFIX :=
+BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
+
 # Add inputs and outputs from these tool invocations to the build variables 
 SECONDARY_SIZE += \
 SmartCarTest.siz \
 
 
 # 所有目标
-all: SmartCarTest.elf secondary-outputs
+all: main-build
+
+# 主构建目标
+main-build: SmartCarTest.elf secondary-outputs
 
 # 工具调用
-SmartCarTest.elf: $(OBJS)
+SmartCarTest.elf: $(OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo '正在构建目标： $@'
 	@echo '正在调用： TASKING Linker'
 	cctc -lrt -lfp_fpu -lcs_fpu  -Wl-Oc -Wl-OL -Wl-Ot -Wl-Ox -Wl-Oy -Wl--map-file="SmartCarTest.map" -Wl-mc -Wl-mf -Wl-mi -Wl-mk -Wl-ml -Wl-mm -Wl-md -Wl-mr -Wl-mu --no-warnings= -Wl--error-limit=42 --exceptions --strict --anachronisms --force-c++ -Ctc26xb   -o"SmartCarTest.elf" -Wl-o"SmartCarTest.hex:IHEX" --lsl-core=vtc  --lsl-file=../Lcf_Tasking_Tricore_Tc.lsl $(OBJS)
 	@echo '已结束构建目标： $@'
 	@echo ' '
 
-SmartCarTest.siz: SmartCarTest.elf
+SmartCarTest.siz: SmartCarTest.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo '正在调用： Print Size'
 	elfsize  "SmartCarTest.elf"
 	@echo '已结束构建： $@'
@@ -118,6 +132,6 @@ clean:
 
 secondary-outputs: $(SECONDARY_SIZE)
 
-.PHONY: all clean dependents
+.PHONY: all clean dependents main-build
 
 -include ../makefile.targets

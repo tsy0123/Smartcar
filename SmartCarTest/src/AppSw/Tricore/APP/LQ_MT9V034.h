@@ -36,20 +36,20 @@ QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ*/
 #define CAMERA_AUTO_EXPOSURE     1
 
 /*! 自动曝光模式下 亮度 调节范围 1-64 */
-#define CAMERA_AUTO_EXPOSURE_BRIGHTNESS  60
+#define CAMERA_AUTO_EXPOSURE_BRIGHTNESS  50
 
 /*! 可以在自动曝光的情况下设置固定帧率 */
 /*! 自动曝光模式需要设置曝光时间上限 调节范围 1–32765 */
 /*! 注意 当帧率过高时 如果设置的曝光时间过长 帧率可能会自适应下调 */
 /*! 例如使用100帧时 最大曝光时间超过317 会导致帧率下降 */
 /*! 曝光时间越长 图像越亮 */
-#define CAMERA_MAX_EXPOSURE_TIME  300
+#define CAMERA_MAX_EXPOSURE_TIME  250
 #define CAMERA_MIN_EXPOSURE_TIME  1
 
 /*! 非自动曝光模式下 可以调节曝光时间来调节图像整体亮度 调节范围 0–32765 */
 /*! 注意 当帧率过高时 如果设置的曝光时间过长 帧率可能会自适应下调 */
 /*! 曝光时间越长 图像越亮 */
-#define CAMERA_EXPOSURE_TIME  200
+#define CAMERA_EXPOSURE_TIME  150
 
 
 /* 摄像头使用SCCB通信 SCCB和IIC基本类似 */

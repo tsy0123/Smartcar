@@ -121,6 +121,8 @@ bool WIFIInitIsOk = false;
 extern uint8_t sendPic;
 int core0_main (void)
 {
+    float vol;
+    char vol_string[20];
 	// 关闭CPU总中断
 	IfxCpu_disableInterrupts();
 
@@ -153,10 +155,15 @@ int core0_main (void)
     PidSet(&pid_Drive, 7.5, 0.0, 0.3, 5000.0);
     PidSet(&pid_Left, 45.0, 3.5, 0.0, 90000.0);
     PidSet(&pid_Right, 45.0, 3.5, 0.0, 90000.0);
-
-    //icm42605_init();
     EncInit();
     MotorInit_TSY();
+    STM_InitConfig(STM0, STM_Channel_0, 10000);//控制
+    STM_InitConfig(STM0, STM_Channel_1, 10000);//控制
+
+    TFTSPI_Init(0);               //TFT1.8初始化0:横屏  1：竖屏
+    //icm42605_init();
+
+    ADC_Init_TSY();
     delayms(1000);
     UART_InitConfig(UART0_RX_P14_1,UART0_TX_P14_0, 921600);
     UART_PutStr(UART0,"\r\n");
@@ -168,9 +175,8 @@ int core0_main (void)
     UART_PutStr(UART0,"AT+CIPSEND\r\n");
     delayms(500);
     WIFIInitIsOk = true;
-    ADC_Init_TSY();
-    GPIO_KEY_Init();
-    STM_InitConfig(STM0, STM_Channel_0, 10000);//控制
+
+
 
     //STM_InitConfig(STM1, STM_Channel_1, 40000);
 	// 通知CPU1，CPU0初始化完成
@@ -190,12 +196,19 @@ int core0_main (void)
 
 
     //ICM42605_Init();
+
+
     while (1)	//主循环
     {
         //CAMERA_Reprot();
         if(!KEY_Read(KEY0))
         {
-            manControl = 1;
+            delayms(1000);
+            if(manControl)
+            manControl = 0;
+            else
+                manControl = 1;
+            while(!KEY_Read(KEY0));
         }
         if(!KEY_Read(KEY1))
         {
@@ -213,16 +226,65 @@ int core0_main (void)
             zebra_cross_count = 0;
             garage_in = 0;
             flag_garage_turn = 0;
+            garage_in_flag = 0;
             manControl = 1;
         }
         if(!KEY_Read(KEY2))
         {
-            uint16_t vol;
-            vol = ADC_Read_filter(ADC_BATTERY_VOTAGE,10);
-            printf("\r\nBATTERY VOLTAGE:%d",vol);
-            delayms(20);
+            if(show_Binary==false)
+            {
+                    show_Binary = true;
+            }
+            else
+                show_Binary = false;
             while(!KEY_Read(KEY2));
         }
+        if(show_Binary==false && !WIFI_show_Pic)
+        {
+            vol = (float)ADC_Read_filter(ADC_BATTERY_VOTAGE,10)*43.9/10/4096*3.3;
+            sprintf(vol_string,"BAT:%.1f",vol);
+            TFTSPI_P6X8Str(0,0,vol_string,0xffff,0x0000);
+            if(find_ring_flag_Left)
+            {
+                if(find_ring_flag_Left == 1)
+                    TFTSPI_P6X8Str(1,1,"Left Ring 1",0xffff,0x0000);
+                else if(find_ring_flag_Left == 2)
+                    TFTSPI_P6X8Str(1,1,"Left Ring 2",0xffff,0x0000);
+                else
+                    TFTSPI_P6X8Str(1,1,"Left Ring 3",0xffff,0x0000);
+            }
+            else if(find_ring_flag_Right)
+            {
+                if(find_ring_flag_Right == 1)
+                    TFTSPI_P6X8Str(1,1,"Right Ring 1",0xffff,0x0000);
+                else if(find_ring_flag_Right == 2)
+                    TFTSPI_P6X8Str(1,1,"Right Ring 2",0xffff,0x0000);
+                else
+                    TFTSPI_P6X8Str(1,1,"Right Ring 3",0xffff,0x0000);
+            }
+            else TFTSPI_P6X8Str(1,1,"N Ring      ",0xffff,0x0000);
+            if(isForkRoadTurnLeft)
+                TFTSPI_P6X8Str(1,2,"Fork Turn L",0xffff,0x0000);
+            else
+                TFTSPI_P6X8Str(1,2,"Fork Turn R",0xffff,0x0000);
+            if(crossRight_flag)
+            {
+                if(crossRight_flag==1)
+                    TFTSPI_P6X8Str(1,3,"Right Cross 1",0xffff,0x0000);
+                else if(crossRight_flag == 2)
+                    TFTSPI_P6X8Str(1,3,"Right Cross 2",0xffff,0x0000);
+            }
+            else if(crossLeft_flag)
+            {
+                if(crossLeft_flag==1)
+                    TFTSPI_P6X8Str(1,3,"Left Cross 1 ",0xffff,0x0000);
+                else if(crossLeft_flag == 2)
+                    TFTSPI_P6X8Str(1,3,"Left Cross 2 ",0xffff,0x0000);
+            }
+            else
+                TFTSPI_P6X8Str(1,3,"N Cross      ",0xffff,0x0000);
+        }
+
         /*if(PIN_Read(P33_9)==0)
         {
                 show_Road = true;
@@ -239,5 +301,9 @@ int core0_main (void)
             //STM_EnableInterrupt(STM1, STM_Channel_1);
         }
 
+        /*LEDControl(jkl++);
+        delayms(100);
+        if(jkl>13)
+            jkl=0;*/
     }
 }

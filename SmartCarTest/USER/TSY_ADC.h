@@ -6,7 +6,7 @@
 #define TM1620_SDA_IN         PIN_Dir(TM1620_IIC_SDA_PIN, 0);
 
 #define TM1620_IIC_SCL_INIT   PIN_InitConfig(TM1620_IIC_SCL_PIN, PIN_MODE_OUTPUT, 1);
-#define TM1620_IIC_SDA_INIT   PIN_InitConfig(TM1620_IIC_SDA_PIN, PIN_MODE_OUTPUT, 1);
+#define TM1620_IIC_SDA_INIT   PIN_InitConfig(TM1620_IIC_SDA_PIN, PIN_MODE_OUTPUT, 0);
 
 #define TM1620_IIC_SCL_H      PIN_Write(TM1620_IIC_SCL_PIN, 1);
 #define TM1620_IIC_SCL_L      PIN_Write(TM1620_IIC_SCL_PIN, 0);
@@ -16,7 +16,7 @@
 
 #define TM1620_IIC_SDA_READ   PIN_Read(TM1620_IIC_SDA_PIN)
 
-#define AddrAutoAdd     0x40//写显示，自动累加地址
+#define AddrAutoAdd     0x44//写显示，自动累加地址
 
 #define Addr00H             0xC0//地址00H
 

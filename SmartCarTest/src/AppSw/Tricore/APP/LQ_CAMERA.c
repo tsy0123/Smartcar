@@ -100,12 +100,12 @@ void Test_CAMERA (void)
     OLED_Init();
     OLED_CLS();                   //LCD清屏
 #else
-    TFTSPI_Init(1);               //TFT1.8初始化0:横屏  1：竖屏
+;
     //TFTSPI_CLS(u16BLUE);          //清屏
 #endif
 
     /* 摄像头初始化 */
-    CAMERA_Init(50);
+    CAMERA_Init(100);
 
 
     while (1)
@@ -119,7 +119,7 @@ void Test_CAMERA (void)
             Get_Use_Image();
 
             /* 清除摄像头采集完成标志位  如果不清除，则不会再次采集数据 */
-            Camera_Flag = 0;
+
 
 #ifdef USEOLED
 
@@ -147,7 +147,7 @@ void Test_CAMERA (void)
             imageProcess_Tick = 0;
             if(show_Binary)
             {
-                LCD_ShowPictureBin(0,0,94,60,(unsigned char *) Bin_Pixle);
+                LCD_ShowPictureBin(1,1,94,60,(unsigned char *) Bin_Pixle);
 
             }
             if(flag_isRight_ring == 1 || flag_isLeft_ring == 1)
@@ -158,6 +158,7 @@ void Test_CAMERA (void)
                 LED_Ctrl(LED1,ON);
             else
                 LED_Ctrl(LED1,OFF);
+            Camera_Flag = 0;
             //CAMERA_Reprot();
 
 #endif
@@ -242,7 +243,7 @@ void CAMERA_Reprot (void)
     }
     UART_PutChar(UART0, 0x55);  //帧尾
     UART_PutChar(UART0, 0xaa);  //帧尾
-    delayms(15);
+    delayms(3);
 }
 
 /*!

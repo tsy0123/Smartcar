@@ -10,6 +10,7 @@
 #include <LQ_GPIO.h>
 #include <IfxGtm_PinMap.h>
 #include <LQ_GTM.h>
+#include <LQ_STM.h>
 //ADC_Read(ADC0);
 
 /*
@@ -27,6 +28,16 @@ float CapPower = 0;
 
 #define CHARGE_PWM          IfxGtm_ATOM0_6_TOUT42_P23_1_OUT
 #define CHARGE_FREQUENCY    1000
+void my_iic_delay()
+{
+    /* 200MHz 系统时钟下 模拟IIC速度为 400Khz */
+
+    unsigned char  i = 0;
+    for(i = 0; i < 30; i++) //修改这里可以调整IIC速率
+    {
+        __asm("NOP"); /* delay */
+    }
+}
 
 void ADC_Init_TSY(void)
 {
@@ -34,17 +45,33 @@ void ADC_Init_TSY(void)
     PIN_InitConfig(P22_3, PIN_MODE_OUTPUT, 1);//SD
 
     //ATOM_PWM_InitConfig(CHARGE_PWM, 0, CHARGE_FREQUENCY);
-    TM1620_Init();
-    LEDControl(0);
+    /*TM1620_Init();
+
+    TM1620_IIC_SendByte(0x02);
+    TM1620_IIC_SendByte(AddrAutoAdd);
+    TM1620_IIC_SendByte(Addr00H);
+    TM1620_IIC_SendByte(0);
+    TM1620_IIC_SendByte(0xc2);
+    TM1620_IIC_SendByte(0);
+    TM1620_IIC_SendByte(0xc4);
+    TM1620_IIC_SendByte(0);
+    TM1620_IIC_SendByte(0xc6);
+    TM1620_IIC_SendByte(0);
+    TM1620_IIC_SendByte(0xc8);
+    TM1620_IIC_SendByte(0);
+    TM1620_IIC_SendByte(0xca);
+    TM1620_IIC_SendByte(0);
+    TM1620_IIC_SendByte(0x83);*/
+    //LEDControl(2);
 
     //PidSet(pid_PowerControl, 0.0, 0.0, 0.0, 90000.0);
-    /*ADC_InitConfig(SIGNAL_DETECT_1, 80000); //初始化
+    ADC_InitConfig(SIGNAL_DETECT_1, 80000); //初始化
     ADC_InitConfig(SIGNAL_DETECT_2, 80000);
     ADC_InitConfig(CAPACITOR_VOLTAGE, 80000);
     ADC_InitConfig(BATTERY_VOTAGE, 80000);
     ADC_InitConfig(VOLTAGE_IN, 80000);
     ADC_InitConfig(CONSTANT_VOLTAGE_OUT, 80000);
-    ADC_InitConfig(CONSTANT_CURRENT_OUT, 80000);*/
+    ADC_InitConfig(CONSTANT_CURRENT_OUT, 80000);
 
     //pid_PowerControl->target = 50;
 }
@@ -125,26 +152,16 @@ void TM1620_Init(void)
     TM1620_IIC_SCL_INIT
     TM1620_IIC_SDA_INIT
     TM1620_IIC_SCL_H
-    TM1620_IIC_SDA_H
+    TM1620_IIC_SDA_L
 
 }
 
 void TM1620_DisPrepare(void)
 {
-    TM1620_IIC_SendByte(0x02);
+    TM1620_IIC_SendByte(0x00);
     TM1620_IIC_SendByte(AddrAutoAdd);
     TM1620_IIC_SendByte(Addr00H);
 
-}
-void my_iic_delay()
-{
-    /* 200MHz 系统时钟下 模拟IIC速度为 400Khz */
-
-    unsigned char  i = 0;
-    for(i = 0; i < 30; i++) //修改这里可以调整IIC速率
-    {
-        __asm("NOP"); /* delay */
-    }
 }
 
 
@@ -212,8 +229,7 @@ void LEDControl(uint8_t num)
             break;
      }
      LEDChoose(0);
-     LEDChoose(0);
-     TM1620_IIC_SendByte(0x8f);
+     TM1620_IIC_SendByte(0x83);
 }
 
 void LEDDisplay(void)
@@ -364,10 +380,12 @@ void TM1620_IIC_SendByte(unsigned char data_t)
     unsigned char  t;
     TM1620_SDA_OUT;
     TM1620_IIC_SCL_L; //拉低时钟开始数据传输
+    my_iic_delay();
+    my_iic_delay();
     for(t=0;t<8;t++)
     {
 //        IIC_SDA_READ = data_t&0x80;
-        if(data_t&0x80)
+        if(data_t&0x01)
         {
             TM1620_IIC_SDA_H;
         }
@@ -375,10 +393,11 @@ void TM1620_IIC_SendByte(unsigned char data_t)
         {
             TM1620_IIC_SDA_L;
         }
-
-        TM1620_IIC_SCL_H;;
         my_iic_delay();
-        data_t<<=1;
+        my_iic_delay();
+        TM1620_IIC_SCL_H;
+        my_iic_delay();
+        data_t>>=1;
         my_iic_delay();
         my_iic_delay();
         TM1620_IIC_SCL_L;
