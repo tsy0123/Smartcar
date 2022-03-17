@@ -92,6 +92,8 @@ uint8_t sendPic = 0;
  *
  * @date     2019/10/22 星期二
  */
+unsigned short imageProcess_Time_t = 0;
+
 unsigned short imageProcess_Time = 0;
 uint8_t imageProcess_Tick = 0;
 void Test_CAMERA (void)
@@ -114,7 +116,7 @@ void Test_CAMERA (void)
         {
             sendPic = 0;
             imageProcess_Tick = 1;
-            imageProcess_Time = 0;
+            imageProcess_Time_t = 0;
             /* 提取部分使用的数据 */
             Get_Use_Image();
 
@@ -145,6 +147,7 @@ void Test_CAMERA (void)
 
             sendPic=1;
             imageProcess_Tick = 0;
+            imageProcess_Time = imageProcess_Time_t;
             if(show_Binary)
             {
                 LCD_ShowPictureBin(1,1,94,60,(unsigned char *) Bin_Pixle);

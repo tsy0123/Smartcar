@@ -102,8 +102,8 @@ void TFTSPI_Init(unsigned char type)
 	PIN_InitConfig(TFTSPI_RST, PIN_MODE_OUTPUT, 1);
 
 #if USE_QSPI
-	SPI_InitConfig(SPI3_CLK_P00_2, SPI3_MISO_NULL, SPI3_MOSI_P00_1, SPI3_CS_P21_2, 10000000);
-//	QSPI_InitConfig(QSPI0_CLK_P20_11, QSPI_MISO_NULL, QSPI0_MOSI_P20_12, QSPI0_CS_P15_0, 15000000, 3);
+//	SPI_InitConfig(SPI3_CLK_P00_2, SPI3_MISO_NULL, SPI3_MOSI_P00_1, SPI3_CS_P21_2, 10000000);
+	QSPI_InitConfig(QSPI0_CLK_P20_11, QSPI_MISO_NULL, QSPI0_MOSI_P20_14, QSPI0_CS_P20_13, 15000000, 3);
 
 #else
 	PIN_InitConfig(TFTSPI_SCK, PIN_MODE_OUTPUT, 1);
@@ -354,6 +354,40 @@ void TFTSPI_Write_Byte(unsigned char dat)
     dat = (dat<<1);
   }
 }
+
+
+/*!
+  * @brief    写半字
+  *
+  * @param    dat ：数据
+  *
+  * @return   无
+  *
+  * @note     无
+  *
+  * @see      TFTSPI_Write_Word(0xFFFF);
+  *
+  * @date     2019/6/13 星期四
+  */
+void TFTSPI_Write_Word(unsigned short dat)
+{
+  unsigned char i;
+
+
+  TFTSPI_DC_H;// A0=1  ILI9163_A0=1;
+
+  for(i=0;i<16;i++)
+  {
+    TFTSPI_SCK_L;tft18delay_1us(1);	// SCK=0  ILI9163_SCK=0;
+    if(dat&0x8000){ TFTSPI_SDI_H;}// SDI=1
+    else{TFTSPI_SDI_L;}// SDI=0
+    TFTSPI_SCK_H;tft18delay_1us(1);	// SCK=1  ILI9163_SCK=1;
+    dat<<=1;
+  }
+}
+
+#endif
+
 void LCD_Address_Set(uint16_t x1,uint16_t y1,uint16_t x2,uint16_t y2)
 {
     LCD_WR_REG(0x2a);//列地址设置
@@ -468,39 +502,6 @@ void LCD_ShowPicture(u16 x,u16 y,u16 length,u16 width,const u8 pic[])
 
     }
 }
-
-/*!
-  * @brief    写半字
-  *
-  * @param    dat ：数据
-  *
-  * @return   无
-  *
-  * @note     无
-  *
-  * @see      TFTSPI_Write_Word(0xFFFF);
-  *
-  * @date     2019/6/13 星期四
-  */
-void TFTSPI_Write_Word(unsigned short dat)
-{
-  unsigned char i;
-
-
-  TFTSPI_DC_H;// A0=1  ILI9163_A0=1;
-
-  for(i=0;i<16;i++)
-  {
-    TFTSPI_SCK_L;tft18delay_1us(1);	// SCK=0  ILI9163_SCK=0;
-    if(dat&0x8000){ TFTSPI_SDI_H;}// SDI=1
-    else{TFTSPI_SDI_L;}// SDI=0
-    TFTSPI_SCK_H;tft18delay_1us(1);	// SCK=1  ILI9163_SCK=1;
-    dat<<=1;
-  }
-}
-
-#endif
-
 /*!
   * @brief    重新定位输入信息位置
   *
@@ -591,6 +592,7 @@ void TFTSPI_Fill_Area(unsigned char xs,unsigned char ys,unsigned char xe,unsigne
         }
     }
 }
+
 
 
 /*!

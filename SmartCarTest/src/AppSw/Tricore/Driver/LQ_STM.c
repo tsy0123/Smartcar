@@ -150,7 +150,7 @@ void STM1_CH0_IRQHandler(void)
 }
 
 extern uint8_t imageProcess_Tick;
-extern unsigned short imageProcess_Time;
+extern unsigned short imageProcess_Time_t;
 /*************************************************************************
 *  函数名称：void STM1_CH1_IRQHandler(void)
 *  功能说明：无线图传标志位
@@ -173,7 +173,7 @@ void STM1_CH1_IRQHandler(void)
 	/* 用户代码 */
 	if(imageProcess_Tick)
 	{
-	    imageProcess_Time++;
+	    imageProcess_Time_t++;
 	}
 	//STM_DisableInterrupt(STM1, STM_Channel_1);
 }

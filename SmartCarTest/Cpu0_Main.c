@@ -243,7 +243,7 @@ int core0_main (void)
         {
             vol = (float)ADC_Read_filter(ADC_BATTERY_VOTAGE,10)*43.9/10/4096*3.3;
             sprintf(vol_string,"BAT:%.1f",vol);
-            TFTSPI_P6X8Str(0,0,vol_string,0xffff,0x0000);
+            TFTSPI_P6X8Str(1,0,vol_string,0xffff,0x0000);
             if(find_ring_flag_Left)
             {
                 if(find_ring_flag_Left == 1)
@@ -283,6 +283,10 @@ int core0_main (void)
             }
             else
                 TFTSPI_P6X8Str(1,3,"N Cross      ",0xffff,0x0000);
+            if(find_cross_Lost)
+                TFTSPI_P6X8Str(1,4,"Cross Out    ",0xffff,0x0000);
+            else
+                TFTSPI_P6X8Str(1,4,"Cross Not Out",0xffff,0x0000);
         }
 
         /*if(PIN_Read(P33_9)==0)

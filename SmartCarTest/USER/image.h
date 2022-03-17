@@ -24,6 +24,7 @@
 #define MT9V03X_H_6             10
 #define MT9V03X_H_2_3           40
 #define MT9V03X_H_5_6           50
+#define MT9V03X_H_3_4           45
 #define TOTAL_POINT         MT9V03X_W*MT9V03X_H
 #define EFFECTIVE_ROW           3                       //定义图片最上层的有效行
 
@@ -56,7 +57,7 @@
 #define FORK_DETECT_END_ROW             30
 #define FORK_DETECT_TURN_END_ROW        10
 #define FORK_DETECT_LOST_WHITE_ROW      50
-#define FORK_DETECT_LOST_TURN_ROW       40
+#define FORK_DETECT_LOST_TURN_ROW       50
 
 //圆环相关参数
 #define JUDGE_LEFT_RIGHT_START_ROW      30
@@ -71,14 +72,14 @@
 #define LOST_PICTURE_NUM                0
 #define RING_OUT_TURNPOINT_START_ROW    59
 #define RING_OUT_TURNPOINT_END_ROW      5
-#define RING_LOST_COUNT                 4
+#define RING_LOST_COUNT                 3
 #define RING_OUT_DETECT_START_ROW       35
 #define RING_OUT_DETECT_END_ROW         50
 
 //十字相关参数
-#define CROSS_DETECT_LINE_COUNT         15
-#define CROSS_LOST_ROW_COUNT            9
-#define CROSS_OUT_EXIST                 35
+#define CROSS_DETECT_LINE_COUNT         9
+#define CROSS_LOST_ROW_COUNT            8
+#define CROSS_OUT_EXIST                 30
 extern uint8_t mt9v03x_image[MT9V03X_W][MT9V03X_H];//原始图像
 typedef struct
 {
@@ -136,6 +137,7 @@ extern uint8_t garage_in;
 extern short flag_garage_turn;
 extern uint8_t garage_in_flag;
 extern short isForkRoadTurnLeft;
+extern uint8_t find_cross_Lost;
 //图像处理函数///////////////////////////////////////////////////////////////
 //imageAPI
 //bool isTopExistPoint(uint8_t dir);//顶部是否存在边界点判断
